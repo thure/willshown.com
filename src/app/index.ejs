@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Will Shown &#x2661;</title>
+
+    <% if(typeof watch !== 'undefined' && watch){ %>
+    <script src="//localhost:<%= watch %>/livereload.js"></script>
+    <% } %>
+
+    <% if(typeof prod !== 'undefined' && prod) { %>
+    <script src="main.min.js"></script>
+    <link rel="stylesheet" href="main.min.css"/>
+    <% }else{ %>
+    <script src="js/lib/require.js" data-main="js/main.js"></script>
+    <link rel="stylesheet" href="style/main.css"/>
+    <% } %>
+
+</head>
+<body>
+
+    Hello, world!
+
+</body>
+</html>

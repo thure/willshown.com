@@ -1,0 +1,26 @@
+{
+  "name": "willshown-portfolio",
+  "version": "0.0.0",
+  "authors": [
+    "Will Shown <w@willshown.com>"
+  ],
+  "description": "Will Shown's portfolio.",
+  "license": "None",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "jquery/jquery",
+    "require": "jrburke/requirejs",
+    "underscore": "jashkenas/underscore",
+    "text": "requirejs/text",
+    "normalize": "necolas/normalize.css",
+    "css-reset": "jasonkarns/css-reset"
+  }
+}
