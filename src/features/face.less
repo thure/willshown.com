@@ -1,0 +1,20 @@
+@size_face: (256/@rem) * 1rem;
+
+i.face {
+    display: block;
+    height: @size_face;
+    width: @size_face;
+    background-color: white;
+    background-image: url('../images/head.jpg');
+    .bg();
+    .circular();
+    &::before {
+        box-sizing: border-box;
+        content: '';
+        display: block;
+        width: 100%;
+        height: 100%;
+        .circular();
+        border: 1rem solid fade(@ink, 10%);
+    }
+}

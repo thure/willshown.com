@@ -1,2 +1,26 @@
+// Resets & libraries
 @import (less) "../../lib/normalize/normalize.css";
 @import (less) "../../lib/css-reset/reset.css";
+
+// Base styles & variables
+@import "../base_styles/constants";
+@import "../base_styles/typography";
+@import "../base_styles/mixins";
+@import "../base_styles/colors";
+
+// Features
+@import "../features/front";
+
+// Additional reset rules
+i {
+    font-style: normal;
+}
+b {
+    font-weight: inherit;
+}
+
+// Global rules
+html {
+    background-color: @light;
+    color: @ink;
+}

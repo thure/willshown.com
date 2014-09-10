@@ -11,7 +11,12 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-ejs');
 
-  var watchPort = 35729;
+  var watchPort = 35729
+    , assets = {
+      'Will Shown': grunt.file.read('./src/chrome/name.svg'),
+      'Designer': grunt.file.read('./src/chrome/designer.svg'),
+      'Web Dev': grunt.file.read('./src/chrome/web_dev.svg')
+    };
 
   // Project configuration.
   grunt.initConfig({
@@ -41,6 +46,7 @@ module.exports = function(grunt) {
         dest: './dist/',
         ext: '.html',
         options: {
+          assets: assets,
           watch: watchPort,
           prod: false
         }
@@ -52,6 +58,7 @@ module.exports = function(grunt) {
         dest: './dist/',
         ext: '.html',
         options: {
+          assets: assets,
           watch: false,
           prod: false
         }
@@ -63,6 +70,7 @@ module.exports = function(grunt) {
         dest: './prod/',
         ext: '.html',
         options: {
+          assets: assets,
           watch: false,
           prod: true
         }
