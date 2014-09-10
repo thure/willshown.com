@@ -1,5 +1,32 @@
 section[data-page="front"]{
 
+    display: flex;
+    height: 100%;
+    flex-flow: column nowrap;
+    align-items: center;
+
+    .row {
+        flex-shrink: 0;
+        text-align: center;
+        max-width: (650/@rem) * 1rem;
+        width: 100%;
+
+        h2, i {
+            display: inline-block;
+            vertical-align: middle;
+        }
+        h2 {
+            height: (27/@rem) * 1rem;
+            width: (166/@rem) * 1rem;
+        }
+    }
+
+    &::before, &::after {
+        content: '';
+        display: block;
+        flex: 1 0 0;
+    }
+
     h1, h2 {
         path {
             fill: @ink;
