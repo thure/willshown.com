@@ -15,7 +15,8 @@ module.exports = function(grunt) {
     , assets = {
       'Will Shown': grunt.file.read('./src/chrome/name.svg'),
       'Designer': grunt.file.read('./src/chrome/designer.svg'),
-      'Web Dev': grunt.file.read('./src/chrome/web_dev.svg')
+      'Web Dev': grunt.file.read('./src/chrome/web_dev.svg'),
+      'loading': grunt.file.read('./src/chrome/loading.svg')
     };
 
   // Project configuration.
@@ -26,16 +27,12 @@ module.exports = function(grunt) {
         livereload: watchPort
       },
       source: {
-        files: ['src/**/*.js', 'src/**/*.ejs', 'src/**/*.scxml'],
+        files: ['src/**/*.js', 'src/**/*.ejs', 'src/**/*.scxml', 'src/chrome/*'],
         tasks: ['ejs:watch', 'copy:amdconfig', 'copy:amdmain', 'copy:amdmodules', 'copy:amdsupport']
       },
       styles: {
         files: 'src/**/*.less',
         tasks: ['styles']
-      },
-      chrome: {
-        files: 'src/chrome/*',
-        tasks: 'copy:chrome'
       }
     },
     ejs: {

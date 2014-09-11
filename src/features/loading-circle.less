@@ -1,0 +1,46 @@
+@loading_r: 25;
+@revolution: 1s;
+@start_spin: @pi /  2 * @revolution;
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+@keyframes start-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+circle {
+    stroke: @red;
+    stroke-width: 4.75;
+    transform-origin: 50% 50%;
+    stroke-dasharray: 0, (@pi * 25 * 2 - 1), 1000;
+    transition: stroke-dasharray 100ms linear;
+
+    animation-name: spin, spin;
+    animation-iteration-count: 1, infinite;
+    animation-timing-function: cubic-bezier(.5,.01,1,1), linear;
+    animation-duration: @start_spin, @revolution;
+    animation-delay: 0s, @start_spin;
+}
+
+&[data-loaded="100"] circle {
+    stroke-dasharray: none;
+    animation: none;
+}
+.load_amounts(@percent) when (@percent < 100) {
+    &[data-loaded="@{percent}"] circle {
+        stroke-dasharray: 0, (@pi * 2 * @loading_r) * ((100 - @percent) / 100), 1000;
+    }
+    .load_amounts(@percent + 2);
+}
+.load_amounts(0);

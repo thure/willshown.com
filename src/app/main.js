@@ -13,6 +13,15 @@ requirejs.config({
 
 requirejs(['jquery', 'underscore'], function($, _){
 
-  console.log('Hello, world!');
+  var $loading = $('i.loading')
+    , interval = 400
+    , delta = 2
+    , duration = interval * ((100/delta) + 1)
+    , increment = setInterval(function(){
+      $loading.attr('data-loaded', parseInt($loading.attr('data-loaded')) + delta)
+    }, interval);
+  setTimeout(function(){
+    clearInterval(increment);
+  }, duration);
 
 });
