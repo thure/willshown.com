@@ -2,7 +2,7 @@
 @loading_r: 25;
 @stroke_width: 4.75;
 @revolution: 1s;
-@start_spin: @pi /  2 * @revolution;
+@start_spin: 2s;
 
 @keyframes spin {
     from {
@@ -12,6 +12,7 @@
         transform: rotate(360deg);
     }
 }
+
 @keyframes start-spin {
     from {
         transform: rotate(0deg);
@@ -24,10 +25,12 @@
 circle {
     stroke: @red;
     stroke-width: @stroke_width;
-    transform-origin: 50% 50%;
-    transition: stroke-dasharray 100ms linear, opacity @duration_fadeout ease-in;
+    stroke-dasharray: 0, 0, (2 * @pi * @loading_r);
 
-    animation-name: spin, spin;
+    transform-origin: 0 0;
+    transition: stroke-dashoffset 100ms linear, opacity @duration_fadeout ease-in;
+
+    animation-name: start-spin, spin;
     animation-iteration-count: 1, infinite;
     animation-timing-function: cubic-bezier(.5,.01,1,1), linear;
     animation-duration: @start_spin, @revolution;
@@ -37,7 +40,7 @@ circle {
 
 .load_amounts(@percent) when (@percent < 100) {
     &[data-loaded="@{percent}"] circle {
-        stroke-dasharray: 0, (@pi * 2 * @loading_r) * ((100 - @percent) / 100), 1000;
+        stroke-dashoffset: (@pi * 2 * @loading_r) * ((100 - @percent) / 100);
     }
     .load_amounts(@percent + 2);
 }

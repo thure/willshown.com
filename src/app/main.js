@@ -19,7 +19,7 @@ requirejs(['jquery', 'underscore'], function($, _){
     , delta = 2
     , duration = interval * ((100/delta) + 1)
     , increment = setInterval(function(){
-      $loading.attr('data-loaded', parseInt($loading.attr('data-loaded')) + delta)
+      $loading.attr('data-loaded', Math.min(parseInt($loading.attr('data-loaded')) + delta, 100))
     }, interval);
   setTimeout(function(){
     clearInterval(increment);
