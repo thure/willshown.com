@@ -26,10 +26,27 @@ section[data-page="front"]{
         }
 
         i.loading {
+            @size_loading: (60/@rem) * 1rem;
+            @svg2rem: @size_loading / @canvas_width;
+            @div_offset: (@canvas_width - (@loading_r * 2 + @stroke_width)) * @svg2rem / 2;
+            @div_size: (@loading_r * 2 + @stroke_width) * @svg2rem;
+            @duration_fadeout: 2s;
             margin: 0.6rem;
-            height: (60/@rem) * 1rem;
-            width: (60/@rem) * 1rem;
+            height: @size_loading;
+            width: @size_loading;
+            position: relative;
             @import "loading-circle";
+            @import "loaded-button";
+
+            &[data-loaded="100"] {
+                circle {
+                    animation: none;
+                    opacity: 0;
+                }
+                button.go {
+                    opacity: 1;
+                }
+            }
         }
 
         h2 {

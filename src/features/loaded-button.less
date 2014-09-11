@@ -1,0 +1,25 @@
+@keyframes button-intro {
+    0% {
+
+    }
+    33% {
+
+    }
+    100% {
+
+    }
+}
+
+button.go {
+    background: transparent;
+    box-sizing: border-box;
+    position: absolute;
+    top: @div_offset;
+    left: @div_offset;
+    width: @div_size;
+    height: @div_size;
+    border: (@size_loading / @canvas_width * @stroke_width) solid @red;
+    opacity: 0;
+    transition: opacity @duration_fadeout ease-out;
+    .circular();
+}

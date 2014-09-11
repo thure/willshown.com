@@ -1,4 +1,6 @@
+@canvas_width: 60;
 @loading_r: 25;
+@stroke_width: 4.75;
 @revolution: 1s;
 @start_spin: @pi /  2 * @revolution;
 
@@ -21,22 +23,18 @@
 
 circle {
     stroke: @red;
-    stroke-width: 4.75;
+    stroke-width: @stroke_width;
     transform-origin: 50% 50%;
-    stroke-dasharray: 0, (@pi * 25 * 2 - 1), 1000;
-    transition: stroke-dasharray 100ms linear;
+    transition: stroke-dasharray 100ms linear, opacity @duration_fadeout ease-in;
 
     animation-name: spin, spin;
     animation-iteration-count: 1, infinite;
     animation-timing-function: cubic-bezier(.5,.01,1,1), linear;
     animation-duration: @start_spin, @revolution;
     animation-delay: 0s, @start_spin;
+    opacity: 1;
 }
 
-&[data-loaded="100"] circle {
-    stroke-dasharray: none;
-    animation: none;
-}
 .load_amounts(@percent) when (@percent < 100) {
     &[data-loaded="@{percent}"] circle {
         stroke-dasharray: 0, (@pi * 2 * @loading_r) * ((100 - @percent) / 100), 1000;

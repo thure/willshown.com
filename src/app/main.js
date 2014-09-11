@@ -14,7 +14,7 @@ requirejs.config({
 requirejs(['jquery', 'underscore'], function($, _){
 
   var $loading = $('i.loading')
-    , interval = 400
+    , interval = 200
     , delta = 2
     , duration = interval * ((100/delta) + 1)
     , increment = setInterval(function(){
