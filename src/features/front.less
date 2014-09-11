@@ -27,7 +27,7 @@ section[data-page="front"]{
 
         i.loading {
             @size_loading: (60/@rem) * 1rem;
-            @size_loaded: (180/@rem) * 1rem;
+            @size_loaded: (190/@rem) * 1rem;
 
 //            @keyframes open-button {
 //                from {
@@ -46,6 +46,7 @@ section[data-page="front"]{
             height: @size_loading;
             width: @size_loading;
             position: relative;
+            overflow: hidden;
             transition: width @duration_fadeout ease-in-out @duration_fadeout;
             @import "loading-circle";
             @import "loaded-button";
