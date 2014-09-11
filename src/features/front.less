@@ -27,25 +27,39 @@ section[data-page="front"]{
 
         i.loading {
             @size_loading: (60/@rem) * 1rem;
+            @size_loaded: (180/@rem) * 1rem;
+
+//            @keyframes open-button {
+//                from {
+//                    width: @size_loading;
+//                }
+//                to {
+//                    width: @size_loaded;
+//                }
+//            }
+
             @svg2rem: @size_loading / @canvas_width;
             @div_offset: (@canvas_width - (@loading_r * 2 + @stroke_width)) * @svg2rem / 2;
             @div_size: (@loading_r * 2 + @stroke_width) * @svg2rem;
-            @duration_fadeout: 2s;
-            margin: 0.6rem;
+            @duration_fadeout: .5s;
+            margin: 1rem;
             height: @size_loading;
             width: @size_loading;
             position: relative;
+            transition: width @duration_fadeout ease-in-out @duration_fadeout;
             @import "loading-circle";
             @import "loaded-button";
 
             &[data-loaded="100"] {
                 circle {
+                    stroke-dasharray: 0, 0, 1000;
                     animation: none;
                     opacity: 0;
                 }
-                button.go {
+                button.go, .overlay button.go p {
                     opacity: 1;
                 }
+                width: @size_loaded;
             }
         }
 

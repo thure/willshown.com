@@ -1,25 +1,35 @@
-@keyframes button-intro {
-    0% {
-
-    }
-    33% {
-
-    }
-    100% {
-
-    }
-}
-
-button.go {
-    background: transparent;
-    box-sizing: border-box;
+.overlay {
     position: absolute;
-    top: @div_offset;
-    left: @div_offset;
-    width: @div_size;
-    height: @div_size;
-    border: (@size_loading / @canvas_width * @stroke_width) solid @red;
-    opacity: 0;
-    transition: opacity @duration_fadeout ease-out;
-    .circular();
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    padding: @div_offset;
+
+    &, button.go {
+        width: 100%;
+        height: 100%;
+    }
+
+    button.go {
+        background: transparent;
+        box-sizing: border-box;
+        border: (@size_loading / @canvas_width * @stroke_width) solid @red;
+        opacity: 0;
+        transition: opacity @duration_fadeout ease-out;
+        .circular();
+
+        &:focus {
+            outline-style: none;
+        }
+
+        p {
+            text-align: center;
+            .lato(1, bold);
+            text-transform: uppercase;
+            color: @red;
+            white-space: nowrap;
+            transition: opacity @duration_fadeout linear (@duration_fadeout * 2);
+            opacity: 0;
+        }
+    }
 }
