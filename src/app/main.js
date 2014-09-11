@@ -14,7 +14,8 @@ requirejs.config({
 requirejs(['jquery', 'underscore'], function($, _){
 
   var $loading = $('i.loading')
-    , interval = 200
+    , $button = $loading.find('button')
+    , interval = 100
     , delta = 2
     , duration = interval * ((100/delta) + 1)
     , increment = setInterval(function(){
@@ -22,6 +23,7 @@ requirejs(['jquery', 'underscore'], function($, _){
     }, interval);
   setTimeout(function(){
     clearInterval(increment);
+    $button.prop('disabled', false);
   }, duration);
 
 });
