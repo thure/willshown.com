@@ -46,7 +46,6 @@ section[data-page="front"]{
             height: @size_loading;
             width: @size_loading;
             position: relative;
-            overflow: hidden;
             transition: width @duration_fadeout ease-in-out @duration_fadeout;
             @import "loading-circle";
             @import "loaded-button";
@@ -62,12 +61,17 @@ section[data-page="front"]{
                 }
                 width: @size_loaded;
             }
+
+            svg {
+                max-height: @size_loading;
+            }
         }
 
         h2 {
             height: (27/@rem) * 1rem;
             width: (166/@rem) * 1rem;
         }
+
     }
 
     &::before, &::after{

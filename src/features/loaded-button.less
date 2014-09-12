@@ -15,11 +15,19 @@
         box-sizing: border-box;
         border: (@size_loading / @canvas_width * @stroke_width) solid @red;
         opacity: 0;
-        transition: opacity @duration_fadeout ease-out;
+        transition: opacity @duration_fadeout ease-out, box-shadow @duration_fadeout ease;
+        box-shadow: 0 0 0 0 fade(@red, 20%);
         .circular();
 
         &:focus {
             outline-style: none;
+            box-shadow: 0 0 0 .4rem fade(@red, 20%);
+        }
+
+        &:hover {
+            p {
+                text-decoration: underline;
+            }
         }
 
         p {
