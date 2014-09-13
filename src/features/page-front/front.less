@@ -1,0 +1,30 @@
+section[data-page="front"]{
+
+    display: flex;
+    height: 100%;
+    flex-flow: column nowrap;
+
+    &, .row.horizontal {
+        align-items: center;
+        justify-content: center;
+    }
+
+    .row {
+        flex-shrink: 0;
+        max-width: (650/@rem) * 1rem;
+        width: 100%;
+
+        &.horizontal {
+            display: flex;
+            flex-flow: row nowrap;
+        }
+    }
+
+    h1{
+        max-height: (200/@rem) * 1rem;
+        margin-bottom: 2rem;
+    }
+
+    @import "loader/loader";
+
+}

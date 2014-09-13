@@ -14,8 +14,6 @@ module.exports = function(grunt) {
   var watchPort = 35729
     , assets = {
       'Will Shown': grunt.file.read('./src/chrome/name.svg'),
-      'Designer': grunt.file.read('./src/chrome/designer.svg'),
-      'Web Dev': grunt.file.read('./src/chrome/web_dev.svg'),
       'loading': grunt.file.read('./src/chrome/loading.svg')
     };
 
