@@ -5,6 +5,7 @@
 // Base styles & variables
 @import "../base_styles/reset";
 @import "../base_styles/constants";
+@import "../base_styles/dimensions";
 @import "../base_styles/timing";
 @import "../base_styles/typography";
 @import "../base_styles/mixins";
@@ -24,12 +25,13 @@ html {
     color: @ink;
 }
 
-html, body {
+html, body, main {
     height: 100%;
 }
 
 body {
     box-sizing: border-box;
+    overflow: hidden;
     @import "../base_styles/scaffold";
 }
 

@@ -21,7 +21,9 @@
     <% } %>
 
 </head>
-<body>
+<body data-displaying="front">
+
+<main>
 
     <section data-page="front">
         <h1 class="row">
@@ -40,8 +42,17 @@
     </section>
 
     <nav class="main">
-        <button class="toggle">about / résumé / contact <i class="chevron down"></i></button>
+        <button class="toggle">
+            <p class="front">about / résumé / contact <i class="chevron down"></i></p>
+            <p class="back">portfolio <i class="chevron up"></i></p>
+        </button>
     </nav>
+
+    <section data-page="back">
+
+    </section>
+
+</main>
 
 </body>
 </html>

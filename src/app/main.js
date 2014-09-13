@@ -26,4 +26,14 @@ requirejs(['jquery', 'underscore'], function($, _){
     $button.prop('disabled', false);
   }, duration);
 
+  var $body = $('body')
+    , $toggle = $('button.toggle');
+  $toggle.on('click', function($e){
+    if($body.attr('data-displaying') === 'front'){
+      $body.attr('data-displaying', 'back');
+    }else{
+      $body.attr('data-displaying', 'front');
+    }
+  });
+
 });

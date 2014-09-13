@@ -1,12 +1,19 @@
-& {
-    display: flex;
-    flex-flow: column nowrap;
+main {
+    position: relative;
+    top: 0;
+    transition: top @slow ease;
 
     section {
-        flex: 1 0 auto;
+        height: ~"calc(100% - @{height_nav-main})";
+        box-sizing: border-box;
         padding: 0 2rem;
+        overflow-y: auto;
+        overflow-x: hidden;
     }
     nav {
-        flex: 0 0 auto;
     }
+}
+
+&[data-displaying="back"] main {
+    top: ~"calc(-100% + @{height_nav-main})";
 }

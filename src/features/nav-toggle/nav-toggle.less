@@ -1,11 +1,12 @@
 nav.main {
-    height: (60/@rem) * 1rem;
+    height: @height_nav-main;
 
     button.toggle {
         height: 100%;
         width: 100%;
         padding: 0 (80/@rem) * 1rem;
         .lato(1);
+        line-height: @height_nav-main;
         font-style: italic;
         text-align: left;
 
@@ -19,12 +20,19 @@ nav.main {
         i.chevron {
             margin-left: 0.5em;
             position: relative;
-            top: -.11em;
+            &.down {
+                top: -.11em;
+            }
+            &.up {
+                top: .11em;
+            }
         }
 
         &:focus, &:hover {
             background-color: fade(average(@light-ink, @red), 18%);
         }
+
+        @import "transition-bottom-top";
 
     }
 
