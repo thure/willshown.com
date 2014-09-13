@@ -19,15 +19,8 @@
         box-shadow: 0 0 0 0 fade(@red, 20%);
         .circular();
 
-        &:focus {
-            outline-style: none;
+        &:focus, &:hover {
             box-shadow: 0 0 0 .4rem fade(@red, 20%);
-        }
-
-        &:hover {
-            p {
-                text-decoration: underline;
-            }
         }
 
         p {

@@ -3,13 +3,11 @@
 @import (less) "../../lib/css-reset/reset.css";
 
 // Base styles & variables
+@import "../base_styles/reset";
 @import "../base_styles/constants";
 @import "../base_styles/typography";
 @import "../base_styles/mixins";
 @import "../base_styles/colors";
-
-// Features
-@import "../features/page-front/front";
 
 // Additional reset rules
 i {
@@ -31,5 +29,22 @@ html, body {
 
 body {
     box-sizing: border-box;
-    padding: 2rem;
+    @import "../base_styles/scaffold";
 }
+
+i.chevron {
+    .chevron();
+    &.left{
+        .chevron_direction(right);
+    }
+    &.down{
+        .chevron_direction(down);
+    }
+    &.up{
+        .chevron_direction(up);
+    }
+}
+
+// Features
+@import "../features/page-front/front";
+@import "../features/nav-toggle/nav-toggle";

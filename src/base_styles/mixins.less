@@ -7,3 +7,26 @@
 .circular(){
     border-radius: 99in;
 }
+
+.chevron_direction(right){
+    transform: rotate(45deg);
+}
+.chevron_direction(down){
+    transform: rotate(135deg);
+}
+.chevron_direction(left){
+    transform: rotate(-135deg);
+}
+.chevron_direction(up){
+    transform: rotate(-45deg);
+}
+
+.chevron(@direction: right, @size: .5em, @thickness: .11em, @color: @ink){
+    display: inline-block;
+    width: @size;
+    height: @size;
+    border-top: @thickness solid @color;
+    border-right: @thickness solid @color;
+    transform-origin: 50% 50%;
+    .chevron_direction(@direction);
+}
