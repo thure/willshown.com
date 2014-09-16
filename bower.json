@@ -21,6 +21,7 @@
     "underscore": "jashkenas/underscore",
     "text": "requirejs/text",
     "normalize": "necolas/normalize.css",
-    "css-reset": "jasonkarns/css-reset"
+    "css-reset": "jasonkarns/css-reset",
+    "scion": "jbeard4/SCION#da32cb54c99451a521f8371b576b9786ce16d058"
   }
 }

@@ -3,7 +3,8 @@ requirejs.config({
   paths: {
     'text': 'lib/text',
     'underscore': 'lib/underscore',
-    'jquery': 'lib/jquery'
+    'jquery': 'lib/jquery',
+    'scion': 'lib/scion'
   },
   shim: {
     // add libraries that export global references here
@@ -11,7 +12,14 @@ requirejs.config({
   }
 });
 
-requirejs(['jquery', 'underscore'], function($, _){
+requirejs(['jquery', 'underscore', 'amd/sci'], function($, _, sci){
+
+  sci.gen({
+    name: 'ready',
+    data: {
+      message: 'Statechart says hello!'
+    }
+  });
 
   var $loading = $('i.loading')
     , $button = $loading.find('button')

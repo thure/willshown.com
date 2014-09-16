@@ -1,0 +1,26 @@
+<scxml
+        xmlns="http://www.w3.org/2005/07/scxml"
+        version="1.0"
+        profile="ecmascript"
+        initial="initial-default">
+
+    <datamodel>
+        <data id="self"/>
+    </datamodel>
+
+    <state id="initial-default">
+        <transition event="ready" target="idle">
+            <assign location="self" expr="_event.data"/>
+        </transition>
+    </state>
+
+    <state id="idle">
+        <onentry>
+            <script>
+                console.log(self.message);
+            </script>
+        </onentry>
+    </state>
+
+
+</scxml>

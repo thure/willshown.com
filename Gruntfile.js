@@ -130,7 +130,8 @@ module.exports = function(grunt) {
           'underscore/underscore.js',
           'require/require.js',
           'text/text.js',
-          'jquery/jquery.js'
+          'jquery/jquery.js',
+          'scion/dist/scion.js'
         ],
         dest: './dist/js/lib/',
         rename: function(dest, src){
