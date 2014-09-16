@@ -1,0 +1,22 @@
+@keyframes front-page-intro-slide {
+    from {
+        top: -10vh;
+    }
+    to {
+        top: 0vh;
+    }
+}
+@keyframes front-page-intro-fade {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+& {
+    position: relative;
+    animation: front-page-intro-slide (@slow/.8)  @exp7out,
+               front-page-intro-fade  (@slow/1.2) linear;
+}
