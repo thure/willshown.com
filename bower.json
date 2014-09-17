@@ -22,6 +22,7 @@
     "text": "requirejs/text",
     "normalize": "necolas/normalize.css",
     "css-reset": "jasonkarns/css-reset",
-    "scion": "jbeard4/SCION#da32cb54c99451a521f8371b576b9786ce16d058"
+    "scion": "jbeard4/SCION#da32cb54c99451a521f8371b576b9786ce16d058",
+    "q": "1.0.1"
   }
 }

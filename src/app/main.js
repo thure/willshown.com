@@ -2,6 +2,7 @@ requirejs.config({
   baseUrl: 'js',
   paths: {
     'text': 'lib/text',
+    'q': 'lib/q',
     'underscore': 'lib/underscore',
     'jquery': 'lib/jquery',
     'scion': 'lib/scion'
@@ -14,12 +15,16 @@ requirejs.config({
 
 requirejs(['jquery', 'underscore', 'amd/sci'], function($, _, sci){
 
-  sci.gen({
-    name: 'ready',
-    data: {
-      message: 'Statechart says hello!'
-    }
-  });
+  var ready = function(i){
+    i.gen({
+      name: 'ready',
+      data: {
+        message: 'Statechart says hello!'
+      }
+    });
+  };
+
+  sci.then(ready);
 
   var $loading = $('i.loading')
     , $button = $loading.find('button')

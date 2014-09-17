@@ -1,5 +1,20 @@
-define(['scion', 'text!amd/portfolio.scxml'], function(scion, scxml){
+define(['q', 'scion', 'text!amd/portfolio.scxml'], function(q, scion, scxml){
 
-  // TODO: add an initializer for the portfolio SCXML.
+  var d = q.defer();
+
+  scion.documentStringToModel(scxml,function(err, model){
+    if(err){
+      d.reject(err);
+    }else{
+
+      var interpreter = new scion.SCXML(model);
+      interpreter.start();
+
+      d.resolve(interpreter);
+
+    }
+  });
+
+  return d.promise;
 
 });
