@@ -9,17 +9,32 @@
     </datamodel>
 
     <state id="initial-default">
-        <transition event="ready" target="idle">
+        <transition event="ready" target="splash">
             <assign location="self" expr="_event.data"/>
         </transition>
     </state>
 
-    <state id="idle">
+    <state id="splash">
+        <transition target="portfolio_all-up" event="open-portfolio"/>
+    </state>
+
+    <state id="portfolio">
+
         <onentry>
             <script>
-                console.log(self.message);
+                self.open();
             </script>
         </onentry>
+
+        <state id="portfolio_all-up">
+            <transition target="portfolio_one-up" event="down"/>
+        </state>
+
+        <state id="portfolio_one-up">
+            <transition target="portfolio_all-up" event="up"/>
+            <transition target="portfolio_one-up" event="next"/>
+        </state>
+
     </state>
 
 

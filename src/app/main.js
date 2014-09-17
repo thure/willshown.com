@@ -13,14 +13,12 @@ requirejs.config({
   }
 });
 
-requirejs(['jquery', 'underscore', 'amd/sci'], function($, _, sci){
+requirejs(['jquery', 'underscore', 'amd/sci', 'amd/portfolio'], function($, _, sci, portfolio){
 
   var ready = function(i){
     i.gen({
       name: 'ready',
-      data: {
-        message: 'Statechart says hello!'
-      }
+      data: portfolio
     });
   };
 
@@ -38,6 +36,12 @@ requirejs(['jquery', 'underscore', 'amd/sci'], function($, _, sci){
     clearInterval(increment);
     $button.prop('disabled', false);
   }, duration);
+
+  $button.on('click', function($e){
+
+    sci.then(function(i){ i.gen('open-portfolio'); });
+
+  });
 
   var $body = $('body')
     , $toggle = $('button.toggle');
