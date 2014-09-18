@@ -1,39 +1,40 @@
 nav.main {
+    @gap_nav-items: .8rem;
+
     height: @height_nav-main;
+    background-color: fade(@light-ink, 10%);
+    background-image: url('../images/mark.svg');
+    background-repeat: no-repeat;
+    background-position: center left;
+    background-size: contain;
 
-    button.toggle {
-        height: 100%;
-        width: 100%;
-        padding: 0 (80/@rem) * 1rem;
-        .lato(1);
-        line-height: @height_nav-main;
-        font-style: italic;
-        text-align: left;
+    ul {
+        font-size: 0;
+        padding: 0 (@height_nav-main + @gap_nav-items);
 
-        background-color: fade(@light-ink, 10%);
-        background-image: url('../images/mark.svg');
-        background-repeat: no-repeat;
-        background-position: center left;
-        background-size: contain;
-        transition: background-color @quick linear;
+        li {
+            display: inline-block;
+            .lato(1, regular);
+            text-transform: uppercase;
+            height: @height_nav-main;
+            line-height: @height_nav-main;
+            padding: 0 @gap_nav-items;
+            transition: background-color @quick linear;
 
-        i.chevron {
-            margin-left: 0.5em;
-            position: relative;
-            &.down {
-                top: -.11em;
+            body[data-displaying="about"] & a[href="#about"],
+            body[data-displaying="portfolio"] & a[href="#portfolio"]
+            {
+                .lato_weight(black);
             }
-            &.up {
-                top: .11em;
+
+            &:hover {
+                background-color: fade(@ink, 10%);
+            }
+            a {
+                display: block;
+                height: 100%;
             }
         }
-
-        &:focus, &:hover {
-            background-color: fade(average(@light-ink, @red), 18%);
-        }
-
-        @import "transition-bottom-top";
-
     }
 
 }

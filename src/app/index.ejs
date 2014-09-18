@@ -21,11 +21,22 @@
     <% } %>
 
 </head>
-<body data-displaying="front">
+<body data-displaying="portfolio">
 
 <main>
 
-    <section data-page="front">
+    <section data-page="about">
+        Doop
+    </section>
+
+    <nav class="main">
+        <ul>
+            <li class="active"><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#about">About</a></li>
+        </ul>
+    </nav>
+
+    <section data-page="portfolio">
         <div class="splash">
             <h1 class="row">
                 <%- assets['Will Shown'] %>
@@ -42,19 +53,8 @@
             </div>
         </div>
         <div class="portfolio">
-            
+
         </div>
-    </section>
-
-    <nav class="main">
-        <button class="toggle">
-            <p class="front">about / résumé / contact <i class="chevron down"></i></p>
-            <p class="back">portfolio <i class="chevron up"></i></p>
-        </button>
-    </nav>
-
-    <section data-page="back">
-
     </section>
 
 </main>

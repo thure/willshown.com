@@ -38,19 +38,12 @@ requirejs(['jquery', 'underscore', 'amd/sci', 'amd/portfolio'], function($, _, s
   }, duration);
 
   $button.on('click', function($e){
-
     sci.then(function(i){ i.gen('open-portfolio'); });
-
   });
 
-  var $body = $('body')
-    , $toggle = $('button.toggle');
-  $toggle.on('click', function($e){
-    if($body.attr('data-displaying') === 'front'){
-      $body.attr('data-displaying', 'back');
-    }else{
-      $body.attr('data-displaying', 'front');
-    }
+  $('nav.main a').on('click', function($e){
+    var href = $e.target.getAttribute('href').replace(/^#/, '');
+    document.body.setAttribute('data-displaying', href);
   });
 
 });
