@@ -1,9 +1,9 @@
 @keyframes front-page-intro-slide {
     from {
-        top: 10vh;
+        transform: translateY(10vh);
     }
     to {
-        top: 0vh;
+        transform: translateY(0vh);
     }
 }
 @keyframes front-page-intro-fade {
@@ -17,6 +17,6 @@
 
 & {
     position: relative;
-    animation: front-page-intro-slide (@slow/1.2)  @exp7out,
-               front-page-intro-fade  (@slow/1.2) linear;
+    animation: front-page-intro-slide (@slow/1.3)  @exp7out,
+               front-page-intro-fade  (@slow/2) linear;
 }

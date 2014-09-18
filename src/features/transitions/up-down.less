@@ -1,0 +1,7 @@
+main > section {
+    transition: height @slow/1.5 ease;
+
+    body:not([data-displaying="about"]) &[data-page="about"]{
+        height: 0;
+    }
+}

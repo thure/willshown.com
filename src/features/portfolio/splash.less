@@ -3,6 +3,7 @@ section[data-page="portfolio"] div.splash{
     height: 100%;
     display: flex;
     flex-flow: column nowrap;
+    overflow: hidden;
 
     &, .row.horizontal {
         align-items: center;
@@ -14,6 +15,8 @@ section[data-page="portfolio"] div.splash{
         max-width: (650/@rem) * 1rem;
         width: 100%;
         margin-bottom: 2rem;
+
+        @import "intro";
 
         &.horizontal {
             display: flex;
@@ -27,6 +30,5 @@ section[data-page="portfolio"] div.splash{
     }
 
     @import "loader/loader";
-    @import "intro";
 
 }
