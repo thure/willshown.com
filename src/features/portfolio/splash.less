@@ -1,34 +1,42 @@
-section[data-page="portfolio"] div.splash{
+section[data-page="portfolio"] {
 
-    height: 100%;
-    display: flex;
-    flex-flow: column nowrap;
-    overflow: hidden;
+    div.splash{
 
-    &, .row.horizontal {
-        align-items: center;
-        justify-content: center;
-    }
+        display: flex;
+        flex-flow: column nowrap;
 
-    .row {
-        flex-shrink: 0;
-        max-width: (650/@rem) * 1rem;
-        width: 100%;
-        margin-bottom: 2rem;
-
-        @import "intro";
-
-        &.horizontal {
-            display: flex;
-            flex-flow: row nowrap;
+        &, .row.horizontal {
+            align-items: center;
+            justify-content: center;
         }
+
+        .row {
+            flex-shrink: 0;
+            max-width: (650/@rem) * 1rem;
+            width: 100%;
+            margin-bottom: 2rem;
+
+            @import "intro";
+
+            &.horizontal {
+                display: flex;
+                flex-flow: row nowrap;
+            }
+        }
+
+        h1{
+            max-height: (200/@rem) * 1rem;
+            margin-top: 2rem;
+        }
+
+        @import "loader/loader";
+
     }
 
-    h1{
-        max-height: (200/@rem) * 1rem;
-        margin-top: 2rem;
+    &[data-displaying="splash"] div.splash {
+        height: 100%;
+        opacity: 1;
+        transition: opacity @quick linear, height 0s linear 0s;
     }
-
-    @import "loader/loader";
 
 }

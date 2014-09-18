@@ -27,10 +27,20 @@
         </onentry>
 
         <state id="portfolio_all-up">
+            <onentry>
+                <script>
+                    self.portfolioView('all-up');
+                </script>
+            </onentry>
             <transition target="portfolio_one-up" event="down"/>
         </state>
 
         <state id="portfolio_one-up">
+            <onentry>
+                <script>
+                    self.portfolioView('one-up');
+                </script>
+            </onentry>
             <transition target="portfolio_all-up" event="up"/>
             <transition target="portfolio_one-up" event="next"/>
         </state>

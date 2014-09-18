@@ -1,0 +1,54 @@
+section[data-page="portfolio"] {
+
+    overflow: hidden;
+
+    & > div, & > div > section {
+        overflow: hidden;
+        height: 0;
+        opacity: 0;
+        transition: opacity @quick linear, height 0s linear @quick;
+    }
+
+    &[data-displaying="portfolio"] div.portfolio {
+        height: 100%;
+        transition: opacity @quick linear, height 0s linear 0s;
+    }
+
+    &[data-displaying="portfolio"] div.portfolio,
+    &[data-displaying="portfolio"] div.portfolio[data-displaying="all-up"] section.all-up,
+    &[data-displaying="portfolio"] div.portfolio[data-displaying="one-up"] section.one-up {
+        height: 100%;
+        opacity: 1;
+    }
+
+    &[data-displaying="portfolio"] div.portfolio{
+        transition: opacity 0s linear @quick, height 0s linear @quick;
+    }
+
+    &[data-displaying="portfolio"] div.portfolio[data-displaying="all-up"] section.all-up,
+    &[data-displaying="portfolio"] div.portfolio[data-displaying="one-up"] section.one-up {
+        transition: opacity @quick linear @quick, height 0s linear @quick;
+    }
+
+    div.portfolio {
+
+        section.all-up {
+            background: brown;
+        }
+
+        section.one-up {
+            background: pink;
+        }
+
+        nav.portfolio {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: @height_nav-main;
+            background-color: fade(@light-ink, 10%);
+        }
+
+    }
+
+}
