@@ -23,12 +23,6 @@
 </head>
 <body data-displaying="portfolio">
 
-<main>
-
-    <section data-page="about">
-        Doop
-    </section>
-
     <nav class="main">
         <ul>
             <li class="active"><a href="#portfolio">Portfolio</a></li>
@@ -36,38 +30,44 @@
         </ul>
     </nav>
 
-    <section data-page="portfolio" data-displaying="splash">
+    <main>
 
-        <div class="splash">
-            <h1 class="row">
-                <%- assets['Will Shown'] %>
-            </h1>
-            <div class="row horizontal">
-                <i class="loading" data-loaded="0">
-                    <%- assets['loading'] %>
-                    <div class="overlay">
-                        <button class="go" disabled>
-                            <p>Open Portfolio</p>
-                        </button>
-                    </div>
-                </i>
+        <section data-page="portfolio" data-displaying="splash">
+
+            <div class="splash">
+                <h1 class="row">
+                    <%- assets['Will Shown'] %>
+                </h1>
+                <div class="row horizontal">
+                    <i class="loading" data-loaded="0">
+                        <%- assets['loading'] %>
+                        <div class="overlay">
+                            <button class="go" disabled>
+                                <p>Open Portfolio</p>
+                            </button>
+                        </div>
+                    </i>
+                </div>
             </div>
-        </div>
 
-        <div class="portfolio" data-displaying="all-up">
+            <div class="portfolio" data-displaying="all-up">
 
-            <section class="all-up"></section>
-            <section class="one-up"></section>
+                <section class="all-up"></section>
+                <section class="one-up"></section>
 
-            <nav class="portfolio">
+                <nav class="portfolio">
 
-            </nav>
+                </nav>
 
-        </div>
+            </div>
 
-    </section>
+        </section>
 
-</main>
+        <section data-page="about">
+            Doop
+        </section>
+
+    </main>
 
 </body>
 </html>

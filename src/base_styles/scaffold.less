@@ -1,10 +1,18 @@
 main {
+    padding-top: @height_nav-main;
+    box-sizing: border-box;
     position: relative;
+    white-space: nowrap;
+    font-size: 0;
 
     & > section {
-        height: ~"calc(100% - @{height_nav-main})";
+        font-size: 1rem;
+        display: inline-block;
+        vertical-align: top;
+        height: 100%;
         box-sizing: border-box;
         overflow-y: auto;
         overflow-x: hidden;
+        width: 100%;
     }
 }

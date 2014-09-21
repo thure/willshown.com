@@ -38,5 +38,16 @@ body {
 // Features
 @import "../features/portfolio/splash";
 @import "../features/portfolio/portfolio";
-@import "../features/nav-toggle/nav-toggle";
-@import "../features/transitions/up-down";
+@import "../features/nav-main/nav-main";
+
+// Links
+
+body {
+    main {
+        left: 0;
+        transition: left @slow/1.5 ease;
+    }
+    &[data-displaying="about"] main{
+            left: -100%;
+    }
+}

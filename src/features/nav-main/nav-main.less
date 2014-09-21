@@ -1,7 +1,12 @@
 nav.main {
     @gap_nav-items: .8rem;
 
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
     height: @height_nav-main;
+    z-index: 1;
     background-color: @light;
     background-image: url('../images/mark.svg');
     .bg(contain, center left);
