@@ -2,11 +2,9 @@ nav.main {
     @gap_nav-items: .8rem;
 
     height: @height_nav-main;
-    background-color: fade(@light-ink, 10%);
+    background-color: @light;
     background-image: url('../images/mark.svg');
-    background-repeat: no-repeat;
-    background-position: center left;
-    background-size: contain;
+    .bg(contain, center left);
 
     ul {
         font-size: 0;
@@ -20,8 +18,7 @@ nav.main {
             line-height: @height_nav-main;
 
             body[data-displaying="about"] & a[href="#about"],
-            body[data-displaying="portfolio"] & a[href="#portfolio"]
-            {
+            body[data-displaying="portfolio"] & a[href="#portfolio"] {
                 .lato_weight(black);
             }
 
@@ -36,7 +33,7 @@ nav.main {
                 }
             }
             &:hover a, a:focus {
-                background-color: fade(@ink, 10%);
+                background-color: fade(white, 67%);
             }
         }
     }
