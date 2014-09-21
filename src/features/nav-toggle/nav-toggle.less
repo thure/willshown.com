@@ -18,7 +18,6 @@ nav.main {
             text-transform: uppercase;
             height: @height_nav-main;
             line-height: @height_nav-main;
-            transition: background-color @quick linear;
 
             body[data-displaying="about"] & a[href="#about"],
             body[data-displaying="portfolio"] & a[href="#portfolio"]
@@ -26,13 +25,18 @@ nav.main {
                 .lato_weight(black);
             }
 
-            &:hover {
-                background-color: fade(@ink, 10%);
-            }
             a {
                 display: block;
                 height: 100%;
                 padding: 0 @gap_nav-items;
+                transition: background-color @quick linear;
+
+                &:focus {
+                    outline-style: none;
+                }
+            }
+            &:hover a, a:focus {
+                background-color: fade(@ink, 10%);
             }
         }
     }

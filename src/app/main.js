@@ -42,6 +42,7 @@ requirejs(['jquery', 'underscore', 'amd/sci', 'amd/portfolio'], function($, _, s
   });
 
   $('nav.main a').on('click', function($e){
+    $e.preventDefault();
     var href = $e.target.getAttribute('href').replace(/^#/, '');
     document.body.setAttribute('data-displaying', href);
   });
