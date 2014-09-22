@@ -2,16 +2,16 @@ define({
 
   'MSN Prime': {
     'Diagonal motion carousel': {
-      // TODO: need to record video
+      // video recorded
     },
     'Editable design prototype': {
-      // TODO: need asset or video
+      // video recorded
     },
     'Flexible content display': {
-      // TODO: need asset
+      // video recorded
     },
     'Left nav prototype': {
-      // TODO: need to record video
+      // video recorded
     }
   },
   'Apigee Enterprise': {
@@ -38,13 +38,13 @@ define({
   },
   'Other work': {
     'Cardboard.coop': {
-      // TODO: need to record video asset
+      // video recorded
     },
     'TownHog': {
       // asset acquired
     },
     'CINCH': {
-      // TODO: need to record video
+      // video recorded
       // http://mheonline.com/cinch/
     }
   }
