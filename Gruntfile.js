@@ -146,6 +146,13 @@ module.exports = function(grunt) {
         src: 'chrome/*',
         dest: './dist/images'
       },
+      assets: {
+        expand: true,
+        flatten: true,
+        cwd: './src',
+        src: 'assets/*',
+        dest: './dist/images'
+      },
       amdconfig: {
         expand: true,
         flatten: true,
@@ -191,14 +198,14 @@ module.exports = function(grunt) {
         flatten: true,
         cwd: './',
         src: ['./dist/images/*'],
-        dest: './prod/images/*'
+        dest: './prod/images'
       }
     }
   });
 
   grunt.registerTask('default',      ['dist:watch', 'watch']);
   grunt.registerTask('styles',       ['less', 'autoprefixer']);
-  grunt.registerTask('dist:copy',    ['copy:libjs', 'copy:chrome', 'copy:amdconfig', 'copy:amdmain', 'copy:amdmodules', 'copy:amdsupport']);
+  grunt.registerTask('dist:copy',    ['copy:libjs', 'copy:chrome', 'copy:assets', 'copy:amdconfig', 'copy:amdmain', 'copy:amdmodules', 'copy:amdsupport']);
   grunt.registerTask('dist:watch',   ['styles', 'dist:copy', 'ejs:watch']);
   grunt.registerTask('dist:nowatch', ['styles', 'dist:copy', 'ejs:nowatch']);
   grunt.registerTask('prod',         ['styles', 'dist:copy', 'cssmin', 'requirejs', 'ejs:prod', 'copy:mins', 'copy:images']);
