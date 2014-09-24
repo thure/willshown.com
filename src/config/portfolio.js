@@ -2,50 +2,101 @@ define({
 
   'MSN Prime': {
     'Diagonal motion carousel': {
-      // video recorded
+      asset: {
+        type: 'video',
+        name: 'diagonal'
+      },
+      role: 'prototyper'
     },
     'Editable design prototype': {
-      // video recorded
+      asset: {
+        type: 'video',
+        name: 'icex'
+      },
+      role: 'prototyper'
     },
     'Flexible content display': {
-      // video recorded
+      asset: {
+        type: 'video',
+        name: 'flex'
+      },
+      role: ['designer', 'developer']
     },
     'Left nav prototype': {
-      // video recorded
+      asset: {
+        type: 'video',
+        name: 'leftnav'
+      },
+      role: ['interaction designer', 'prototyper']
     }
   },
   'Apigee Enterprise': {
     'Thunderpony': {
-      // asset acquired
+      asset: {
+        type: 'image',
+        name: 'thunderpony.png'
+      },
+      role: 'prototyper'
     },
     'Redesign': {
-      // asset acquired
+      asset: {
+        type: 'image',
+        name: 'redesign.png'
+      },
+      role: 'designer'
     },
     'Continuing use': {
-      // asset acquired
+      asset: {
+        type: 'image',
+        name: 'continuing.png'
+      },
+      role: 'none'
     }
   },
   'Works in progress': {
     'Pi Brewer': {
-      // asset acquired
+      asset: {
+        type: 'image',
+        name: 'brewer.jpeg'
+      },
+      role: 'hacker'
     },
     'Baxter': {
-      // asset acquired
+      asset: {
+        type: 'image',
+        name: 'baxter.jpeg'
+      },
+      role: 'hacker'
     },
     'GEOF': {
-      // asset acquired
+      asset: {
+        type: 'image',
+        name: 'geof.jpeg'
+      },
+      role: ['designer', 'developer']
     }
   },
   'Other work': {
     'Cardboard.coop': {
-      // video recorded
+      asset: {
+        type: 'video',
+        name: 'cardboard'
+      },
+      role: ['designer', 'developer']
     },
     'TownHog': {
-      // asset acquired
+      asset: {
+        type: 'image',
+        name: 'townhog.png'
+      },
+      role: 'developer'
     },
     'CINCH': {
-      // video recorded
-      // http://mheonline.com/cinch/
+      asset: {
+        type: 'video',
+        name: 'cinch'
+      },
+      role: 'developer'
     }
   }
 

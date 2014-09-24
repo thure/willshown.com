@@ -1,0 +1,10 @@
+<div class="portfolio-items">
+    <% var i = 0; _.each(portfolio, function(pi, name){ %>
+    <% if(i%2===0){ %><div class="portfolio-line-group"><% } %>
+        <div class="portfolio-item">
+            <i class="preview"></i>
+            <h2><%= name %></h2>
+        </div>
+    <% if((i+1)%2===0){ %></div><% } %>
+    <% i += 1; }); %>
+</div>

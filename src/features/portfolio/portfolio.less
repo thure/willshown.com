@@ -1,3 +1,6 @@
+@width_portfolio-item: 8rem;
+@gap_portfolio-item: 2rem;
+
 section[data-page="portfolio"] {
 
     overflow: hidden;
@@ -16,7 +19,7 @@ section[data-page="portfolio"] {
 
     &[data-displaying="portfolio"] div.portfolio,
     &[data-displaying="portfolio"] div.portfolio[data-displaying="all-up"] section.all-up,
-    &[data-displaying="portfolio"] div.portfolio[data-displaying="one-up"] section.one-up {
+    &[data-displaying="portfolio"] div.portfolio[data-displaying="one-up"] section.one-up.active {
         height: 100%;
         opacity: 1;
     }
@@ -33,12 +36,60 @@ section[data-page="portfolio"] {
     div.portfolio {
         position: relative;
 
+        & > section {
+            overflow-y: auto;
+        }
+
         section.all-up {
-            background: brown;
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: center;
+            .portfolio-items {
+                width: 100%;
+                white-space: normal;
+                display: flex;
+                flex-flow: row wrap;
+                align-items: baseline;
+                justify-content: center;
+                .portfolio-line-group {
+                    display: flex;
+                    flex-flow: row nowrap;
+                    align-items: baseline;
+                }
+                .portfolio-item {
+                    cursor: pointer;
+                    flex: 0 0 auto;
+                    width: @width_portfolio-item;
+                    margin: 0 @gap_portfolio-item;
+                    i {
+                        display: block;
+                        margin: 0 auto;
+                        .circular;
+                        width: @width_portfolio-item;
+                        height: @width_portfolio-item;
+                        background-color: gray;
+                    }
+                    h2 {
+                        text-align: center;
+                        margin: @gap_portfolio-item/2 0 @gap_portfolio-item 0;
+                        .lato(2, regular);
+                    }
+                }
+            }
         }
 
         section.one-up {
-            background: pink;
+
+        }
+
+        &[data-displaying="one-up"]{
+            section.one-up {
+                border-bottom: @height_nav-main solid transparent;
+                box-sizing: border-box;
+            }
+            nav.portfolio {
+                height: @height_nav-main;
+            }
         }
 
         nav.portfolio {
@@ -46,7 +97,7 @@ section[data-page="portfolio"] {
             bottom: 0;
             left: 0;
             right: 0;
-            height: @height_nav-main;
+            height: 0;
             background-color: fade(@light-ink, 10%);
         }
 
