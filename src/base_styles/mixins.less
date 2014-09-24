@@ -31,6 +31,20 @@
     .chevron_direction(@direction);
 }
 
+.seriesDelay(@i, @d, @o) when (@i > 0){
+    &[data-i="@{i}"]{
+        animation-delay: (@i * @d + @o);
+    }
+    .seriesDelay(@i - 1, @d, @o);
+}
+
+.seriesDelay2(@i, @d, @o) when (@i > 0){
+    &[data-i="@{i}"]{
+        animation-delay: (@i * @d + @o), (@i * @d + @o);
+    }
+    .seriesDelay2(@i - 1, @d, @o);
+}
+
 .carouselDelays(@i, @n, @t) when (@i > 0){
     &:nth-of-type(@{i}){
         animation-delay: (@t * (@n - @i) / @n);

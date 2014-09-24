@@ -33,7 +33,7 @@ define([
       viels.$portfolio.attr('data-displaying', view);
       switch(view){
         case 'all-up':
-          viels.$main.addClass('start-carousel');
+          viels.$main.addClass('start-all-up');
           break;
       }
     };
@@ -41,7 +41,7 @@ define([
     this.exit = function(view){
       switch(view){
         case 'all-up':
-          viels.$main.removeClass('start-carousel');
+          viels.$main.removeClass('start-all-up');
           break;
       }
     };
