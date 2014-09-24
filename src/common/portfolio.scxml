@@ -33,6 +33,11 @@
                 </script>
             </onentry>
             <transition target="portfolio_one-up" event="down"/>
+            <onexit>
+                <script>
+                    self.exit('all-up');
+                </script>
+            </onexit>
         </state>
 
         <state id="portfolio_one-up">

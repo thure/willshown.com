@@ -12,6 +12,7 @@ define([
   return new function(){
     var self = this
       , viels = {
+          $main:      $('body > main'),
           $page:      $('section[data-page="portfolio"]'),
           $portfolio: $('section[data-page="portfolio"] .portfolio'),
           $allUp:     $('section[data-page="portfolio"] .portfolio section.all-up')
@@ -30,6 +31,19 @@ define([
 
     this.portfolioView = function(view){
       viels.$portfolio.attr('data-displaying', view);
+      switch(view){
+        case 'all-up':
+          viels.$main.addClass('start-carousel');
+          break;
+      }
+    };
+
+    this.exit = function(view){
+      switch(view){
+        case 'all-up':
+          viels.$main.removeClass('start-carousel');
+          break;
+      }
     };
 
     (function(){
