@@ -9,7 +9,7 @@
 
 @keyframes intro-all-up-slide {
     from {
-        transform: translateY(-10vh);
+        transform: translateY(10vh);
     }
     to {
         transform: translateY(0);
@@ -48,9 +48,9 @@ section.all-up {
             .start-all-up & {
                 animation-name: intro-all-up-fade, intro-all-up-slide;
                 animation-duration: (@quick * 3), (@quick * 3);
-                animation-timing-function: linear, ease-out;
+                animation-timing-function: linear, @exp7out;
                 animation-fill-mode: both, both;
-                .seriesDelay2(4, (@quick * 1), 0s);
+                .seriesDelay2(4, (@quick * .7), @quick);
             }
 
             ul {
