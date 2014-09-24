@@ -1,0 +1,37 @@
+section.all-up {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    .portfolio-items {
+        width: 100%;
+        white-space: normal;
+        display: flex;
+        flex-flow: row wrap;
+        align-items: baseline;
+        justify-content: center;
+        .portfolio-line-group {
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: baseline;
+        }
+        .portfolio-item {
+            cursor: pointer;
+            flex: 0 0 auto;
+            width: @width_portfolio-item;
+            margin: 0 @gap_portfolio-item;
+            i {
+                display: block;
+                margin: 0 auto;
+                .circular;
+                width: @width_portfolio-item;
+                height: @width_portfolio-item;
+                background-color: gray;
+            }
+            h2 {
+                text-align: center;
+                margin: @gap_portfolio-item/2 0 @gap_portfolio-item 0;
+                .lato(2, regular);
+            }
+        }
+    }
+}
