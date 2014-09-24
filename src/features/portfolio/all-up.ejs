@@ -1,8 +1,17 @@
 <div class="portfolio-items">
+    <b id="red"></b>
     <% var i = 0; _.each(portfolio, function(pi, name){ %>
     <% if(i%2===0){ %><div class="portfolio-line-group"><% } %>
         <div class="portfolio-item">
-            <i class="preview"></i>
+            <ul class="preview" data-n="<%= _.keys(pi).length %>">
+                <% _.each(pi, function(pips, name){ %>
+                    <% var assetUri = 'images/' + (pips.asset.type === 'image' ? pips.asset.name : pips.asset.name + '.png'); %>
+                    <li style="
+                            background-image: url('<%= assetUri %>');
+                            background-image: url('<%= assetUri %>');
+                    "></li>
+                <% }); %>
+            </ul>
             <h2><%= name %></h2>
         </div>
     <% if((i+1)%2===0){ %></div><% } %>

@@ -2,6 +2,7 @@ section.all-up {
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
+
     .portfolio-items {
         width: 100%;
         white-space: normal;
@@ -9,24 +10,61 @@ section.all-up {
         flex-flow: row wrap;
         align-items: baseline;
         justify-content: center;
+
+        b#red {
+            display: block;
+            position: fixed;
+            top: -10rem;
+            left: -10rem;
+            height: 1rem;
+            width: 1rem;
+            background-color: @red;
+        }
+
         .portfolio-line-group {
             display: flex;
             flex-flow: row nowrap;
             align-items: baseline;
+            @media (max-width: ((@width_portfolio-item + 2 * @gap_portfolio-item) * 2 * @rem)){
+                flex-flow: column nowrap;
+            }
         }
+
         .portfolio-item {
             cursor: pointer;
             flex: 0 0 auto;
             width: @width_portfolio-item;
             margin: 0 @gap_portfolio-item;
-            i {
-                display: block;
+
+            ul {
                 margin: 0 auto;
-                .circular;
                 width: @width_portfolio-item;
                 height: @width_portfolio-item;
-                background-color: gray;
+                background-color: @red;
+                position: relative;
+
+                &, li {
+                    .circular();
+                }
+
+                li {
+                    position: absolute;
+                    top: 0; right: 0; bottom: 0; left: 0;
+                    .bg();
+                    background-color: @red;
+                    background-blend-mode: multiply;
+                }
+
+                &[data-n="3"] li{
+                    .carouselAnimation(3, @showtime_all-up, @transtime_all-up);
+                }
+
+                &[data-n="4"] li{
+                    .carouselAnimation(4, @showtime_all-up, @transtime_all-up);
+                }
+
             }
+
             h2 {
                 text-align: center;
                 margin: @gap_portfolio-item/2 0 @gap_portfolio-item 0;

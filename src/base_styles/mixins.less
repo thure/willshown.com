@@ -30,3 +30,44 @@
     transform-origin: 50% 50%;
     .chevron_direction(@direction);
 }
+
+.carouselDelays(@i, @n, @t) when (@i > 0){
+    &:nth-of-type(@{i}){
+        animation-delay: (@t * (@n - @i) / @n);
+    }
+    .carouselDelays(@i - 1, @n, @t);
+};
+
+.carouselAnimation(@n, @a, @b){
+    // technique from http://css3.bradshawenterprises.com/cfimg/#cfimg3
+    @name: ~"carousel-@{n}";
+    @t: @n * (@a + @b);
+
+    @k1: @a/@t * 100%;
+    @k2: 1/@n*100%;
+    @k3: 100%-(@b/@t*100%);
+
+    @keyframes @name {
+        0% {
+            opacity: 1;
+        }
+        @{k1} {
+            opacity: 1;
+        }
+        @{k2} {
+            opacity: 0;
+        }
+        @{k3} {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+    animation-name: @name;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-duration: @t;
+    animation-direction: alternate;
+    .carouselDelays(@n, @n, @t);
+}
