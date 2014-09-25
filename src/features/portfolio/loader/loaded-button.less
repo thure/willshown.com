@@ -16,11 +16,12 @@
         border: (@size_loading / @canvas_width * @stroke_width) solid @red;
         opacity: 0;
         transition: opacity @duration_fadeout ease-out, box-shadow (@duration_fadeout/2) ease;
-        box-shadow: 0 0 0 0 fade(@red, 20%);
         .circular();
 
+        .hover-shadow(fade(@red, 20%));
+
         &:focus, &:hover {
-            box-shadow: 0 0 0 .6rem fade(@red, 20%);
+            .hover-shadow-active(fade(@red, 20%));
         }
 
         p {

@@ -85,3 +85,10 @@
     animation-direction: alternate;
     .carouselDelays(@n, @n, @t);
 }
+
+.hover-shadow(@color: @red) {
+    box-shadow: 0 0 0 0 @color;
+}
+.hover-shadow-active(@color: @red){
+    box-shadow: 0 0 0 .6rem @color;
+}
