@@ -1,1 +1,22 @@
-<%  %>
+<% _.each(portfolio, function(pi, name){ %>
+    <section class="one-up" data-for="<%= name %>">
+        <% _.each(pi, function(pips, name){ %>
+            <article class="œuvre">
+                <figure>
+                    <% if(pips.asset.type === 'image'){ %>
+                        <img data-name="<%= pips.asset.name %>" src="images/<%= pips.asset.name %>"/>
+                    <% }else if(pips.asset.type === 'video'){ %>
+                        <video data-name="<%= pips.asset.name %>"
+                            loop muted autoplay preload="auto"
+                            poster="images/<%= pips.asset.name %>.png"
+                        >
+                            <source src="images/<%= pips.asset.name %>.mp4" type="video/mp4"/>
+                            <source src="images/<%= pips.asset.name %>.ogv" type="video/ogg"/>
+                            <source src="images/<%= pips.asset.name %>.webm" type="video/webm"/>
+                        </video>
+                    <% } %>
+                </figure>
+            </article>
+        <% }); %>
+    </section>
+<% }); %>

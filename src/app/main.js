@@ -13,7 +13,7 @@ requirejs.config({
   }
 });
 
-requirejs(['jquery', 'underscore', 'amd/sci', 'amd/portfolio'], function($, _, sci, portfolio){
+requirejs(['jquery', 'underscore', 'amd/loader', 'amd/sci', 'amd/portfolio'], function($, _, loader, sci, portfolio){
 
   var ready = function(i){
     i.gen({

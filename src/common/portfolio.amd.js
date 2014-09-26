@@ -4,7 +4,7 @@ define([
   'q',
   'config/portfolio',
   'text!amd/all-up.ejs',
-  'text!amd/one-up.ejs'
+  'text!amd/one-ups.ejs'
 ], function(
   $, _, q, portfolio, allUpEJS, oneUpsEJS
 ){
