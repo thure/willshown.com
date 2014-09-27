@@ -13,6 +13,7 @@ define(['jquery', 'underscore', 'config/portfolio'], function($, _, portfolio){
 
     _.each(portfolio, function(pi, name){
       _.each(pi, function(pips, name){
+        names[name] = false;
         switch(pips.asset.type){
           case 'image':
             total += weights.image;
@@ -24,17 +25,20 @@ define(['jquery', 'underscore', 'config/portfolio'], function($, _, portfolio){
       });
     });
 
-    var update = function(){
+    var update = _.throttle(function(){
       var metric = Math.min(Math.round((loaded / total * 50)) * 2, 100);
       console.log( metric );
       $loading.attr('data-loaded', metric);
-    };
+      if(metric === 100){
+        $loading.find('button').prop('disabled', false);
+      }
+    }, 400);
 
     var add = function(e){
       var type = e.target.tagName.toLowerCase()
         , name = e.target.getAttribute('data-name');
 
-      if(name && !_.has(names, name)){
+      if(name && !_.has(names, name) && !names[name]){
         names[name] = true;
 
         switch(type) {

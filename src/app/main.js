@@ -24,25 +24,7 @@ requirejs(['jquery', 'underscore', 'amd/loader', 'amd/sci', 'amd/portfolio'], fu
 
   sci.then(ready);
 
-  var $loading = $('i.loading')
-    , $button = $loading.find('button');
-
-  $button.prop('disabled', false);
-
-//  var $loading = $('i.loading')
-//    , $button = $loading.find('button')
-//    , interval = 100
-//    , delta = 2
-//    , duration = interval * ((100/delta) + 1)
-//    , increment = setInterval(function(){
-//      $loading.attr('data-loaded', Math.min(parseInt($loading.attr('data-loaded')) + delta, 100))
-//    }, interval);
-//  setTimeout(function(){
-//    clearInterval(increment);
-//    $button.prop('disabled', false);
-//  }, duration);
-
-  $button.on('click', function($e){
+  $('i.loading').find('button').on('click', function($e){
     sci.then(function(i){ i.gen('open-portfolio'); });
   });
 

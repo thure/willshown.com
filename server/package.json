@@ -1,0 +1,12 @@
+{
+  "name": "willshown-portfolio-server",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "author": "Will Shown <w@willshown.com>",
+  "license": "Public Domain",
+  "dependencies": {
+    "express": "^4.9.5",
+    "vid-streamer": "^0.1.4"
+  }
+}
