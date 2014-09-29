@@ -1,7 +1,7 @@
 <div class="portfolio-items">
     <% var i = 0; _.each(portfolio, function(pi, name){ %>
     <% if(i%2===0){ %><div class="portfolio-line-group"><% } %>
-        <a href="#" class="portfolio-item" data-i="<%= i + 1 %>">
+        <a href="#portfolio/<%= name %>" class="portfolio-item" data-name="<%= name %>" data-i="<%= i + 1 %>">
             <ul class="preview" data-n="<%= _.keys(pi).length %>">
                 <% _.each(pi, function(pips, name){ %>
                     <% var assetUri = 'images/' + (pips.asset.type === 'image' ? pips.asset.name : pips.asset.name + '.png'); %>

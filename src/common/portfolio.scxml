@@ -6,6 +6,7 @@
 
     <datamodel>
         <data id="self"/>
+        <data id="section"/>
     </datamodel>
 
     <state id="initial-default">
@@ -32,7 +33,9 @@
                     self.portfolioView('all-up');
                 </script>
             </onentry>
-            <transition target="portfolio_one-up" event="down"/>
+            <transition target="portfolio_one-up" event="down">
+                <assign location="section" expr="_event.data"/>
+            </transition>
             <onexit>
                 <script>
                     self.exit('all-up');
@@ -43,7 +46,7 @@
         <state id="portfolio_one-up">
             <onentry>
                 <script>
-                    self.portfolioView('one-up');
+                    self.portfolioView('one-up', section);
                 </script>
             </onentry>
             <transition target="portfolio_all-up" event="up"/>
