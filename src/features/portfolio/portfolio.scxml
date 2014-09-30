@@ -50,7 +50,14 @@
                 </script>
             </onentry>
             <transition target="portfolio_all-up" event="up"/>
-            <transition target="portfolio_one-up" event="next"/>
+            <transition target="portfolio_one-up" event="next">
+                <assign location="section" expr="_event.data"/>
+            </transition>
+            <onexit>
+                <script>
+                    self.exit('one-up');
+                </script>
+            </onexit>
         </state>
 
     </state>

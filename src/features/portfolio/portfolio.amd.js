@@ -58,15 +58,14 @@ define([
           break;
         case 'one-up':
           viels.$main.addClass('start-one-up');
-          console.log('Opening ' + section);
+          viels.$portfolio.find('[data-for="'+section+'"]').addClass('active');
       }
     };
 
-    this.exit = function(view, exitingTo){
+    this.exit = function(view){
       switch(view){
         case 'all-up':
           viels.$main.removeClass('start-all-up');
-          console.log('Exiting to ' + exitingTo);
           break;
       }
     };

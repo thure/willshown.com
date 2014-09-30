@@ -65,6 +65,13 @@ define(['jquery', 'underscore', 'config/portfolio'], function($, _, portfolio){
       document.addEventListener('canplaythrough', add, true);
       document.addEventListener('play', pause, true);
 
+      // in case something isn't working, we'll assume the best.
+
+      _.delay(function(){
+        loaded = Infinity;
+        update();
+      }, 5000);
+
     }())
   }
 
