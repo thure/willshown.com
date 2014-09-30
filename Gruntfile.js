@@ -15,7 +15,8 @@ module.exports = function(grunt) {
     , assets = {
       'Will Shown': grunt.file.read('./src/chrome/name.svg'),
       'loading': grunt.file.read('./src/chrome/loading.svg'),
-      'up': grunt.file.read('./src/chrome/up.svg')
+      'up': grunt.file.read('./src/chrome/up.svg'),
+      'next': grunt.file.read('./src/chrome/next.svg')
     };
 
   // Project configuration.

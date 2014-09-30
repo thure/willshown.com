@@ -62,21 +62,32 @@ section[data-page="portfolio"] {
             left: 0;
             right: 0;
             height: 0;
+            display: flex;
 
-            button.up {
+            h1 {
+                flex: 1 0 auto;
+                height: 100%;
+                .lato(2, light);
+                line-height: @height_nav-main;
+                text-align: center;
+                text-transform: uppercase;
+            }
+
+            button {
+                flex: 0 0 auto;
                 width: @height_nav-main;
                 height: 100%;
                 padding: .6rem;
 
                 path, polyline {
                     stroke: @red;
-                    stroke-width: 1px;
+                    stroke-width: 1.5px;
                     transition: stroke-width @quick linear;
                 }
 
                 &:hover {
                     path, polyline {
-                        stroke-width: 2px;
+                        stroke-width: 2.5px;
                     }
                 }
 

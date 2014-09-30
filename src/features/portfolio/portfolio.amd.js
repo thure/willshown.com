@@ -16,6 +16,7 @@ define([
           $main:      $('body > main'),
           $page:      $('section[data-page="portfolio"]'),
           $portfolio: $('section[data-page="portfolio"] div.portfolio'),
+          $nav: $('section[data-page="portfolio"] nav.portfolio'),
           $allUp:     $('section[data-page="portfolio"] div.portfolio section.all-up')
         }
       , allUpT = _.template(allUpEJS)
@@ -61,6 +62,7 @@ define([
           break;
         case 'one-up':
           viels.$main.addClass('start-one-up');
+          viels.$nav.children('h1').html(section);
           viels.$portfolio.find('[data-for="'+section+'"]').addClass('active');
       }
     };
