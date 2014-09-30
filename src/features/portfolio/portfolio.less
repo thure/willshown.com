@@ -62,6 +62,26 @@ section[data-page="portfolio"] {
             left: 0;
             right: 0;
             height: 0;
+
+            button.up {
+                width: @height_nav-main;
+                height: 100%;
+                padding: .6rem;
+
+                path, polyline {
+                    stroke: @red;
+                    stroke-width: 1px;
+                    transition: stroke-width @quick linear;
+                }
+
+                &:hover {
+                    path, polyline {
+                        stroke-width: 2px;
+                    }
+                }
+
+            }
+
         }
 
     }

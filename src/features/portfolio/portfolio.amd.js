@@ -15,8 +15,8 @@ define([
       , viels = {
           $main:      $('body > main'),
           $page:      $('section[data-page="portfolio"]'),
-          $portfolio: $('section[data-page="portfolio"] .portfolio'),
-          $allUp:     $('section[data-page="portfolio"] .portfolio section.all-up')
+          $portfolio: $('section[data-page="portfolio"] div.portfolio'),
+          $allUp:     $('section[data-page="portfolio"] div.portfolio section.all-up')
         }
       , allUpT = _.template(allUpEJS)
       , oneUpsT = _.template(oneUpsEJS);
@@ -42,6 +42,9 @@ define([
             name: 'down',
             data: name
           });
+        });
+        viels.$portfolio.find('button.up').on('click touchstart', function($e){
+          i.gen('up');
         });
       });
     };
