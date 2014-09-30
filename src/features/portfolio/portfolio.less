@@ -46,7 +46,8 @@ section[data-page="portfolio"] {
         @import "one-up/one-up";
 
         &[data-displaying="one-up"]{
-            section.one-up {
+            div.one-ups {
+                height: 100%;
                 border-bottom: @height_nav-main solid transparent;
                 box-sizing: border-box;
             }
@@ -61,7 +62,6 @@ section[data-page="portfolio"] {
             left: 0;
             right: 0;
             height: 0;
-            background-color: fade(@light-ink, 10%);
         }
 
     }

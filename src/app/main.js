@@ -13,7 +13,7 @@ requirejs.config({
   }
 });
 
-requirejs(['jquery', 'underscore', 'amd/loader', 'amd/sci', 'amd/portfolio'], function($, _, loader, sci, portfolio){
+requirejs(['jquery', 'underscore', 'amd/loader', 'amd/sci', 'amd/nav-main', 'amd/portfolio'], function($, _, loader, sci, nav, portfolio){
 
   var ready = function(i){
     i.gen({
@@ -26,12 +26,6 @@ requirejs(['jquery', 'underscore', 'amd/loader', 'amd/sci', 'amd/portfolio'], fu
 
   $('i.loading').find('button').on('click', function($e){
     sci.then(function(i){ i.gen('open-portfolio'); });
-  });
-
-  $('nav.main a').on('click', function($e){
-    $e.preventDefault();
-    var href = $e.target.getAttribute('href').replace(/^#/, '');
-    document.body.setAttribute('data-displaying', href);
   });
 
 });
