@@ -55,6 +55,7 @@ define([
     };
 
     this.portfolioView = function(view, section){
+      viels.$portfolio.find('.active[data-for]').removeClass('active');
       viels.$portfolio.attr('data-displaying', view);
       switch(view){
         case 'all-up':

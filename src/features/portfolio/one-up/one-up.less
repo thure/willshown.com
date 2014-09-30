@@ -1,8 +1,50 @@
 section.one-up {
     height: 0;
+    overflow: hidden;
+    position: relative;
+
+    @size_nav: @height_nav-main * @r2;
+    @size_nav-pip: @height_nav-main;
+
+    nav.project {
+        position: absolute;
+        bottom: 0; left: 0; right: 0;
+        height: @size_nav;
+
+        ul {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            li {
+                flex: 0 0 auto;
+
+                a {
+                    display: block;
+                    height: @size_nav-pip;
+                    width: @size_nav-pip;
+                    margin: (@size_nav-pip/4);
+                    .circular();
+                    .bg();
+                    .hover-shadow(fade(@red, 20%));
+                    transition: height @quick ease, width @quick ease, box-shadow @quick ease;
+
+                    &:hover, &:focus {
+                        .hover-shadow-active(fade(@red, 20%));
+                    }
+                    &.active {
+                        .active-shadow(fade(@red, 80%));
+                    }
+                }
+            }
+        }
+    }
 
     &.active {
         height: 100%;
+        box-sizing: border-box;
+        padding-bottom: @size_nav;
     }
 
     img, video {
