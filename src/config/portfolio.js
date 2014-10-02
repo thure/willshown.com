@@ -6,28 +6,32 @@ define({
         type: 'video',
         name: 'diagonal'
       },
-      role: 'prototyper'
+      role: 'prototyper',
+      description: 'Doop'
     },
     'Editable design prototype': {
       asset: {
         type: 'video',
         name: 'icex'
       },
-      role: 'prototyper'
+      role: 'prototyper',
+      description: 'Doop'
     },
     'Flexible content display': {
       asset: {
         type: 'video',
         name: 'flex'
       },
-      role: ['designer', 'developer']
+      role: ['designer', 'developer'],
+      description: 'Doop'
     },
     'Left nav prototype': {
       asset: {
         type: 'video',
         name: 'leftnav'
       },
-      role: ['interaction designer', 'prototyper']
+      role: ['interaction designer', 'prototyper'],
+      description: 'Doop'
     }
   },
   'Apigee Enterprise': {
@@ -36,21 +40,24 @@ define({
         type: 'image',
         name: 'thunderpony.png'
       },
-      role: 'prototyper'
+      role: 'prototyper',
+      description: 'Doop'
     },
     'Redesign': {
       asset: {
         type: 'image',
         name: 'redesign.png'
       },
-      role: 'designer'
+      role: 'designer',
+      description: 'Doop'
     },
     'Continuing use': {
       asset: {
         type: 'image',
         name: 'continuing.png'
       },
-      role: 'none'
+      role: 'none',
+      description: 'Doop'
     }
   },
   'Works in progress': {
@@ -59,21 +66,24 @@ define({
         type: 'image',
         name: 'brewer.jpeg'
       },
-      role: 'hacker'
+      role: 'hacker',
+      description: 'Doop'
     },
     'Baxter': {
       asset: {
         type: 'image',
         name: 'baxter.jpeg'
       },
-      role: 'hacker'
+      role: 'hacker',
+      description: 'Doop'
     },
     'GEOF': {
       asset: {
         type: 'image',
         name: 'geof.jpeg'
       },
-      role: ['designer', 'developer']
+      role: ['designer', 'developer'],
+      description: 'Doop'
     }
   },
   'Other work': {
@@ -82,21 +92,24 @@ define({
         type: 'video',
         name: 'cardboard'
       },
-      role: ['designer', 'developer']
+      role: ['designer', 'developer'],
+      description: 'Doop'
     },
     'TownHog': {
       asset: {
         type: 'image',
         name: 'townhog.png'
       },
-      role: 'developer'
+      role: 'developer',
+      description: 'Doop'
     },
     'CINCH': {
       asset: {
         type: 'video',
         name: 'cinch'
       },
-      role: 'developer'
+      role: 'developer',
+      description: 'Doop'
     }
   }
 
