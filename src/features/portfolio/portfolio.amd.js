@@ -22,6 +22,14 @@ define([
       , allUpT = _.template(allUpEJS)
       , oneUpsT = _.template(oneUpsEJS);
 
+    var stopVideos = function(){
+      $('video.playing').each(function(){
+        this.pause();
+        this.currentTime = 0;
+        this.classList.remove('playing');
+      });
+    };
+
     var toggleVideo = function(section){
       var $section = viels.$portfolio.find('[data-for="'+section+'"]')
         , $vid = $section.find('article.oeuvre:nth-child('+$section.attr('data-active')+')').find('video');
@@ -83,6 +91,10 @@ define([
       switch(view){
         case 'all-up':
           viels.$main.removeClass('start-all-up');
+          break;
+        case 'one-up':
+          viels.$main.removeClass('start-one-up');
+          stopVideos();
           break;
       }
     };

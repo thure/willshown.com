@@ -2,7 +2,7 @@
     <% _.each(portfolio, function(pi, name){ %>
         <section class="one-up" data-for="<%= name %>" data-active="1">
             <div class="gallery">
-            <% _.each(pi, function(pips, pin){ %>
+                <% _.each(pi, function(pips, pin){ %>
                     <article class="oeuvre">
                         <figure>
                             <% if(pips.asset.type === 'image'){ %>
@@ -33,16 +33,16 @@
                             </ul>
                         </div>
                     </article>
-            <% }); %>
+                <% }); %>
             </div>
             <nav class="project">
                 <button class="up"></button>
                 <ul>
-                <% _.each(pi, function(pips, pin){ %>
-                    <li data-oeuvre="<%= pin %>">
-                        <a href="#portfolio/<%= name %>/<%= pin %>" style="background-image: url('images/<%= pips.asset.name + (pips.asset.type === 'image' ? '' : '.png') %>');"></a>
-                    </li>
-                <% }); %>
+                    <% _.each(pi, function(pips, pin){ %>
+                        <li data-oeuvre="<%= pin %>">
+                            <a href="#portfolio/<%= name %>/<%= pin %>" style="background-image: url('images/<%= pips.asset.name + (pips.asset.type === 'image' ? '' : '.png') %>');"></a>
+                        </li>
+                    <% }); %>
                 </ul>
                 <button class="next"></button>
             </nav>
