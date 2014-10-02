@@ -102,13 +102,20 @@ section.one-up {
                     &:hover, &:focus {
                         .hover-shadow-active(fade(@red, 20%));
                     }
-                    &.active {
-                        .active-shadow(fade(@red, 80%));
-                    }
                 }
             }
         }
     }
+
+    .highlight-nav-item(@i) when (@i > 0) {
+        &[data-active="@{i}"]{
+            nav.project ul li:nth-child(@{i}) a {
+                .active-shadow(fade(@red, 80%));
+            }
+        }
+        .highlight-nav-item(@i - 1);
+    }
+    .highlight-nav-item(10);
 
     img, video {
         position: fixed;
