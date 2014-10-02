@@ -40,4 +40,8 @@ section[data-page="portfolio"] {
         transition: opacity @quick linear, height 0s linear 0s;
     }
 
+    &:not([data-displaying="splash"]) div.splash i.loading circle {
+        animation: none;
+    }
+
 }

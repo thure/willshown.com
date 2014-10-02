@@ -15,7 +15,7 @@
         box-sizing: border-box;
         border: (@size_loading / @canvas_width * @stroke_width) solid @red;
         opacity: 0;
-        transition: opacity @duration_fadeout ease-out, box-shadow (@duration_fadeout/2) ease;
+        transition: opacity @duration_fadeout ease-out @duration_fadeout, box-shadow (@duration_fadeout/2) ease;
         .circular();
 
         .hover-shadow(fade(@red, 20%));
@@ -30,7 +30,7 @@
             text-transform: uppercase;
             color: @red;
             white-space: nowrap;
-            transition: opacity @duration_fadeout linear (@duration_fadeout * 2);
+            transition: opacity @duration_fadeout linear (@duration_fadeout * 3);
             opacity: 0;
         }
     }

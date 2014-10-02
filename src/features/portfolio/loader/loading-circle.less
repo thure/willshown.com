@@ -28,7 +28,7 @@ circle {
     stroke-dasharray: 0, 0, (2 * @pi * @loading_r);
 
     transform-origin: 0 0;
-    transition: stroke-dashoffset 400ms linear, opacity @duration_fadeout ease-in;
+    transition: stroke-dashoffset 400ms linear, opacity @duration_fadeout ease-in @duration_fadeout;
 
     animation-name: start-spin, spin;
     animation-iteration-count: 1, infinite;
@@ -38,7 +38,11 @@ circle {
     opacity: 1;
 }
 
-.load_amounts(@percent) when (@percent < 100) {
+&.loaded circle {
+    opacity: 0;
+}
+
+.load_amounts(@percent) when (@percent <= 100) {
     &[data-loaded="@{percent}"] circle {
         stroke-dashoffset: (@pi * 2 * @loading_r) * ((100 - @percent) / 100);
     }

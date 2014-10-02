@@ -11,18 +11,13 @@ i.loading {
     height: @size_loading;
     width: @size_loading;
     position: relative;
-    transition: width @duration_fadeout ease-in-out @duration_fadeout;
+    transition: width @duration_fadeout ease-in-out (@duration_fadeout * 2);
     flex: 0 0 auto;
 
     @import "loading-circle";
     @import "loaded-button";
 
-    &[data-loaded="100"] {
-        circle {
-            stroke-dasharray: 0, 0, 1000;
-            animation: none;
-            opacity: 0;
-        }
+    &.loaded {
         button.go, .overlay button.go p {
             opacity: 1;
         }
