@@ -14,9 +14,9 @@ define([
     var self = this
       , viels = {
           $main:      $('body > main'),
+          $nav:       $('body > nav.main'),
           $page:      $('section[data-page="portfolio"]'),
           $portfolio: $('section[data-page="portfolio"] div.portfolio'),
-          $nav: $('section[data-page="portfolio"] nav.portfolio'),
           $allUp:     $('section[data-page="portfolio"] div.portfolio section.all-up')
         }
       , allUpT = _.template(allUpEJS)
@@ -59,11 +59,11 @@ define([
       viels.$portfolio.attr('data-displaying', view);
       switch(view){
         case 'all-up':
+          viels.$allUp[0].scrollTop = 0;
           viels.$main.addClass('start-all-up');
           break;
         case 'one-up':
           viels.$main.addClass('start-one-up');
-          viels.$nav.children('h1').html(section);
           viels.$portfolio.find('[data-for="'+section+'"]').addClass('active');
       }
     };

@@ -20,6 +20,7 @@
                 </article>
             <% }); %>
             <nav class="project">
+                <button class="up"></button>
                 <ul>
                 <% _.each(pi, function(pips, pin){ %>
                     <li data-oeuvre="<%= pin %>">
@@ -27,6 +28,7 @@
                     </li>
                 <% }); %>
                 </ul>
+                <button class="next"></button>
             </nav>
         </section>
     <% }); %>

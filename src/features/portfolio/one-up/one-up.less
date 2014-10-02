@@ -10,12 +10,35 @@ section.one-up {
         position: absolute;
         bottom: 0; left: 0; right: 0;
         height: @size_nav;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        button {
+            background-color: fade(white, 67%);
+            background-clip: content-box;
+            box-sizing: border-box;
+            height: @size_nav-pip;
+            width: @size_nav-pip;
+            flex: 0 0 auto;
+            .circular();
+            .bg(50%);
+            margin: (@size_nav-pip/8);
+            &.up {
+                background-image: url('../images/up.svg');
+            }
+            &.next {
+                background-image: url('../images/next.svg');
+            }
+        }
 
         ul {
+            flex: 0 1 auto;
             height: 100%;
             display: flex;
-            justify-content: center;
             align-items: center;
+            overflow-x: auto;
+            overflow-y: hidden;
 
             li {
                 flex: 0 0 auto;
@@ -24,7 +47,9 @@ section.one-up {
                     display: block;
                     height: @size_nav-pip;
                     width: @size_nav-pip;
-                    margin: (@size_nav-pip/4);
+                    margin: (@size_nav-pip/8);
+                    background-color: lighten(@ink, 33%);
+                    background-blend-mode: multiply;
                     .circular();
                     .bg();
                     .hover-shadow(fade(@red, 20%));
