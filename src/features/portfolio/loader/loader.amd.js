@@ -31,6 +31,7 @@ define(['jquery', 'underscore', 'config/portfolio'], function($, _, portfolio){
       $loading.attr('data-loaded', metric);
       if(metric === 100){
         $loading.addClass('loaded').find('button').prop('disabled', false);
+        document.removeEventListener('play', pause, true);
       }
     }, 400);
 
