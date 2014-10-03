@@ -89,6 +89,7 @@ section.one-up {
         position: absolute;
         bottom: 0; left: 0; right: 0;
         height: @size_nav;
+        padding: .5rem 0;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -103,7 +104,6 @@ section.one-up {
             flex: 0 0 auto;
             .circular();
             .bg(50%);
-            margin: (@size_nav-pip/8);
             &.up {
                 background-image: url('../images/up.svg');
             }
@@ -117,8 +117,6 @@ section.one-up {
             height: 100%;
             display: flex;
             align-items: center;
-            overflow-x: auto;
-            overflow-y: hidden;
 
             li {
                 flex: 0 0 auto;
@@ -127,7 +125,6 @@ section.one-up {
                     display: block;
                     height: @size_nav-pip;
                     width: @size_nav-pip;
-                    margin: (@size_nav-pip/8);
                     background-color: lighten(@ink, 33%);
                     background-blend-mode: multiply;
                     .circular();
@@ -139,6 +136,13 @@ section.one-up {
                         .hover-shadow-active(fade(@red, 20%));
                     }
                 }
+            }
+        }
+
+        button, ul li a {
+            margin: (@size_nav-pip/8);
+            @media (min-width: (@width_page * @rem)) {
+                margin: (@size_nav-pip/6);
             }
         }
     }
