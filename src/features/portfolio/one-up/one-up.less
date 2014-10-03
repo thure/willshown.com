@@ -14,6 +14,8 @@ section.one-up {
     .gallery {
         display: flex;
         flex-flow: row nowrap;
+        position: relative;
+        transition: left @quick ease-in-out;
     }
 
     article.oeuvre {
@@ -111,6 +113,9 @@ section.one-up {
         &[data-active="@{i}"]{
             nav.project ul li:nth-child(@{i}) a {
                 .active-shadow(fade(@red, 80%));
+            }
+            .gallery {
+                left: (@i - 1) * -100%;
             }
         }
         .highlight-nav-item(@i - 1);

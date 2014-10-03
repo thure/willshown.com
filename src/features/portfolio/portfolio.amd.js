@@ -31,12 +31,15 @@ define([
     };
 
     var toggleVideo = function(section){
-      var $section = viels.$portfolio.find('[data-for="'+section+'"]')
+      var $section = section ? viels.$portfolio.find('[data-for="'+section+'"]') : viels.$portfolio.find('.one-up.active')
         , $vid = $section.find('article.oeuvre:nth-child('+$section.attr('data-active')+')').find('video');
-      if($vid.hasClass('playing')){
-        $vid.removeClass('playing')[0].pause();
-      }else{
-        $vid.addClass('playing')[0].play();
+      if($vid.length > 0 ) {
+        if ($vid.hasClass('playing')) {
+          $vid.removeClass('playing')[0].pause();
+          $vid[0].currentTime = 0;
+        } else {
+          $vid.addClass('playing')[0].play();
+        }
       }
     };
 
@@ -69,8 +72,13 @@ define([
         });
 
         els.$oneUps.on('click touchstart', 'a[data-i]', function($e){
-          var i = $e.target.getAttribute('data-i');
-          $($e.target).parents('[data-active]').attr('data-active', i);
+          var i = $e.target.getAttribute('data-i')
+            , $active = $($e.target).parents('[data-active]');
+          if(i !== $active.attr('data-active')){
+            toggleVideo();
+            $active.attr('data-active', i);
+            toggleVideo();
+          }
         });
 
       });
