@@ -38,11 +38,11 @@
             <nav class="project">
                 <button class="up"></button>
                 <ul>
-                    <% _.each(pi, function(pips, pin){ %>
+                    <% var i = 1; _.each(pi, function(pips, pin){ %>
                         <li data-oeuvre="<%= pin %>">
-                            <a href="#portfolio/<%= name %>/<%= pin %>" style="background-image: url('images/<%= pips.asset.name + (pips.asset.type === 'image' ? '' : '.png') %>');"></a>
+                            <a href="#portfolio/<%= name %>/<%= pin %>" data-i="<%= i %>" style="background-image: url('images/<%= pips.asset.name + (pips.asset.type === 'image' ? '' : '.png') %>');"></a>
                         </li>
-                    <% }); %>
+                    <% i += 1; }); %>
                 </ul>
                 <button class="next"></button>
             </nav>

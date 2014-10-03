@@ -53,6 +53,7 @@ define([
 
     this.bind = function(els){
       sci.then(function(i) {
+
         els.$allUp.on('click touchstart', 'a.portfolio-item', function ($e) {
           var name = $e.target.hasAttribute('data-name') ?
             $e.target.getAttribute('data-name') :
@@ -62,9 +63,16 @@ define([
             data: name
           });
         });
+
         viels.$portfolio.find('button.up').on('click touchstart', function($e){
           i.gen('up');
         });
+
+        els.$oneUps.on('click touchstart', 'a[data-i]', function($e){
+          var i = $e.target.getAttribute('data-i');
+          $($e.target).parents('[data-active]').attr('data-active', i);
+        });
+
       });
     };
 
