@@ -7,25 +7,31 @@ section.one-up {
     @size_nav-pip: @height_nav-main;
 
     .gallery, article.oeuvre {
-        height: 100%;
         width: 100%;
     }
 
     .gallery {
+        height: 100%;
         display: flex;
         flex-flow: row nowrap;
         position: relative;
         transition: left @quick ease-in-out;
     }
 
-    article.oeuvre {
+    .viewport {
+        width: 100%;
+        height: 100%;
         flex: 0 0 auto;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+
+    article.oeuvre {
+        min-height: 100%;
         display: flex;
         flex-flow: row wrap;
         align-content: flex-start;
         justify-content: center;
-        overflow-x: hidden;
-        overflow-y: auto;
         padding-bottom: @size_nav;
         box-sizing: border-box;
 
@@ -65,6 +71,7 @@ section.one-up {
 
             img, video {
                 box-sizing: border-box;
+                background: @ink;
                 border: 1rem solid @ink;
                 position: static;
                 max-width: 100%;

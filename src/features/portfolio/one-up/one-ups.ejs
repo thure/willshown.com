@@ -3,7 +3,7 @@
         <section class="one-up" data-for="<%= name %>" data-active="1">
             <div class="gallery">
                 <% _.each(pi, function(pips, pin){ %>
-                    <article class="oeuvre">
+                    <div class="viewport"><article class="oeuvre">
                         <figure>
                             <% if(pips.asset.type === 'image'){ %>
                                 <img data-name="<%= pips.asset.name %>" src="images/<%= pips.asset.name %>"/>
@@ -32,7 +32,7 @@
                                 <% } %>
                             </ul>
                         </div>
-                    </article>
+                    </article></div>
                 <% }); %>
             </div>
             <nav class="project">

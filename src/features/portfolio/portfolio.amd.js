@@ -32,7 +32,7 @@ define([
 
     var toggleVideo = function(section){
       var $section = section ? viels.$portfolio.find('[data-for="'+section+'"]') : viels.$portfolio.find('.one-up.active')
-        , $vid = $section.find('article.oeuvre:nth-child('+$section.attr('data-active')+')').find('video');
+        , $vid = $section.find('.viewport:nth-child('+$section.attr('data-active')+')').find('video');
       if($vid.length > 0 ) {
         if ($vid.hasClass('playing')) {
           $vid.removeClass('playing')[0].pause();
