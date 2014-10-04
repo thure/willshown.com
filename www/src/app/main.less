@@ -35,6 +35,17 @@ body {
     @import "../base_styles/scaffold";
 }
 
+small {
+    font-size: inherit;
+    .lato_weight(light);
+    &::before {
+        content: '(';
+    }
+    &::after {
+        content: ')';
+    }
+}
+
 // Features
 @import "../features/portfolio/splash";
 @import "../features/portfolio/portfolio";

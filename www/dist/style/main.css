@@ -513,6 +513,37 @@ h6 {
 i {
   font-style: inherit;
 }
+q {
+  quotes: "“" "”" "‘" "’";
+}
+q.single {
+  quotes: "‘" "’" "“" "”";
+}
+q::before {
+  content: open-quote;
+}
+q::after {
+  content: close-quote;
+}
+abbr {
+  cursor: help;
+}
+a[target="_blank"]::after {
+  display: inline-block;
+  font-family: 'entypo', symbol;
+  content: '\e74c';
+  vertical-align: super;
+  font-size: .7em;
+  text-decoration: none;
+  margin-left: 0.1em;
+}
+@font-face {
+  font-family: 'entypo';
+  font-style: normal;
+  font-weight: normal;
+  src: url('../images/entypo.eot');
+  src: url('../images/entypo.eot?#iefix') format('eot'), url('../images/entypo.woff') format('woff'), url('../images/entypo.ttf') format('truetype'), url('../images/entypo.svg#entypo') format('svg');
+}
 html {
   text-rendering: optimizeLegibility;
   font-size: 16px;
@@ -558,6 +589,16 @@ body main > section {
   overflow-y: auto;
   overflow-x: hidden;
   width: 100%;
+}
+small {
+  font-size: inherit;
+  font-weight: 300;
+}
+small::before {
+  content: '(';
+}
+small::after {
+  content: ')';
 }
 section[data-page="portfolio"] div.splash {
   display: -webkit-flex;

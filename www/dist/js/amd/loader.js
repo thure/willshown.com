@@ -71,7 +71,7 @@ define(['jquery', 'underscore', 'config/portfolio'], function($, _, portfolio){
       _.delay(function(){
         loaded = Infinity;
         update();
-      }, 5000);
+      }, 10e3);
 
     }())
   }

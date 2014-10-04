@@ -1,7 +1,7 @@
 {
   "name": "willshown-portfolio-server",
   "version": "0.0.0",
-  "description": "",
+  "description": "A server for Will Shown's portfolio. That is all.",
   "main": "index.js",
   "author": "Will Shown <w@willshown.com>",
   "license": "Public Domain",
