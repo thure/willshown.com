@@ -112,13 +112,13 @@ module.exports = function(grunt) {
     requirejs: {
       compile: {
         options: {
-          baseUrl: "dist/js",
+          baseUrl: "./dist/js",
           name: 'main',
-          mainConfigFile: "dist/js/main.js",
-          out: "dist/js/main.min.js",
+          mainConfigFile: "./dist/js/main.js",
+          out: "./dist/js/main.min.js",
           include: 'requireLib',
           paths: {
-            requireLib: 'lib/require'
+            requireLib: './lib/require'
           }
         }
       }
@@ -210,7 +210,7 @@ module.exports = function(grunt) {
   grunt.registerTask('dist:copy',    ['copy:libjs', 'copy:chrome', 'copy:assets', 'copy:amdconfig', 'copy:amdmain', 'copy:amdmodules', 'copy:amdsupport']);
   grunt.registerTask('dist:watch',   ['styles', 'dist:copy', 'ejs:watch']);
   grunt.registerTask('dist:nowatch', ['styles', 'dist:copy', 'ejs:nowatch']);
-  grunt.registerTask('prod',         ['styles', 'dist:copy', 'cssmin', 'requirejs', 'ejs:prod', 'copy:mins', 'copy:images']);
+  grunt.registerTask('prod',         ['styles', 'dist:copy', 'cssmin', 'requirejs', 'ejs:prod', 'copy:mins']);
   grunt.registerTask('install',      ['bower:install']);
 
 };
