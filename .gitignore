@@ -36,7 +36,6 @@ nbproject
 .CVS
 .idea
 node_modules
-dist
 prod
 lib
 assets

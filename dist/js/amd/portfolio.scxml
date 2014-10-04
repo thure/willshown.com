@@ -1,0 +1,66 @@
+<scxml
+        xmlns="http://www.w3.org/2005/07/scxml"
+        version="1.0"
+        profile="ecmascript"
+        initial="initial-default">
+
+    <datamodel>
+        <data id="self"/>
+        <data id="section"/>
+    </datamodel>
+
+    <state id="initial-default">
+        <transition event="ready" target="splash">
+            <assign location="self" expr="_event.data"/>
+        </transition>
+    </state>
+
+    <state id="splash">
+        <transition target="portfolio_all-up" event="open-portfolio"/>
+    </state>
+
+    <state id="portfolio">
+
+        <onentry>
+            <script>
+                self.open();
+            </script>
+        </onentry>
+
+        <state id="portfolio_all-up">
+            <onentry>
+                <script>
+                    self.portfolioView('all-up');
+                </script>
+            </onentry>
+            <transition target="portfolio_one-up" event="down">
+                <assign location="section" expr="_event.data"/>
+            </transition>
+            <onexit>
+                <script>
+                    self.exit('all-up');
+                </script>
+            </onexit>
+        </state>
+
+        <state id="portfolio_one-up">
+            <onentry>
+                <script>
+                    self.portfolioView('one-up', section);
+                </script>
+            </onentry>
+            <transition target="portfolio_all-up" event="up"/>
+            <transition target="portfolio_one-up" event="next">
+                <assign location="section" expr="_event.data"/>
+            </transition>
+            <onexit>
+                <script>
+                    self.exit('one-up');
+                </script>
+            </onexit>
+        </state>
+
+    </state>
+
+
+</scxml>
