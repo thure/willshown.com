@@ -141,6 +141,20 @@ module.exports = function(grunt) {
           return dest + src.replace(/\.amd/gi, '');
         }
       },
+      fonts: {
+        expand: true,
+        flatten: true,
+        cwd: './src',
+        src: 'fonts/*',
+        dest: './dist/style/fonts'
+      },
+      fontsProd: {
+        expand: true,
+        flatten: true,
+        cwd: './',
+        src: './dist/style/fonts/*',
+        dest: './prod/fonts'
+      },
       chrome: {
         expand: true,
         flatten: true,
@@ -207,10 +221,10 @@ module.exports = function(grunt) {
 
   grunt.registerTask('default',      ['dist:watch', 'watch']);
   grunt.registerTask('styles',       ['less', 'autoprefixer']);
-  grunt.registerTask('dist:copy',    ['copy:libjs', 'copy:chrome', 'copy:assets', 'copy:amdconfig', 'copy:amdmain', 'copy:amdmodules', 'copy:amdsupport']);
+  grunt.registerTask('dist:copy',    ['copy:libjs', 'copy:chrome', 'copy:fonts', 'copy:assets', 'copy:amdconfig', 'copy:amdmain', 'copy:amdmodules', 'copy:amdsupport']);
   grunt.registerTask('dist:watch',   ['styles', 'dist:copy', 'ejs:watch']);
   grunt.registerTask('dist:nowatch', ['styles', 'dist:copy', 'ejs:nowatch']);
-  grunt.registerTask('prod',         ['styles', 'dist:copy', 'cssmin', 'requirejs', 'ejs:prod', 'copy:mins']);
+  grunt.registerTask('prod',         ['styles', 'dist:copy', 'cssmin', 'requirejs', 'ejs:prod', 'copy:fontsProd', 'copy:mins']);
   grunt.registerTask('install',      ['bower:install']);
 
 };

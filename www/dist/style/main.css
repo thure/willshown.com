@@ -541,8 +541,8 @@ a[target="_blank"]::after {
   font-family: 'entypo';
   font-style: normal;
   font-weight: normal;
-  src: url('../images/entypo.eot');
-  src: url('../images/entypo.eot?#iefix') format('eot'), url('../images/entypo.woff') format('woff'), url('../images/entypo.ttf') format('truetype'), url('../images/entypo.svg#entypo') format('svg');
+  src: url('fonts/entypo.eot');
+  src: url('fonts/entypo.eot?#iefix') format('eot'), url('fonts/entypo.woff') format('woff'), url('fonts/entypo.ttf') format('truetype'), url('fonts/entypo.svg#entypo') format('svg');
 }
 html {
   text-rendering: optimizeLegibility;
@@ -1327,6 +1327,8 @@ section[data-page="portfolio"] div.portfolio section.one-up article.oeuvre {
   -webkit-justify-content: center;
       -ms-flex-pack: center;
           justify-content: center;
+  max-width: 81rem;
+  margin: 0 auto;
 }
 @media (min-width: 864px) {
   section[data-page="portfolio"] div.portfolio section.one-up article.oeuvre {
@@ -1336,7 +1338,9 @@ section[data-page="portfolio"] div.portfolio section.one-up article.oeuvre {
   }
   section[data-page="portfolio"] div.portfolio section.one-up article.oeuvre figure,
   section[data-page="portfolio"] div.portfolio section.one-up article.oeuvre .copy {
-    max-width: 50%;
+    -webkit-flex-basis: 40%;
+        -ms-flex-preferred-size: 40%;
+            flex-basis: 40%;
   }
 }
 section[data-page="portfolio"] div.portfolio section.one-up article.oeuvre figure,
@@ -1346,6 +1350,7 @@ section[data-page="portfolio"] div.portfolio section.one-up article.oeuvre .copy
 }
 section[data-page="portfolio"] div.portfolio section.one-up article.oeuvre .copy {
   white-space: normal;
+  max-width: 30em;
 }
 @media (max-width: 864px) {
   section[data-page="portfolio"] div.portfolio section.one-up article.oeuvre .copy {
