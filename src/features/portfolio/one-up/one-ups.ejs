@@ -22,7 +22,9 @@
                             <h6 class="crumbs"><%= name %></h6>
                             <h2 class="title"><%= pin %></h2>
                             <p class="description"><%= pips.description %></p>
-                            <ul class="roles">
+                            <div class="roles">
+                                <label><%= _.isArray(pips.role) && pips.role.length > 1 ? 'Roles' : 'Role' %>: </label>
+                                <ul>
                                 <% if(_.isString(pips.role)){ %>
                                     <li data-role="<%= pips.role %>"><%= pips.role %></li>
                                 <% }else if(_.isArray(pips.role)){ %>
@@ -30,6 +32,7 @@
                                         <li data-role="<%= r %>"><%= r %></li>
                                     <% }); %>
                                 <% } %>
+                                </ul>
                             </ul>
                         </div>
                     </article></div>
