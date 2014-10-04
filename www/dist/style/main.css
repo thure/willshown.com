@@ -600,6 +600,10 @@ small::before {
 small::after {
   content: ')';
 }
+a[target="_blank"][href*="twitter.com"]::after {
+  content: '\f309';
+  font-size: .6em;
+}
 section[data-page="portfolio"] div.splash {
   display: -webkit-flex;
   display: -ms-flexbox;
