@@ -1309,7 +1309,7 @@ section[data-page="portfolio"] div.portfolio section.one-up .viewport {
       -ms-flex: 0 0 auto;
           flex: 0 0 auto;
   overflow-x: hidden;
-  overflow-y: auto;
+  overflow-y: hidden;
   box-sizing: border-box;
   padding-bottom: 4.41941738rem;
 }
@@ -1431,6 +1431,9 @@ section[data-page="portfolio"] div.portfolio section.one-up.active figure video 
 }
 section[data-page="portfolio"] div.portfolio section.one-up.active div.copy {
   width: 100%;
+}
+section[data-page="portfolio"] div.portfolio section.one-up.active .viewport {
+  overflow-y: auto;
 }
 section[data-page="portfolio"] div.portfolio section.one-up nav.project {
   position: absolute;
