@@ -1,0 +1,30 @@
+<aside class="identity">
+  <i class="face"></i>
+  <h1 class="name">Will Shown</h1>
+  <ul class="logopad">
+    <% _.each(links, function(link){ %>
+      <li<% if(link.big){%> class="big"<%}%> data-link="<%= link.link %>">
+        <a href="<%= link.href %>"></a>
+      </li>
+    <% }); %>
+  </ul>
+</aside>
+
+<article class="about">
+
+  <section class="stats">
+    <dl>
+      <% _.each(stats, function(stat){ %>
+        <dt><%= stat.name %></dt>
+        <dd><%= stat.value %></dd>
+      <% }); %>
+    </dl>
+  </section>
+
+  <section class="resume"></section>
+
+  <section class="notes">
+
+  </section>
+
+</article>

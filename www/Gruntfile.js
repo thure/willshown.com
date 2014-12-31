@@ -134,7 +134,8 @@ module.exports = function(grunt) {
           'text/text.js',
           'jquery/jquery.js',
           'scion/dist/scion.js',
-          'q/q.js'
+          'q/q.js',
+          'moment/moment.js'
         ],
         dest: './dist/js/lib/',
         rename: function(dest, src){

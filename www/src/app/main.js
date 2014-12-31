@@ -5,15 +5,20 @@ requirejs.config({
     'q': 'lib/q',
     'underscore': 'lib/underscore',
     'jquery': 'lib/jquery',
+    'moment': 'lib/moment',
     'scion': 'lib/scion'
-  },
-  shim: {
-    // add libraries that export global references here
-    // see http://requirejs.org/docs/api.html#config-shim
   }
 });
 
-requirejs(['jquery', 'underscore', 'amd/loader', 'amd/sci', 'amd/nav-main', 'amd/portfolio'], function($, _, loader, sci, nav, portfolio){
+requirejs([
+  'jquery',
+  'underscore',
+  'amd/loader',
+  'amd/sci',
+  'amd/nav-main',
+  'amd/portfolio',
+  'amd/about'
+], function($, _, loader, sci, nav, portfolio, about){
 
   var ready = function(i){
     i.gen({
