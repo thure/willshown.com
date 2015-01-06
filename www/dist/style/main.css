@@ -1637,6 +1637,86 @@ nav.main ul li:hover a,
 nav.main ul li a:focus {
   background-color: rgba(255, 255, 255, 0.67);
 }
+section[data-page="about"] .about-page {
+  padding: 1.5625rem;
+}
+@media screen and (min-width: 38.254rem) {
+  section[data-page="about"] .about-page {
+    max-width: 54rem;
+    margin: 0 auto;
+    padding: 1.5625rem 3.125rem;
+  }
+  section[data-page="about"] .about-page aside.identity {
+    position: fixed;
+    top: 4.6875rem;
+    left: calc(100% + 3.125rem);
+    -webkit-transition: left 0.66666667s ease;
+            transition: left 0.66666667s ease;
+  }
+  body[data-displaying="about"] section[data-page="about"] .about-page aside.identity {
+    left: 3.125rem;
+  }
+  section[data-page="about"] .about-page article.about {
+    margin-left: 12rem;
+  }
+}
+@media screen and (min-width: 60.25rem) {
+  section[data-page="about"] .about-page aside.identity {
+    left: calc(100% + (100% - 54rem)/2);
+  }
+  body[data-displaying="about"] section[data-page="about"] .about-page aside.identity {
+    left: calc((100% - 54rem)/2);
+  }
+}
+section[data-page="about"] .about-page aside.identity {
+  width: 12rem;
+  margin: 0 auto;
+}
+section[data-page="about"] .about-page aside.identity i.face {
+  display: block;
+  width: 12rem;
+  height: 12rem;
+  border-radius: 99in;
+  background-image: url('../images/head.jpg');
+  background-position: center;
+  background-size: cover;
+  box-shadow: 0 0 0 0.6rem rgba(39, 34, 31, 0.2) inset;
+  margin: 0 auto;
+}
+section[data-page="about"] .about-page aside.identity .name {
+  text-align: center;
+  margin: 1.5625rem 0;
+}
+section[data-page="about"] .about-page aside.identity ul.logopad {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+}
+section[data-page="about"] .about-page aside.identity ul.logopad li {
+  background-color: rgba(255, 255, 255, 0.4);
+  height: 2.75rem;
+  min-width: 3.6575rem;
+  margin: 0 0 1px 1px;
+  -webkit-flex: 1 0 auto;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
+}
+section[data-page="about"] .about-page aside.identity ul.logopad li.big {
+  min-width: 5.5rem;
+}
+section[data-page="about"] .about-page aside.identity ul.logopad li a {
+  display: block;
+  height: 2.75rem;
+  width: 100%;
+  line-height: 2.75rem;
+}
+section[data-page="about"] .about-page article.about {
+  box-sizing: border-box;
+  padding-left: 1.5625rem;
+}
 body main {
   left: 0;
   -webkit-transition: left 0.66666667s ease;

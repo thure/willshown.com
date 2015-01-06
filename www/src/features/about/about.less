@@ -1,0 +1,100 @@
+section[data-page="about"] {
+
+    @padding_page-small: @height_nav-main / 2;
+    @padding_page-large: @height_nav-main;
+
+    @min-width_page: @width_aside * 2.667;
+
+    @height_logopad-button: 2.75rem;
+
+    .about-page {
+        padding: @padding_page-small;
+
+        @media screen and (min-width: (@min-width_page + 2 * @padding_page-large)){
+            max-width: @width_page;
+            margin: 0 auto;
+            padding: @padding_page-small @padding_page-large;
+
+            aside.identity {
+                position: fixed;
+                top: @height_nav-main + @padding_page-small;
+                left: ~"calc(100% + @{padding_page-large})";
+                transition: left @slow/1.5 ease;
+
+                body[data-displaying="about"] & {
+                    left: @padding_page-large;
+                }
+
+            }
+
+            article.about {
+                margin-left: @width_aside;
+            }
+        }
+
+        @media screen and (min-width: (@width_page + 2 * @padding_page-large)) {
+            aside.identity {
+                left: ~"calc(100% + (100% - @{width_page})/2)";
+
+                body[data-displaying="about"] & {
+                    left: ~"calc((100% - @{width_page})/2)"
+                }
+
+            }
+        }
+
+        aside.identity {
+            width: @width_aside;
+            margin: 0 auto;
+
+            i.face {
+                display: block;
+                width: @width_aside;
+                height: @width_aside;
+                .circular();
+                background-image: url('../images/head.jpg');
+                background-position: center;
+                background-size: cover;
+                box-shadow: 0 0 0 .6rem fade(@ink, 20%) inset;
+                margin: 0 auto;
+            }
+
+            .name {
+                text-align: center;
+                margin: @padding_page-small 0;
+            }
+
+            ul.logopad {
+                display: flex;
+                flex-flow: row wrap;
+
+                li {
+                    background-color: fade(white, 40%);
+                    height: @height_logopad-button;
+                    min-width: @height_logopad-button * 1.33;
+                    margin: 0 0 1px 1px;
+                    flex: 1 0 auto;
+
+                    &.big {
+                        min-width: @height_logopad-button * 2;
+                    }
+
+                    a {
+                        display: block;
+                        height: @height_logopad-button;
+                        width: 100%;
+                        line-height: @height_logopad-button;
+                    }
+                }
+            }
+
+        }
+
+        article.about {
+            box-sizing: border-box;
+            padding-left: @padding_page-small;
+        }
+
+    }
+
+}
