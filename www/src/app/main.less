@@ -46,11 +46,6 @@ small {
     }
 }
 
-a[target="_blank"][href*="twitter.com"]::after{
-    content: '\f309';
-    font-size: .6em;
-}
-
 // Features
 @import "../features/portfolio/splash";
 @import "../features/portfolio/portfolio";
@@ -67,4 +62,36 @@ body {
     &[data-displaying="about"] main{
             left: -100%;
     }
+}
+
+// Text styles
+a {
+    text-decoration: underline;
+}
+
+a[target="_blank"]::after{
+    display: inline-block;
+    .icons();
+    content: '\e74c';
+    vertical-align: super;
+    font-size: .7em;
+    text-decoration: none;
+    margin-left: 0.1em;
+}
+
+a[target="_blank"][href*="twitter.com"]::after{
+    content: '\f309';
+    font-size: .6em;
+}
+
+blockquote {
+    margin: 1.5rem;
+    padding: 1.5rem;
+    background-color: fade(white, 40%);
+    color: fade(@ink, 60%);
+    font-style: italic;
+}
+
+p:not(:first-child) {
+    margin-top: @rr2 * 1em;
 }

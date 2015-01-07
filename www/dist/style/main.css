@@ -530,21 +530,12 @@ q::after {
 abbr {
   cursor: help;
 }
-a[target="_blank"]::after {
-  display: inline-block;
-  font-family: 'entypo', symbol;
-  content: '\e74c';
-  vertical-align: super;
-  font-size: .7em;
-  text-decoration: none;
-  margin-left: 0.1em;
-}
 @font-face {
-  font-family: 'entypo';
-  font-style: normal;
+  font-family: 'willshown-icons';
+  src: url('fonts/willshown-icons.eot?94993757');
+  src: url('fonts/willshown-icons.eot?94993757#iefix') format('embedded-opentype'), url('fonts/willshown-icons.woff?94993757') format('woff'), url('fonts/willshown-icons.ttf?94993757') format('truetype'), url('fonts/willshown-icons.svg?94993757#willshown-icons') format('svg');
   font-weight: normal;
-  src: url('fonts/entypo.eot');
-  src: url('fonts/entypo.eot?#iefix') format('eot'), url('fonts/entypo.woff') format('woff'), url('fonts/entypo.ttf') format('truetype'), url('fonts/entypo.svg#entypo') format('svg');
+  font-style: normal;
 }
 html {
   text-rendering: optimizeLegibility;
@@ -601,10 +592,6 @@ small::before {
 }
 small::after {
   content: ')';
-}
-a[target="_blank"][href*="twitter.com"]::after {
-  content: '\f309';
-  font-size: .6em;
 }
 section[data-page="portfolio"] div.splash {
   display: -webkit-flex;
@@ -1084,6 +1071,9 @@ section[data-page="portfolio"] div.portfolio section.all-up .portfolio-items .po
             flex-flow: column nowrap;
   }
 }
+section[data-page="portfolio"] div.portfolio section.all-up .portfolio-items .portfolio-line-group a {
+  text-decoration: none;
+}
 section[data-page="portfolio"] div.portfolio section.all-up .portfolio-items .portfolio-item {
   cursor: pointer;
   -webkit-flex: 0 0 auto;
@@ -1332,6 +1322,11 @@ section[data-page="portfolio"] div.portfolio section.one-up article.oeuvre {
   max-width: 81rem;
   margin: 0 auto;
 }
+section[data-page="portfolio"] div.portfolio section.one-up article.oeuvre figure,
+section[data-page="portfolio"] div.portfolio section.one-up article.oeuvre .copy {
+  box-sizing: border-box;
+  padding: 1.5625rem;
+}
 @media (min-width: 864px) {
   section[data-page="portfolio"] div.portfolio section.one-up article.oeuvre {
     -webkit-align-items: center;
@@ -1344,11 +1339,12 @@ section[data-page="portfolio"] div.portfolio section.one-up article.oeuvre {
         -ms-flex-preferred-size: 40%;
             flex-basis: 40%;
   }
-}
-section[data-page="portfolio"] div.portfolio section.one-up article.oeuvre figure,
-section[data-page="portfolio"] div.portfolio section.one-up article.oeuvre .copy {
-  box-sizing: border-box;
-  padding: 1rem;
+  section[data-page="portfolio"] div.portfolio section.one-up article.oeuvre figure {
+    padding-right: 0.78125rem;
+  }
+  section[data-page="portfolio"] div.portfolio section.one-up article.oeuvre .copy {
+    padding-left: 0.78125rem;
+  }
 }
 section[data-page="portfolio"] div.portfolio section.one-up article.oeuvre .copy {
   white-space: normal;
@@ -1364,10 +1360,6 @@ section[data-page="portfolio"] div.portfolio section.one-up article.oeuvre .copy
   font-size: 1rem;
   line-height: 1.2;
   font-weight: 400;
-  margin-top: 0.70710678em;
-}
-section[data-page="portfolio"] div.portfolio section.one-up article.oeuvre .copy a {
-  text-decoration: underline;
 }
 section[data-page="portfolio"] div.portfolio section.one-up article.oeuvre .copy h6 {
   font-family: 'Lato', 'Helvetica Neue', 'Helvetica', sans-serif;
@@ -1632,6 +1624,7 @@ nav.main ul li a {
   padding: 0 0.67rem;
   -webkit-transition: background-color 200ms linear;
           transition: background-color 200ms linear;
+  text-decoration: none;
 }
 nav.main ul li:hover a,
 nav.main ul li a:focus {
@@ -1639,6 +1632,7 @@ nav.main ul li a:focus {
 }
 section[data-page="about"] .about-page {
   padding: 1.5625rem;
+  white-space: normal;
 }
 @media screen and (min-width: 38.254rem) {
   section[data-page="about"] .about-page {
@@ -1699,7 +1693,9 @@ section[data-page="about"] .about-page aside.identity ul.logopad li {
   background-color: rgba(255, 255, 255, 0.4);
   height: 2.75rem;
   min-width: 3.6575rem;
-  margin: 0 0 1px 1px;
+  margin: 0 2px 2px 0;
+  border-radius: 2px;
+  box-shadow: 0 1px 1px 0 rgba(39, 34, 31, 0.2);
   -webkit-flex: 1 0 auto;
       -ms-flex: 1 0 auto;
           flex: 1 0 auto;
@@ -1712,6 +1708,40 @@ section[data-page="about"] .about-page aside.identity ul.logopad li a {
   height: 2.75rem;
   width: 100%;
   line-height: 2.75rem;
+  text-align: center;
+  text-decoration: none;
+}
+section[data-page="about"] .about-page aside.identity ul.logopad li a::before {
+  color: #27221f;
+  font-size: 1.25rem;
+  font-family: 'willshown-icons', symbol;
+}
+section[data-page="about"] .about-page aside.identity ul.logopad li a::after {
+  content: '';
+}
+section[data-page="about"] .about-page aside.identity ul.logopad li[data-link="email"] a::before {
+  content: '\E807';
+}
+section[data-page="about"] .about-page aside.identity ul.logopad li[data-link="phone"] a::before {
+  content: '\E806';
+}
+section[data-page="about"] .about-page aside.identity ul.logopad li[data-link="linkedin"] a::before {
+  content: '\E805';
+}
+section[data-page="about"] .about-page aside.identity ul.logopad li[data-link="twitter"] a::before {
+  content: '\F309';
+}
+section[data-page="about"] .about-page aside.identity ul.logopad li[data-link="instagram"] a::before {
+  content: '\E801';
+}
+section[data-page="about"] .about-page aside.identity ul.logopad li[data-link="github"] a::before {
+  content: '\E803';
+}
+section[data-page="about"] .about-page aside.identity ul.logopad li[data-link="stackoverflow"] a::before {
+  content: '\E800';
+}
+section[data-page="about"] .about-page aside.identity ul.logopad li[data-link="lastfm"] a::before {
+  content: '\E802';
 }
 section[data-page="about"] .about-page article.about {
   box-sizing: border-box;
@@ -1724,4 +1754,30 @@ body main {
 }
 body[data-displaying="about"] main {
   left: -100%;
+}
+a {
+  text-decoration: underline;
+}
+a[target="_blank"]::after {
+  display: inline-block;
+  font-family: 'willshown-icons', symbol;
+  content: '\e74c';
+  vertical-align: super;
+  font-size: .7em;
+  text-decoration: none;
+  margin-left: 0.1em;
+}
+a[target="_blank"][href*="twitter.com"]::after {
+  content: '\f309';
+  font-size: .6em;
+}
+blockquote {
+  margin: 1.5rem;
+  padding: 1.5rem;
+  background-color: rgba(255, 255, 255, 0.4);
+  color: rgba(39, 34, 31, 0.6);
+  font-style: italic;
+}
+p:not(:first-child) {
+  margin-top: 0.70710678em;
 }

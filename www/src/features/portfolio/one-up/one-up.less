@@ -37,16 +37,25 @@ section.one-up {
         max-width: @width_page * 1.5;
         margin: 0 auto;
 
+        figure, .copy {
+            box-sizing: border-box;
+            padding: @height_nav-main / 2;
+        }
+
         @media (min-width: (@width_page * @rem)){
             align-items: center;
+
             figure, .copy {
                 flex-basis: 40%;
             }
-        }
 
-        figure, .copy {
-            box-sizing: border-box;
-            padding: 1rem;
+            figure {
+                padding-right: @height_nav-main / 4;
+            }
+
+            .copy {
+                padding-left: @height_nav-main / 4;
+            }
         }
 
         .copy {
@@ -60,11 +69,6 @@ section.one-up {
 
             p {
                 .lato(1, regular);
-                margin-top: @rr2 * 1em;
-            }
-
-            a {
-                text-decoration: underline;
             }
 
             h6 {

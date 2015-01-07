@@ -9,6 +9,7 @@ section[data-page="about"] {
 
     .about-page {
         padding: @padding_page-small;
+        white-space: normal;
 
         @media screen and (min-width: (@min-width_page + 2 * @padding_page-large)){
             max-width: @width_page;
@@ -72,7 +73,9 @@ section[data-page="about"] {
                     background-color: fade(white, 40%);
                     height: @height_logopad-button;
                     min-width: @height_logopad-button * 1.33;
-                    margin: 0 0 1px 1px;
+                    margin: 0 2px 2px 0;
+                    border-radius: 2px;
+                    box-shadow: 0 1px 1px 0 fade(@ink, 20%);
                     flex: 1 0 auto;
 
                     &.big {
@@ -84,6 +87,43 @@ section[data-page="about"] {
                         height: @height_logopad-button;
                         width: 100%;
                         line-height: @height_logopad-button;
+                        text-align: center;
+                        text-decoration: none;
+
+                        &::before {
+                            color: @ink;
+                            font-size: 1.25rem;
+                            .icons();
+                        }
+
+                        &::after {
+                            content: '';
+                        }
+                    }
+
+                    &[data-link="email"] a::before{
+                        content: '\E807';
+                    }
+                    &[data-link="phone"] a::before{
+                        content: '\E806';
+                    }
+                    &[data-link="linkedin"] a::before{
+                        content: '\E805';
+                    }
+                    &[data-link="twitter"] a::before{
+                        content: '\F309';
+                    }
+                    &[data-link="instagram"] a::before{
+                        content: '\E801';
+                    }
+                    &[data-link="github"] a::before{
+                        content: '\E803';
+                    }
+                    &[data-link="stackoverflow"] a::before{
+                        content: '\E800';
+                    }
+                    &[data-link="lastfm"] a::before{
+                        content: '\E802';
                     }
                 }
             }

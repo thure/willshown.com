@@ -17,8 +17,11 @@ requirejs([
   'amd/sci',
   'amd/nav-main',
   'amd/portfolio',
-  'amd/about'
-], function($, _, loader, sci, nav, portfolio, about){
+  'amd/about',
+  'amd/phone'
+], function($, _, loader, sci, nav, portfolio, about, dialPhone){
+
+  window.dialPhone = dialPhone;
 
   var ready = function(i){
     i.gen({

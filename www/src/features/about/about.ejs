@@ -5,7 +5,7 @@
     <ul class="logopad">
       <% _.each(links, function(link){ %>
         <li<% if(link.big){%> class="big"<%}%> data-link="<%= link.link %>">
-          <a href="<%= link.href %>"></a>
+          <a target="_blank" href="<%= link.href %>" title="<%= link.alt %>" <% if(link.hasOwnProperty('onclick')){ %>onclick="<%= link.onclick %>"<% } %>></a>
         </li>
       <% }); %>
     </ul>
@@ -13,19 +13,28 @@
 
   <article class="about">
 
-    <section class="stats">
-      <dl>
-        <% _.each(stats, function(stat){ %>
-          <dt><%= stat.name %></dt>
-          <dd><%= stat.value %></dd>
-        <% }); %>
-      </dl>
+    <section class="intro">
+      <p>Hello, and welcome my personal site! Here’s the autobiographical blurb you’ve probably seen on the other profiles:</p>
+      <blockquote>
+        <p>At every stage in life, I’ve been fascinated by both creative and technical thinking. I’m not wont to get in a rut since I’m so eager to continue reaching across the boundaries between domains of human knowledge. That curiosity is the foundation of my autodidactic nature.</p>
+        <p>I spend much of my time doing different kinds of interdisciplinary technical work, such as making apps that are easier to use, and designing software and devices that use the Internet in small, unconventional ways.</p>
+      </blockquote>
     </section>
 
-    <section class="resume"></section>
+    <section class="stats">
+      <h1>Stats</h1>
+      <ul>
+        <% _.each(stats, function(stat){ %>
+          <li>
+            <span class="name"><%- stat.name %></span>
+            <span class="value"><%- stat.value %></span>
+          </li>
+        <% }); %>
+      </ul>
+    </section>
 
-    <section class="notes">
-
+    <section class="resume">
+      <h1>Résumé</h1>
     </section>
 
   </article>
