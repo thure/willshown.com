@@ -21,6 +21,7 @@ logFile="/var/run/willshown-com.log"
 
 command="/usr/local/bin/node"
 nodeApp="/www/willshown/index.js"
+nodeAppCWD="/www/willshown/"
 foreverApp="forever"
 
 start() {
@@ -33,7 +34,7 @@ start() {
    PATH=/usr/local/bin:$PATH
 	export NODE_ENV=production
    #PORT=80
-   $foreverApp start --pidFile $pidFile -l $logFile -a -d -c "$command" $nodeApp
+   $foreverApp start --pidFile $pidFile -l $logFile --workingDir $nodeAppCWD -a -d -c "$command" $nodeApp
    RETVAL=$?
 }
 
