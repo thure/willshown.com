@@ -89,11 +89,12 @@ section[data-page="about"] {
                         height: @height_logopad-button;
                         width: 100%;
                         line-height: @height_logopad-button;
+                        color: @ink;
                         text-align: center;
                         text-decoration: none;
+                        transition: color .1s linear;
 
                         &::before {
-                            color: @ink;
                             font-size: 1.25rem;
                             .icons();
                         }
@@ -103,29 +104,69 @@ section[data-page="about"] {
                         }
                     }
 
-                    &[data-link="email"] a::before{
-                        content: '\E807';
+                    &[data-link="email"] a {
+                        &:hover, &:focus {
+                            color: rgb(240,200,95);
+                        }
+                        &::before{
+                            content: '\E807';
+                        }
                     }
-                    &[data-link="phone"] a::before{
-                        content: '\E806';
+                    &[data-link="phone"] a {
+                        &:hover, &:focus {
+                            color: rgb(67,181,31);
+                        }
+                        &::before{
+                            content: '\E806';
+                        }
                     }
-                    &[data-link="linkedin"] a::before{
-                        content: '\E805';
+                    &[data-link="linkedin"] a {
+                        &:hover, &:focus {
+                            color: rgb(0,122,181);
+                        }
+                        &::before{
+                            content: '\E805';
+                        }
                     }
-                    &[data-link="twitter"] a::before{
-                        content: '\F309';
+                    &[data-link="twitter"] a {
+                        &:hover, &:focus {
+                            color: rgb(94,170,222);
+                        }
+                        &::before{
+                            content: '\F309';
+                        }
                     }
-                    &[data-link="instagram"] a::before{
-                        content: '\E801';
+                    &[data-link="instagram"] a {
+                        &:hover, &:focus {
+                            color: rgb(204,188,172);
+                        }
+                        &::before{
+                            content: '\E801';
+                        }
                     }
-                    &[data-link="github"] a::before{
-                        content: '\E803';
+                    &[data-link="github"] a {
+                        &:hover, &:focus {
+                            color: rgb(124,186,230);
+                        }
+                        &::before{
+                            content: '\E803';
+                        }
                     }
-                    &[data-link="stackoverflow"] a::before{
-                        content: '\E800';
+                    &[data-link="stackoverflow"] a {
+                        &:hover, &:focus {
+                            color: rgb(233, 130, 28);
+                        }
+                        &::before{
+                            content: '\E800';
+                        }
                     }
-                    &[data-link="lastfm"] a::before{
-                        content: '\E802';
+                    &[data-link="lastfm"] a {
+                        &:hover, &:focus {
+                            color: rgb(210, 0, 56);
+                        }
+                        &::before{
+                            content: '\E802';
+                        }
                     }
                 }
             }
