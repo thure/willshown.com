@@ -7,7 +7,7 @@ var serverName = 'willshown.com'
   , app = express();
 
 vids.settings({
-  "rootFolder": "./www/dist/",
+  "rootFolder": path.join(__dirname, "./www/dist/"),
   "rootPath": ""
 });
 
