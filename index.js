@@ -11,7 +11,7 @@ vids.settings({
   "rootPath": ""
 });
 
-app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.PORT || 3001);
 
 app.get(/^\/?$/, routes.index);
 app.get(/\/images\/(.+)/, vids);
