@@ -3,6 +3,7 @@ requirejs.config({
   paths: {
     'text': 'lib/text',
     'q': 'lib/q',
+    'ajax': 'lib/qxhr',
     'underscore': 'lib/underscore',
     'jquery': 'lib/jquery',
     'moment': 'lib/moment',

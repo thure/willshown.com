@@ -30,6 +30,7 @@ section[data-page="about"] {
 
             article.about {
                 margin-left: @width_aside;
+                padding-left: @padding_page-large;
             }
         }
 
@@ -46,7 +47,7 @@ section[data-page="about"] {
 
         aside.identity {
             width: @width_aside;
-            margin: 0 auto;
+            margin: 0 auto @height_nav-main auto;
 
             i.face {
                 display: block;
@@ -132,7 +133,6 @@ section[data-page="about"] {
 
         article.about {
             box-sizing: border-box;
-            padding-left: @padding_page-small;
         }
 
     }

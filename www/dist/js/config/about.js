@@ -1,6 +1,7 @@
 define([
+  'underscore',
   'moment'
-], function(moment){
+], function(_, moment){
 
   var birthday = moment('3 August 1988', 'D MMMM YYYY'),
       ageInFortnights = Math.round(moment().diff(birthday, 'days') / 14);
@@ -18,6 +19,18 @@ define([
       {
         name: 'Height in cm',
         value: 191
+      },
+      {
+        name: 'Hireable',
+        value: function(val){ return val ? 'Yes' : 'Not at the moment' },
+        fetch: {
+          url: 'https://api.github.com/users/thure',
+          prop: 'hireable'
+        }
+      },
+      {
+        name: 'Living in',
+        value: 'Seattle'
       }
     ],
     links: [

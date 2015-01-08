@@ -22,19 +22,23 @@
     </section>
 
     <section class="stats">
-      <h1>Stats</h1>
+      <h2>Stats</h2>
       <ul>
         <% _.each(stats, function(stat){ %>
-          <li>
-            <span class="name"><%- stat.name %></span>
-            <span class="value"><%- stat.value %></span>
+          <li data-name="<%= stat.name %>">
+            <span class="name"><%= stat.name %></span>
+            <span class="value">
+              <% if(!_.isFunction(stat.value)){ %><%= stat.value %><% }else{ %>
+                <i class="loading"></i>
+              <% } %>
+            </span>
           </li>
         <% }); %>
       </ul>
     </section>
 
     <section class="resume">
-      <h1>Résumé</h1>
+      <h2>Résumé</h2>
     </section>
 
   </article>
