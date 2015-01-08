@@ -210,6 +210,13 @@ module.exports = function(grunt) {
         cwd: './',
         src: ['./dist/images/*'],
         dest: './prod/images'
+      },
+      favicon: {
+        expand: true,
+        flatten: true,
+        cwd: './',
+        src: ['./favicon.ico'],
+        dest: './prod/'
       }
     }
   });
@@ -217,9 +224,10 @@ module.exports = function(grunt) {
   grunt.registerTask('default',      ['dist:watch', 'watch']);
   grunt.registerTask('styles',       ['less', 'autoprefixer']);
   grunt.registerTask('dist:copy',    ['copy:libjs', 'copy:chrome', 'copy:fonts', 'copy:assets', 'copy:amdconfig', 'copy:amdmain', 'copy:amdmodules', 'copy:amdsupport']);
+  grunt.registerTask('prod:copy',    ['copy:fontsProd', 'copy:images', 'copy:favicon']);
   grunt.registerTask('dist:watch',   ['styles', 'dist:copy', 'ejs:watch']);
   grunt.registerTask('dist:nowatch', ['styles', 'dist:copy', 'ejs:nowatch']);
-  grunt.registerTask('prod',         ['styles', 'dist:copy', 'cssmin', 'requirejs', 'ejs:prod', 'copy:fontsProd', 'copy:images']);
+  grunt.registerTask('prod',         ['dist:nowatch', 'cssmin', 'requirejs', 'ejs:prod', 'prod:copy']);
   grunt.registerTask('install',      ['bower:install']);
 
 };
