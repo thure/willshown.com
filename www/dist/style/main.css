@@ -1322,6 +1322,9 @@ section[data-page="portfolio"] div.portfolio section.one-up article.oeuvre {
   max-width: 81rem;
   margin: 0 auto;
 }
+section[data-page="portfolio"] div.portfolio section.one-up article.oeuvre figure {
+  margin: 0;
+}
 section[data-page="portfolio"] div.portfolio section.one-up article.oeuvre figure,
 section[data-page="portfolio"] div.portfolio section.one-up article.oeuvre .copy {
   box-sizing: border-box;

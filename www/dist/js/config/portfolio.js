@@ -93,6 +93,14 @@ define([
       }
     },
     'Works in progress': {
+      'GEOF': {
+        asset: {
+          type: 'image',
+          name: 'geof.jpeg'
+        },
+        role: ['designer', 'developer'],
+        description: geof
+      },
       'Pi Brewer': {
         asset: {
           type: 'image',
@@ -108,14 +116,6 @@ define([
         },
         role: 'hacker',
         description: baxter
-      },
-      'GEOF': {
-        asset: {
-          type: 'image',
-          name: 'geof.jpeg'
-        },
-        role: ['designer', 'developer'],
-        description: geof
       }
     },
     'Other work': {
