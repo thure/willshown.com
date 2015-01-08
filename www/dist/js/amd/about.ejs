@@ -14,7 +14,7 @@
   <article class="about">
 
     <section class="intro">
-      <p>Hello, and welcome my personal site! Here’s the autobiographical blurb you’ve probably seen on the other profiles:</p>
+      <h2>Blurb!</h2>
       <blockquote>
         <p>At every stage in life, I’ve been fascinated by both creative and technical thinking. I’m not wont to get in a rut since I’m so eager to continue reaching across the boundaries between domains of human knowledge. That curiosity is the foundation of my autodidactic nature.</p>
         <p>I spend much of my time doing different kinds of interdisciplinary technical work, such as making apps that are easier to use, and designing software and devices that use the Internet in small, unconventional ways.</p>
@@ -37,8 +37,21 @@
       </ul>
     </section>
 
-    <section class="resume">
+    <section class="résumé">
       <h2>Résumé</h2>
+      <ol>
+        <% _.each(résumé, function(job){ %>
+          <li>
+            <h3><%= job.role %>, <%= job.group %></h3>
+            <span class="duration"><%= job.start %> to <%= job.end %></span>
+            <ul>
+              <% _.each(job.notes, function(note){ %>
+                <li><%= note %></li>
+              <% }); %>
+            </ul>
+          </li>
+        <% }); %>
+      </ol>
     </section>
 
   </article>

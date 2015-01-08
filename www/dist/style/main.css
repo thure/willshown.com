@@ -1679,6 +1679,10 @@ section[data-page="about"] .about-page aside.identity i.face {
   margin: 0 auto;
 }
 section[data-page="about"] .about-page aside.identity .name {
+  font-family: 'Lato', 'Helvetica Neue', 'Helvetica', sans-serif;
+  font-size: 2.82842712rem;
+  line-height: 1.07071068;
+  font-weight: 400;
   text-align: center;
   margin: 1.5625rem 0;
 }
@@ -1746,6 +1750,78 @@ section[data-page="about"] .about-page aside.identity ul.logopad li[data-link="l
 }
 section[data-page="about"] .about-page article.about {
   box-sizing: border-box;
+}
+section[data-page="about"] .about-page article.about section h2 {
+  font-family: 'Lato', 'Helvetica Neue', 'Helvetica', sans-serif;
+  font-size: 2rem;
+  line-height: 1.1;
+  font-weight: 400;
+}
+section[data-page="about"] .about-page article.about section:not(:first-of-type) h2 {
+  margin-top: 1em;
+}
+section[data-page="about"] .about-page article.about section.stats {
+  text-align: center;
+}
+section[data-page="about"] .about-page article.about section.stats h2 {
+  text-align: left;
+}
+section[data-page="about"] .about-page article.about section.stats ul {
+  display: inline-block;
+}
+section[data-page="about"] .about-page article.about section.stats ul li {
+  display: inline-block;
+  width: 8rem;
+  margin-right: 2rem;
+  margin-top: 1rem;
+}
+section[data-page="about"] .about-page article.about section.stats ul li span {
+  text-align: center;
+  display: block;
+}
+section[data-page="about"] .about-page article.about section.stats ul li .name {
+  font-family: 'Lato', 'Helvetica Neue', 'Helvetica', sans-serif;
+  font-size: 1rem;
+  line-height: 1.2;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  margin-bottom: .67rem;
+  color: rgba(39, 34, 31, 0.6);
+}
+section[data-page="about"] .about-page article.about section.stats ul li .value {
+  font-family: 'Lato', 'Helvetica Neue', 'Helvetica', sans-serif;
+  font-size: 2rem;
+  line-height: 1.1;
+  font-weight: 300;
+  padding: .5rem;
+  background-color: rgba(255, 255, 255, 0.4);
+}
+section[data-page="about"] .about-page article.about section.résumé ol {
+  margin: 0 1rem 1rem 1rem;
+}
+section[data-page="about"] .about-page article.about section.résumé ol > li {
+  margin-top: 1.35rem;
+}
+section[data-page="about"] .about-page article.about section.résumé ol > li h3 {
+  font-family: 'Lato', 'Helvetica Neue', 'Helvetica', sans-serif;
+  font-size: 1.41421356rem;
+  line-height: 1.14142136;
+  font-weight: 300;
+}
+section[data-page="about"] .about-page article.about section.résumé ol > li span.duration {
+  font-family: 'Lato', 'Helvetica Neue', 'Helvetica', sans-serif;
+  font-size: 1rem;
+  line-height: 1.2;
+  font-weight: 400;
+  font-style: italic;
+}
+section[data-page="about"] .about-page article.about section.résumé ol > li ul {
+  list-style: disc;
+}
+section[data-page="about"] .about-page article.about section.résumé ol > li ul > li {
+  margin-top: .67em;
+  margin-left: 2em;
 }
 body main {
   left: 0;
