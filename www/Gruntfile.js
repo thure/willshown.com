@@ -105,7 +105,7 @@ module.exports = function(grunt) {
       prod: {
         files: [{
           src: ['dist/style/main.css'],
-          dest: 'dist/style/main.min.css'
+          dest: 'prod/style/main.min.css'
         }]
       }
     },
@@ -115,7 +115,7 @@ module.exports = function(grunt) {
           baseUrl: "./dist/js",
           name: 'main',
           mainConfigFile: "./dist/js/main.js",
-          out: "./dist/js/main.min.js",
+          out: "./prod/main.min.js",
           include: 'requireLib',
           paths: {
             requireLib: './lib/require'
@@ -155,7 +155,7 @@ module.exports = function(grunt) {
         flatten: true,
         cwd: './',
         src: './dist/style/fonts/*',
-        dest: './prod/fonts'
+        dest: './prod/style/fonts'
       },
       chrome: {
         expand: true,
@@ -204,13 +204,6 @@ module.exports = function(grunt) {
         ],
         dest: './dist/js/amd/'
       },
-      mins: {
-        expand: true,
-        flatten: true,
-        cwd: './',
-        src: ['./dist/**/*.min.*'],
-        dest: './prod/'
-      },
       images: {
         expand: true,
         flatten: true,
@@ -226,7 +219,7 @@ module.exports = function(grunt) {
   grunt.registerTask('dist:copy',    ['copy:libjs', 'copy:chrome', 'copy:fonts', 'copy:assets', 'copy:amdconfig', 'copy:amdmain', 'copy:amdmodules', 'copy:amdsupport']);
   grunt.registerTask('dist:watch',   ['styles', 'dist:copy', 'ejs:watch']);
   grunt.registerTask('dist:nowatch', ['styles', 'dist:copy', 'ejs:nowatch']);
-  grunt.registerTask('prod',         ['styles', 'dist:copy', 'cssmin', 'requirejs', 'ejs:prod', 'copy:fontsProd', 'copy:mins']);
+  grunt.registerTask('prod',         ['styles', 'dist:copy', 'cssmin', 'requirejs', 'ejs:prod', 'copy:fontsProd', 'copy:images']);
   grunt.registerTask('install',      ['bower:install']);
 
 };
