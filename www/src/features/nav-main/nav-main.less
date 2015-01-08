@@ -5,36 +5,39 @@ nav.main {
     right: 0;
     height: @height_nav-main;
     z-index: 1;
-    background-color: @light;
+    background-color: @chrome;
     background-image: url('../images/mark.svg');
     .bg(contain, center left);
 
     ul {
         font-size: 0;
-        padding: 0 0 0 (@height_nav-main + .67 * @gap_nav-items);
+        padding: 0 0 0 @height_nav-main;
 
         li {
             display: inline-block;
-            .lato(1, regular);
+            .lato(1, light);
             text-transform: uppercase;
             height: @height_nav-main;
             line-height: @height_nav-main;
 
             body[data-displaying="about"] & a[href="#about"],
             body[data-displaying="portfolio"] & a[href="#portfolio"] {
-                .lato_weight(black);
+                .lato_weight(regular);
+                background-color: fade(@chrome, 50%);
             }
 
             a {
+                color: white;
                 display: inline-block;
                 height: 100%;
                 padding: 0 @gap_nav-items;
                 transition: background-color @quick linear;
                 text-decoration: none;
+                letter-spacing: .06em;
             }
 
-            &:hover a, a:focus {
-                background-color: fade(white, 67%);
+            &:hover a {
+                background-color: fade(@chrome, 25%);
             }
         }
     }

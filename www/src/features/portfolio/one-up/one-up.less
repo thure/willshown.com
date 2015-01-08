@@ -158,12 +158,14 @@ section.one-up {
         background-color: fade(@light, 60%);
 
         button {
-            background-color: fade(white, 67%);
+            background-color: @chrome;
             background-clip: content-box;
             box-sizing: border-box;
             height: @size_nav-pip;
             width: @size_nav-pip;
             flex: 0 0 auto;
+            .hover-shadow(fade(@red, 20%));
+            transition: box-shadow @quick ease;
             .circular();
             .bg(50%);
             &.up {
@@ -171,6 +173,9 @@ section.one-up {
             }
             &.next {
                 background-image: url('../images/next.svg');
+            }
+            &:hover, &:focus {
+                .hover-shadow-active(fade(@red, 20%));
             }
         }
 
