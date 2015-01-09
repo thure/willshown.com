@@ -13,6 +13,7 @@ requirejs.config({
 });
 
 requirejs([
+  'async',
   'jquery',
   'underscore',
   'amd/loader',
@@ -21,7 +22,7 @@ requirejs([
   'amd/portfolio',
   'amd/about',
   'amd/phone'
-], function($, _, loader, sci, nav, portfolio, about, dialPhone){
+], function(async, $, _, loader, sci, nav, portfolio, about, dialPhone){
 
   window.dialPhone = dialPhone;
 

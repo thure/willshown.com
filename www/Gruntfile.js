@@ -108,10 +108,25 @@ module.exports = function(grunt) {
       compile: {
         options: {
           baseUrl: "./dist/js",
-          name: 'main',
+          dir: './dist/opt-js',
           mainConfigFile: "./dist/js/main.js",
-          out: "./prod/main.min.js",
-          include: 'requireLib',
+          removeCombined: true,
+          optimize: 'uglify2',
+          modules: [
+            {
+              name: 'main',
+              include: 'requireLib'
+            },
+            {
+              name: 'amd/geof',
+              exclude: [
+                'lib/jquery',
+                'lib/underscore',
+                'lib/async',
+                'lib/moment'
+              ]
+            }
+          ],
           paths: {
             requireLib: './lib/require'
           }
@@ -164,6 +179,16 @@ module.exports = function(grunt) {
           'warmth/index.js'
         ],
         dest: './dist/js/lib'
+      },
+      minified: {
+        expand: true,
+        flatten: false,
+        cwd: './dist/opt-js',
+        src: [
+          'main.js',
+          'amd/geof.js'
+        ],
+        dest: './prod/js'
       },
       fonts: {
         expand: true,
@@ -239,7 +264,7 @@ module.exports = function(grunt) {
   grunt.registerTask('default',      ['dist:watch', 'watch']);
   grunt.registerTask('styles',       ['less', 'autoprefixer']);
   grunt.registerTask('dist:copy',    ['copy:libjs', 'copy:libmodules', 'exec:peels', 'exec:warmth', 'exec:three', 'copy:chrome', 'copy:fonts', 'copy:assets', 'copy:amdconfig', 'copy:amdmain', 'copy:amdmodules', 'copy:amdsupport']);
-  grunt.registerTask('prod:copy',    ['copy:fontsProd', 'copy:images']);
+  grunt.registerTask('prod:copy',    ['copy:fontsProd', 'copy:images', 'copy:minified']);
   grunt.registerTask('dist:watch',   ['styles', 'dist:copy', 'ejs:watch']);
   grunt.registerTask('dist:nowatch', ['styles', 'dist:copy', 'ejs:nowatch']);
   grunt.registerTask('prod',         ['dist:nowatch', 'cssmin', 'requirejs', 'ejs:prod', 'prod:copy']);
