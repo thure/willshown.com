@@ -68,6 +68,7 @@ define([
       sci.then(function(i) {
 
         els.$allUp.on('click touchstart', 'a.portfolio-item', function ($e) {
+          $e.preventDefault();
           var name = $e.target.hasAttribute('data-name') ?
             $e.target.getAttribute('data-name') :
             $($e.target).parents('[data-name]').attr('data-name');
@@ -82,6 +83,7 @@ define([
         });
 
         els.$oneUps.on('click touchstart', 'a[data-i]', function($e){
+          $e.preventDefault();
           var i = $e.target.getAttribute('data-i')
             , $active = $($e.target).parents('[data-active]');
           if(i !== $active.attr('data-active')){
