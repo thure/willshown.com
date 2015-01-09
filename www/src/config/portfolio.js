@@ -129,14 +129,6 @@ define([
         role: ['designer', 'developer'],
         description: cardboard
       },
-      'TownHog': {
-        asset: {
-          type: 'image',
-          name: 'townhog.png'
-        },
-        role: 'developer',
-        description: townhog
-      },
       'CINCH': {
         asset: {
           type: 'video',
