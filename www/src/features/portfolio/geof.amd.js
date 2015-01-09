@@ -47,7 +47,7 @@ define([
     var scene = new THREE.Scene();
     var camera = new THREE.PerspectiveCamera( 33, 1, 0.1, 1000 );
 
-    camera.position.z = 5;
+    camera.position.z = 4;
 
     // Lighting
 
@@ -83,7 +83,7 @@ define([
 
     // Sphere
 
-    var d = 8,
+    var d = 10,
         s = new Sphere({divisions: d}),
         tm = new ThermalModel({ fields: 2 * d * d * 5 + 2 });
 

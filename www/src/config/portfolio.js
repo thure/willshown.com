@@ -108,14 +108,6 @@ define([
         },
         role: 'hacker',
         description: brewer
-      },
-      'Doorbot': {
-        asset: {
-          type: 'image',
-          name: 'baxter.jpeg'
-        },
-        role: 'hacker',
-        description: baxter
       }
     },
     'Other work': {
@@ -126,6 +118,14 @@ define([
         },
         role: ['designer', 'developer'],
         description: cardboard
+      },
+      'Doorbot': {
+        asset: {
+          type: 'image',
+          name: 'baxter.jpeg'
+        },
+        role: 'hacker',
+        description: baxter
       },
       'CINCH': {
         asset: {
