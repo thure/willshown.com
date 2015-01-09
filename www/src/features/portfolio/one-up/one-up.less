@@ -123,17 +123,48 @@ section.one-up {
         }
 
         figure {
+
             &, img, video {
                 width: 100%;
             }
 
-            img, video {
+            div.geof-container {
+                position: relative;
+            }
+
+            img:not(.overlay), video, .geof-container {
                 box-sizing: border-box;
                 background: @ink;
                 border: 1rem solid @ink;
                 position: static;
                 max-width: 100%;
                 height: auto;
+            }
+
+            .geof-container {
+                background: black;
+                & > img {
+                    background: none;
+                    border: none;
+                }
+            }
+
+            canvas {
+                position: absolute;
+                width: 100% !important;
+                height: 100% !important;
+                top: 0;
+                left: 0;
+                z-index: 100;
+            }
+
+            img.overlay {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: 101;
             }
         }
 

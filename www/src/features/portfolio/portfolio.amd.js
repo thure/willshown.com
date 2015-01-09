@@ -4,14 +4,16 @@ define([
   'q',
   'config/portfolio',
   'amd/sci',
+  'amd/is-mobile',
   'text!amd/all-up.ejs',
   'text!amd/one-ups.ejs'
 ], function(
-  $, _, q, portfolio, sci, allUpEJS, oneUpsEJS
+  $, _, q, portfolio, sci, isMobile, allUpEJS, oneUpsEJS
 ){
 
   return new function(){
     var self = this
+      , geof = null
       , viels = {
           $main:      $('body > main'),
           $nav:       $('body > nav.main'),
@@ -40,12 +42,18 @@ define([
         } else {
           $vid.addClass('playing')[0].play();
         }
+      }else if(!_.isNull(geof)){
+        if($section.find('.viewport:nth-child('+$section.attr('data-active')+')').find('canvas').length > 0){
+          geof.start();
+        }else{
+          geof.pause();
+        }
       }
     };
 
     this.render = function(){
       var $allUp = $(allUpT({portfolio: portfolio}))
-        , $oneUps = $(oneUpsT({portfolio: portfolio}));
+        , $oneUps = $(oneUpsT({portfolio: portfolio, isMobile: isMobile}));
       viels.$allUp.html($allUp);
       viels.$portfolio.append($oneUps);
       self.bind({
@@ -80,6 +88,15 @@ define([
             toggleVideo();
           }
         });
+
+        if(!isMobile){
+          requirejs(['amd/geof'], function(geofCanvas){
+
+            geof = geofCanvas;
+            geof.bind($('#geof-canvas')[0]);
+
+          })
+        }
 
       });
     };

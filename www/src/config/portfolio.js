@@ -96,7 +96,9 @@ define([
       'GEOF': {
         asset: {
           type: 'image',
-          name: 'geof.jpeg'
+          name: 'static.geof.jpeg',
+          staticName: 'static.geof.jpeg',
+          overlayName: 'geof.png'
         },
         role: ['designer', 'developer'],
         description: geof

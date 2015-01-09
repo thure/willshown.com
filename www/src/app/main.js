@@ -7,7 +7,8 @@ requirejs.config({
     'underscore': 'lib/underscore',
     'jquery': 'lib/jquery',
     'moment': 'lib/moment',
-    'scion': 'lib/scion'
+    'scion': 'lib/scion',
+    'async': 'lib/async'
   }
 });
 

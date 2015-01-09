@@ -3,14 +3,7 @@ var path = require('path'),
 
 module.exports = function(grunt) {
 
-  grunt.loadNpmTasks('grunt-autoprefixer');
-  grunt.loadNpmTasks('grunt-bower-task');
-  grunt.loadNpmTasks('grunt-contrib-copy');
-  grunt.loadNpmTasks('grunt-contrib-cssmin');
-  grunt.loadNpmTasks('grunt-contrib-less');
-  grunt.loadNpmTasks('grunt-contrib-requirejs');
-  grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-ejs');
+  require('load-grunt-tasks')(grunt);
 
   var watchPort = 35729
     , assets = {
@@ -125,6 +118,17 @@ module.exports = function(grunt) {
         }
       }
     },
+    exec: {
+      peels: {
+        cmd: 'r.js -convert dist/js/lib/peels dist/js/lib/peels.amd'
+      },
+      warmth: {
+        cmd: 'r.js -convert dist/js/lib/warmth dist/js/lib/warmth.amd'
+      },
+      three: {
+        cmd: 'r.js -convert lib/threejs dist/js/lib/three.amd'
+      }
+    },
     copy: {
       libjs: {
         expand: true,
@@ -138,12 +142,28 @@ module.exports = function(grunt) {
           'scion/dist/scion.js',
           'q/q.js',
           'qxhr/qxhr.amd.js',
-          'moment/moment.js'
+          'moment/moment.js',
+          'async/async.js',
+          'color/one-color.js'
         ],
         dest: './dist/js/lib/',
         rename: function(dest, src){
           return dest + src.replace(/\.amd/gi, '');
         }
+      },
+      libmodules: {
+        expand: true,
+        flatten: false,
+        cwd: './node_modules',
+        src: [
+          'peels/lib/*',
+          'peels/lib/**/*',
+          'peels/index.js',
+          'warmth/lib/*',
+          'warmth/lib/**/*',
+          'warmth/index.js'
+        ],
+        dest: './dist/js/lib'
       },
       fonts: {
         expand: true,
@@ -218,7 +238,7 @@ module.exports = function(grunt) {
 
   grunt.registerTask('default',      ['dist:watch', 'watch']);
   grunt.registerTask('styles',       ['less', 'autoprefixer']);
-  grunt.registerTask('dist:copy',    ['copy:libjs', 'copy:chrome', 'copy:fonts', 'copy:assets', 'copy:amdconfig', 'copy:amdmain', 'copy:amdmodules', 'copy:amdsupport']);
+  grunt.registerTask('dist:copy',    ['copy:libjs', 'copy:libmodules', 'exec:peels', 'exec:warmth', 'exec:three', 'copy:chrome', 'copy:fonts', 'copy:assets', 'copy:amdconfig', 'copy:amdmain', 'copy:amdmodules', 'copy:amdsupport']);
   grunt.registerTask('prod:copy',    ['copy:fontsProd', 'copy:images']);
   grunt.registerTask('dist:watch',   ['styles', 'dist:copy', 'ejs:watch']);
   grunt.registerTask('dist:nowatch', ['styles', 'dist:copy', 'ejs:nowatch']);
