@@ -33,20 +33,22 @@ define([
     };
 
     var toggleVideo = function(section){
-      var $section = section ? viels.$portfolio.find('[data-for="'+section+'"]') : viels.$portfolio.find('.one-up.active')
-        , $vid = $section.find('.viewport:nth-child('+$section.attr('data-active')+')').find('video');
-      if($vid.length > 0 ) {
-        if ($vid.hasClass('playing')) {
-          $vid.removeClass('playing')[0].pause();
-          $vid[0].currentTime = 0;
-        } else {
-          $vid.addClass('playing')[0].play();
-        }
-      }else if(!_.isNull(geof)){
-        if($section.find('.viewport:nth-child('+$section.attr('data-active')+')').find('canvas').length > 0){
-          geof.start();
-        }else{
-          geof.pause();
+      if(!isMobile) {
+        var $section = section ? viels.$portfolio.find('[data-for="' + section + '"]') : viels.$portfolio.find('.one-up.active')
+          , $vid = $section.find('.viewport:nth-child(' + $section.attr('data-active') + ')').find('video');
+        if ($vid.length > 0) {
+          if ($vid.hasClass('playing')) {
+            $vid.removeClass('playing')[0].pause();
+            $vid[0].currentTime = 0;
+          } else {
+            $vid.addClass('playing')[0].play();
+          }
+        } else if (!_.isNull(geof)) {
+          if ($section.find('.viewport:nth-child(' + $section.attr('data-active') + ')').find('canvas').length > 0) {
+            geof.start();
+          } else {
+            geof.pause();
+          }
         }
       }
     };

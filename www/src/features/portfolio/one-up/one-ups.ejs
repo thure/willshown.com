@@ -13,7 +13,7 @@
                                         <img data-name="<%= pips.asset.name %>" class="overlay" src="images/<%= pips.asset.overlayName %>"/>
                                     </div>
                                 <% }else{ %>
-                                    <img data-name="<%= pips.asset.name %>" src="images/static.<%= pips.asset.staticName %>"/>
+                                    <img data-name="<%= pips.asset.name %>" src="images/<%= pips.asset.staticName %>"/>
                                 <% } %>
                             <% }else{ %>
                                 <% if(pips.asset.type === 'image'){ %>
