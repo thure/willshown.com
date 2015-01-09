@@ -8,17 +8,17 @@ section[data-page="about"] {
     @height_logopad-button: 2.75rem;
 
     .about-page {
-        padding: @padding_page-small;
+        padding: @padding_page-small @padding_page-small 0 @padding_page-small;
         white-space: normal;
 
         @media screen and (min-width: (@min-width_page + 2 * @padding_page-large)){
             max-width: @width_page;
             margin: 0 auto;
-            padding: @padding_page-small @padding_page-large;
+            padding: @padding_page-large @padding_page-large 0 @padding_page-large;
 
             aside.identity {
                 position: fixed;
-                top: @height_nav-main + @padding_page-small;
+                top: @height_nav-main + @padding_page-large;
                 left: ~"calc(100% + @{padding_page-large})";
                 transition: left @slow/1.5 ease;
 
@@ -255,6 +255,13 @@ section[data-page="about"] {
                         }
                     }
                 }
+            }
+
+            section.credits {
+                border-top: 1px solid fade(@chrome, 50%);
+                margin-top: 1.5 * @padding_page-large;
+                padding: @padding_page-large @padding_page-small;
+                color: fade(@chrome, 50%);
             }
         }
 

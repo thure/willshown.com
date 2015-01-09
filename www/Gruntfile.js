@@ -17,6 +17,10 @@ module.exports = function(grunt) {
   // Project configuration.
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
+    clean: {
+      dist: ['./dist'],
+      prod: ['./prod']
+    },
     watch: {
       options: {
         livereload: watchPort
@@ -266,8 +270,8 @@ module.exports = function(grunt) {
   grunt.registerTask('dist:copy',    ['copy:libjs', 'copy:libmodules', 'exec:peels', 'exec:warmth', 'exec:three', 'copy:chrome', 'copy:fonts', 'copy:assets', 'copy:amdconfig', 'copy:amdmain', 'copy:amdmodules', 'copy:amdsupport']);
   grunt.registerTask('prod:copy',    ['copy:fontsProd', 'copy:images', 'copy:minified']);
   grunt.registerTask('dist:watch',   ['styles', 'dist:copy', 'ejs:watch']);
-  grunt.registerTask('dist:nowatch', ['styles', 'dist:copy', 'ejs:nowatch']);
-  grunt.registerTask('prod',         ['dist:nowatch', 'cssmin', 'requirejs', 'ejs:prod', 'prod:copy']);
+  grunt.registerTask('dist:nowatch', ['clean:dist', 'styles', 'dist:copy', 'ejs:nowatch']);
+  grunt.registerTask('prod',         ['clean:prod', 'dist:nowatch', 'cssmin', 'requirejs', 'ejs:prod', 'prod:copy']);
   grunt.registerTask('install',      ['bower:install']);
 
 };

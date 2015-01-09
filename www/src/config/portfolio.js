@@ -11,8 +11,7 @@ define([
   'text!amd/icex.ejs',
   'text!amd/leftnav.ejs',
   'text!amd/redesign.ejs',
-  'text!amd/thunderpony.ejs',
-  'text!amd/townhog.ejs'
+  'text!amd/thunderpony.ejs'
 ], function(
   _,
   baxter,
@@ -26,8 +25,7 @@ define([
   icex,
   leftnav,
   redesign,
-  thunderpony,
-  townhog
+  thunderpony
   ){
 
   return{

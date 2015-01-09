@@ -1,9 +1,9 @@
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
      viewBox="0 0 32 32" enable-background="new 0 0 32 32" xml:space="preserve">
 <g>
-	<path fill="none" stroke="#ffffff" stroke-width="2" stroke-miterlimit="10" d="M2.1147461,26.2167969h19.7856445
+	<path fill="none" stroke="#eaeaea" stroke-width="2" stroke-miterlimit="10" d="M2.1147461,26.2167969h19.7856445
 		c4.4101562,0,7.984375-3.5742188,7.984375-7.984375s-3.5742188-7.984375-7.984375-7.984375H2.1147461"/>
-	<polyline fill="none" stroke="#ffffff" stroke-width="2" stroke-miterlimit="10" points="8.5805664,3.7832031 2.1147461,10.2480469
+	<polyline fill="none" stroke="#eaeaea" stroke-width="2" stroke-miterlimit="10" points="8.5805664,3.7832031 2.1147461,10.2480469
 		8.5786133,16.7128906 	"/>
 </g>
 </svg>
