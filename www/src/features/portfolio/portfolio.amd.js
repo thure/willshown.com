@@ -97,7 +97,7 @@ define([
           requirejs(['amd/geof'], function(geofCanvas){
 
             geof = geofCanvas;
-            geof.bind($('#geof-canvas')[0]);
+            geof.bind(els.$oneUps.find('#geof-canvas')[0]);
 
           })
         }
