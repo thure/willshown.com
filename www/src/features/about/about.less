@@ -19,11 +19,12 @@ section[data-page="about"] {
             aside.identity {
                 position: fixed;
                 top: @height_nav-main + @padding_page-large;
-                left: ~"calc(100% + @{padding_page-large})";
-                transition: left @slow/1.5 ease;
+                left: 0;
+                transform: translateX(100vw) translateX(@padding_page-large);
+                transition: transform @slow/1.5 ease;
 
                 body[data-displaying="about"] & {
-                    left: @padding_page-large;
+                    transform: translateX(@padding_page-large);
                 }
 
             }
@@ -36,10 +37,10 @@ section[data-page="about"] {
 
         @media screen and (min-width: (@width_page + 2 * @padding_page-large)) {
             aside.identity {
-                left: ~"calc(100% + (100% - @{width_page})/2)";
+                transform: translateX(150vw) translateX((@width_page / -2));
 
                 body[data-displaying="about"] & {
-                    left: ~"calc((100% - @{width_page})/2)"
+                    transform: translateX(50vw) translateX((@width_page / -2));
                 }
 
             }
