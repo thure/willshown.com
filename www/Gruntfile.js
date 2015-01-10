@@ -1,9 +1,12 @@
 var path = require('path'),
-    fs = require('fs');
+    fs = require('fs'),
+    os = require('os');
 
 module.exports = function(grunt) {
 
   require('load-grunt-tasks')(grunt);
+
+  var rjs = os.platform() === 'win32' ? 'r.js.cmd' : 'r.js';
 
   var watchPort = 35729
     , assets = {
@@ -139,13 +142,13 @@ module.exports = function(grunt) {
     },
     exec: {
       peels: {
-        cmd: 'r.js -convert dist/js/lib/peels dist/js/lib/peels.amd'
+        cmd: rjs + ' -convert dist/js/lib/peels dist/js/lib/peels.amd'
       },
       warmth: {
-        cmd: 'r.js -convert dist/js/lib/warmth dist/js/lib/warmth.amd'
+        cmd: rjs + ' -convert dist/js/lib/warmth dist/js/lib/warmth.amd'
       },
       three: {
-        cmd: 'r.js -convert lib/threejs dist/js/lib/three.amd'
+        cmd: rjs + ' -convert lib/threejs dist/js/lib/three.amd'
       }
     },
     copy: {

@@ -22,6 +22,24 @@
     }
 }
 
+@-ms-keyframes ms-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@-ms-keyframes ms-start-spin {
+    from {
+        -ms-transform: rotate(0deg);
+    }
+    to {
+        -ms-transform: rotate(360deg);
+    }
+}
+
 circle {
     stroke: @red;
     stroke-width: @stroke_width;
@@ -36,6 +54,15 @@ circle {
     animation-duration: @start_spin, @revolution;
     animation-delay: 0s, @start_spin;
     opacity: 1;
+}
+
+svg {
+    -ms-animation-name: ms-start-spin, ms-spin;
+    -ms-animation-iteration-count: 1, infinite;
+    -ms-animation-timing-function: cubic-bezier(.5,.01,1,1), linear;
+    -ms-animation-duration: @start_spin, @revolution;
+    -ms-animation-delay: 0s, @start_spin;
+    -ms-transform-origin: center;
 }
 
 &.loaded circle {
