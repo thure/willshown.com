@@ -6,12 +6,22 @@ nav.main {
     height: @height_nav-main;
     z-index: 1;
     background-color: @chrome;
-    background-image: url('../images/mark.svg');
-    .bg(contain, center left);
+    font-size: 0;
+
+    i.logo {
+        display: inline-block;
+        height: @height_nav-main;
+        width: @height_nav-main;
+        background-image: url('../images/mark.svg');
+        .bg(cover, center left);
+    }
+
+    i.logo, ul, ul li {
+        vertical-align: top;
+    }
 
     ul {
-        font-size: 0;
-        padding: 0 0 0 @height_nav-main;
+        display: inline-block;
 
         li {
             display: inline-block;
