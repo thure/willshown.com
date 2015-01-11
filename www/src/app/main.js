@@ -40,6 +40,10 @@ requirejs([
   };
 
   $(function(){
+    loader.bind();
+    nav.bind();
+    portfolio.render();
+    about.render();
     detectFeatures();
     sci.then(ready);
   });

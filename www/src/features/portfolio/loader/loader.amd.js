@@ -9,7 +9,11 @@ define(['jquery', 'underscore', 'config/portfolio'], function($, _, portfolio){
         image: 2,
         video: 8
       }
-      , $loading = $('.splash i.loading');
+      , $loading;
+
+    this.bind = function(){
+      $loading = $('.splash i.loading');
+    };
 
     _.each(portfolio, function(pi, name){
       _.each(pi, function(pips, name){
@@ -28,9 +32,9 @@ define(['jquery', 'underscore', 'config/portfolio'], function($, _, portfolio){
     var update = _.throttle(function(){
       var metric = Math.min(Math.round((loaded / total * 50)) * 2, 100);
       console.log( metric );
-      $loading.attr('data-loaded', metric);
+      if($loading) $loading.attr('data-loaded', metric);
       if(metric === 100){
-        $loading.addClass('loaded').find('button').prop('disabled', false);
+        if($loading) $loading.addClass('loaded').find('button').prop('disabled', false);
         document.removeEventListener('play', pause, true);
       }
     }, 400);

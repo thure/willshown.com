@@ -220,6 +220,7 @@ section.one-up {
                 flex: 0 0 auto;
 
                 a {
+                    position: relative;
                     display: block;
                     height: @size_nav-pip;
                     width: @size_nav-pip;
@@ -229,6 +230,14 @@ section.one-up {
                     .bg();
                     .hover-shadow(fade(@red, 20%));
                     transition: height @quick ease, width @quick ease, box-shadow @quick ease;
+
+                    html.no-background-blend-mode &::before {
+                        content: '';
+                        position: absolute;
+                        top: 0; left: 0; bottom: 0; right: 0;
+                        .circular();
+                        background-color: fade(@ink, 33%);
+                    }
 
                     &:hover, &:focus {
                         .hover-shadow-active(fade(@red, 20%));

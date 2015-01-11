@@ -118,7 +118,7 @@ module.exports = function(grunt) {
           dir: './dist/opt-js',
           mainConfigFile: "./dist/js/main.js",
           removeCombined: true,
-          optimize: 'uglify2',
+          optimize: 'none',
           modules: [
             {
               name: 'main',

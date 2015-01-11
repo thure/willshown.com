@@ -2,8 +2,7 @@ define(['jquery', 'underscore', 'amd/sci'], function($, _, sci){
 
   function MainNav(){
 
-    (function(){
-
+    this.bind = function(){
       $('nav.main a').on('click', function($e){
         $e.preventDefault();
         var href = $e.target.getAttribute('href').replace(/^#/, '');
@@ -14,8 +13,7 @@ define(['jquery', 'underscore', 'amd/sci'], function($, _, sci){
         }
         document.body.setAttribute('data-displaying', href);
       });
-
-    }());
+    };
 
   }
 

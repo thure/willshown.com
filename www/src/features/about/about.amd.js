@@ -61,10 +61,6 @@ define([
       this.loadStats();
     };
 
-    (function(){
-      self.render();
-    }())
-
   };
 
 });

@@ -14,13 +14,7 @@ define([
   return new function(){
     var self = this
       , geof = null
-      , viels = {
-          $main:      $('body > main'),
-          $nav:       $('body > nav.main'),
-          $page:      $('section[data-page="portfolio"]'),
-          $portfolio: $('section[data-page="portfolio"] div.portfolio'),
-          $allUp:     $('section[data-page="portfolio"] div.portfolio section.all-up')
-        }
+      , viels = null
       , allUpT = _.template(allUpEJS)
       , oneUpsT = _.template(oneUpsEJS);
 
@@ -54,10 +48,21 @@ define([
     };
 
     this.render = function(){
+      viels = {
+        $main:      $('body > main'),
+        $nav:       $('body > nav.main'),
+        $page:      $('section[data-page="portfolio"]'),
+        $portfolio: $('section[data-page="portfolio"] div.portfolio'),
+        $allUp:     $('section[data-page="portfolio"] div.portfolio section.all-up')
+      };
+
       var $allUp = $(allUpT({portfolio: portfolio}))
         , $oneUps = $(oneUpsT({portfolio: portfolio, isMobile: isMobile}));
+
       viels.$allUp.html($allUp);
+
       viels.$portfolio.append($oneUps);
+
       self.bind({
         $allUp: $allUp,
         $oneUps: $oneUps
@@ -135,10 +140,6 @@ define([
           break;
       }
     };
-
-    (function(){
-      self.render();
-    }())
 
   };
 
