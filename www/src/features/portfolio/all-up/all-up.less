@@ -75,7 +75,16 @@ section.all-up {
                 .hover-shadow(fade(@ink, 20%));
                 transition: box-shadow @quick ease;
 
-                &, li {
+                html.no-background-blend-mode &::before {
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    top: 0; right: 0; bottom: 0; left: 0;
+                    z-index: 102;
+                    background: fade(@red, 60%);
+                }
+
+                &, li, &::before {
                     .circular();
                 }
 
@@ -84,6 +93,7 @@ section.all-up {
                     top: 0; right: 0; bottom: 0; left: 0;
                     .bg();
                     background-color: @red;
+
                     background-blend-mode: multiply;
                 }
 

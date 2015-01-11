@@ -16,13 +16,16 @@ requirejs([
   'async',
   'jquery',
   'underscore',
+  'amd/detect-features',
   'amd/loader',
   'amd/sci',
   'amd/nav-main',
   'amd/portfolio',
   'amd/about',
   'amd/phone'
-], function(async, $, _, loader, sci, nav, portfolio, about, dialPhone){
+], function(async, $, _, detectFeatures, loader, sci, nav, portfolio, about, dialPhone){
+
+  $(detectFeatures);
 
   window.dialPhone = dialPhone;
 
