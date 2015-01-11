@@ -15,6 +15,7 @@ requirejs.config({
 requirejs([
   'async',
   'jquery',
+  'q',
   'underscore',
   'amd/detect-features',
   'amd/loader',
@@ -23,9 +24,7 @@ requirejs([
   'amd/portfolio',
   'amd/about',
   'amd/phone'
-], function(async, $, _, detectFeatures, loader, sci, nav, portfolio, about, dialPhone){
-
-  $(detectFeatures);
+], function(async, $, q, _, detectFeatures, loader, sci, nav, portfolio, about, dialPhone){
 
   window.dialPhone = dialPhone;
 
@@ -34,12 +33,15 @@ requirejs([
       name: 'ready',
       data: portfolio
     });
+
+    $('i.loading').find('button').on('click', function($e){
+      i.gen('open-portfolio');
+    });
   };
 
-  sci.then(ready);
-
-  $('i.loading').find('button').on('click', function($e){
-    sci.then(function(i){ i.gen('open-portfolio'); });
+  $(function(){
+    detectFeatures();
+    sci.then(ready);
   });
 
 });
