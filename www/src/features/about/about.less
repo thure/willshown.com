@@ -68,48 +68,51 @@ section[data-page="about"] {
                 img {
                     display: block;
                     width: 100%;
+                    max-width: 1.6 * @width_aside;
+                    margin: 0 auto;
                     height: auto;
                 }
             }
 
-            ul.logopad {
-                display: flex;
-                flex-flow: row wrap;
+            @media screen and (max-width: (@min-width_page + 2 * @padding_page-large)){
+                width: 100%;
 
-                li {
-                    background-color: fade(white, 40%);
+                .logopad-row, .name {
+                    padding: 0 @padding_page-small;
+                }
+            }
+
+            .logopad {
+
+                .logopad-row{
+                    display: flex;
+                    flex-flow: row wrap;
+                }
+
+                a {
+                    flex: 1 0 0;
+                    display: block;
                     height: @height_logopad-button;
-                    min-width: @height_logopad-button * 1.33;
+                    line-height: @height_logopad-button;
                     margin: 0 2px 2px 0;
                     border-radius: 2px;
                     box-shadow: 0 1px 1px 0 fade(@ink, 20%);
-                    flex: 1 0 auto;
+                    background-color: fade(white, 40%);
+                    color: @ink;
+                    text-align: center;
+                    text-decoration: none;
+                    transition: color .1s linear;
 
-                    &.big {
-                        min-width: @height_logopad-button * 2;
+                    &::before {
+                        font-size: 1.25rem;
+                        .icons();
                     }
 
-                    a {
-                        display: block;
-                        height: @height_logopad-button;
-                        width: 100%;
-                        line-height: @height_logopad-button;
-                        color: @ink;
-                        text-align: center;
-                        text-decoration: none;
-                        transition: color .1s linear;
-
-                        &::before {
-                            font-size: 1.25rem;
-                            .icons();
-                        }
-
-                        &::after {
-                            content: '';
-                        }
+                    &::after {
+                        content: '';
                     }
 
-                    &[data-link="email"] a {
+                    &[data-link="email"] {
                         &:hover, &:focus {
                             color: rgb(240,200,95);
                         }
@@ -117,7 +120,7 @@ section[data-page="about"] {
                             content: '\E807';
                         }
                     }
-                    &[data-link="phone"] a {
+                    &[data-link="phone"] {
                         &:hover, &:focus {
                             color: rgb(67,181,31);
                         }
@@ -125,7 +128,7 @@ section[data-page="about"] {
                             content: '\E806';
                         }
                     }
-                    &[data-link="linkedin"] a {
+                    &[data-link="linkedin"] {
                         &:hover, &:focus {
                             color: rgb(0,122,181);
                         }
@@ -133,7 +136,7 @@ section[data-page="about"] {
                             content: '\E805';
                         }
                     }
-                    &[data-link="twitter"] a {
+                    &[data-link="twitter"] {
                         &:hover, &:focus {
                             color: rgb(94,170,222);
                         }
@@ -141,7 +144,7 @@ section[data-page="about"] {
                             content: '\F309';
                         }
                     }
-                    &[data-link="instagram"] a {
+                    &[data-link="instagram"] {
                         &:hover, &:focus {
                             color: rgb(204,188,172);
                         }
@@ -149,7 +152,7 @@ section[data-page="about"] {
                             content: '\E801';
                         }
                     }
-                    &[data-link="github"] a {
+                    &[data-link="github"] {
                         &:hover, &:focus {
                             color: rgb(124,186,230);
                         }
@@ -157,7 +160,7 @@ section[data-page="about"] {
                             content: '\E803';
                         }
                     }
-                    &[data-link="stackoverflow"] a {
+                    &[data-link="stackoverflow"] {
                         &:hover, &:focus {
                             color: rgb(233, 130, 28);
                         }
@@ -165,7 +168,7 @@ section[data-page="about"] {
                             content: '\E800';
                         }
                     }
-                    &[data-link="lastfm"] a {
+                    &[data-link="lastfm"] {
                         &:hover, &:focus {
                             color: rgb(210, 0, 56);
                         }
