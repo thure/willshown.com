@@ -12,8 +12,11 @@ nav.main {
         display: inline-block;
         height: @height_nav-main;
         width: @height_nav-main;
-        background-image: url('../images/mark.svg');
-        .bg(cover, center left);
+
+        svg {
+            width: 100%;
+            height: auto;
+        }
     }
 
     i.logo, ul, ul li {
