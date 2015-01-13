@@ -1,4 +1,4 @@
-define(['jquery', 'underscore', 'amd/sci'], function($, _, sci){
+define(['jquery', 'underscore', 'GA', 'amd/sci'], function($, _, GA, sci){
 
   function MainNav(){
 
@@ -12,6 +12,9 @@ define(['jquery', 'underscore', 'amd/sci'], function($, _, sci){
           });
         }
         document.body.setAttribute('data-displaying', href);
+        GA.view({
+          page: '/' + href
+        });
       });
     };
 

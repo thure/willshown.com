@@ -6,7 +6,8 @@ module.exports = function(grunt) {
 
   require('load-grunt-tasks')(grunt);
 
-  var rjs = os.platform() === 'win32' ? 'r.js.cmd' : 'r.js';
+  var rjs = os.platform() === 'win32' ? 'r.js.cmd' : 'r.js',
+      npm = os.platform() === 'win32' ? 'npm.cmd' : 'npm';
 
   var watchPort = 35729
     , assets = {
@@ -118,7 +119,7 @@ module.exports = function(grunt) {
           dir: './dist/opt-js',
           mainConfigFile: "./dist/js/main.js",
           removeCombined: true,
-          optimize: 'none',
+          optimize: 'uglify2',
           modules: [
             {
               name: 'main',
@@ -149,6 +150,9 @@ module.exports = function(grunt) {
       },
       three: {
         cmd: rjs + ' -convert lib/threejs dist/js/lib/three.amd'
+      },
+      install: {
+        cmd: npm + ' install'
       }
     },
     copy: {
@@ -166,7 +170,9 @@ module.exports = function(grunt) {
           'qxhr/qxhr.amd.js',
           'moment/moment.js',
           'async/async.js',
-          'color/one-color.js'
+          'color/one-color.js',
+          'event-emitter/EventEmitter.js',
+          'requirejs-google-analytics/GoogleAnalytics.js'
         ],
         dest: './dist/js/lib/',
         rename: function(dest, src){
@@ -275,6 +281,6 @@ module.exports = function(grunt) {
   grunt.registerTask('dist:watch',   ['styles', 'dist:copy', 'ejs:watch']);
   grunt.registerTask('dist:nowatch', ['clean:dist', 'styles', 'dist:copy', 'ejs:nowatch']);
   grunt.registerTask('prod',         ['clean:prod', 'dist:nowatch', 'cssmin', 'requirejs', 'ejs:prod', 'prod:copy']);
-  grunt.registerTask('install',      ['bower:install']);
+  grunt.registerTask('install',      ['bower:install', 'exec:install']);
 
 };

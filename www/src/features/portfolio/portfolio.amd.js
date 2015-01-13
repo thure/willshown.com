@@ -2,21 +2,24 @@ define([
   'jquery',
   'underscore',
   'q',
+  'GA',
   'config/portfolio',
   'amd/sci',
   'amd/is-mobile',
   'text!amd/all-up.ejs',
   'text!amd/one-ups.ejs'
 ], function(
-  $, _, q, portfolio, sci, isMobile, allUpEJS, oneUpsEJS
+  $, _, q, GA, portfolio, sci, isMobile, allUpEJS, oneUpsEJS
 ){
 
   return new function(){
-    var self = this
-      , geof = null
-      , viels = null
-      , allUpT = _.template(allUpEJS)
-      , oneUpsT = _.template(oneUpsEJS);
+    var self = this,
+        geof = null,
+        viels = null,
+        allUpT = _.template(allUpEJS),
+        oneUpsT = _.template(oneUpsEJS),
+        up = 0,
+        down = 0;
 
     var stopVideos = function(){
       $('video.playing').each(function(){
@@ -63,34 +66,39 @@ define([
 
       viels.$portfolio.append($oneUps);
 
-      self.bind({
-        $allUp: $allUp,
-        $oneUps: $oneUps
+      sci.then(function(interpreter){
+        self.bind(interpreter, {
+          $allUp: $allUp,
+          $oneUps: $oneUps
+        });
       });
     };
 
-    this.bind = function(els){
-      sci.then(function(i) {
+    this.bind = function(interpreter, els){
 
         els.$allUp.on('click touchstart', 'a.portfolio-item', function ($e) {
           $e.preventDefault();
+
           var name = $e.target.hasAttribute('data-name') ?
             $e.target.getAttribute('data-name') :
             $($e.target).parents('[data-name]').attr('data-name');
-          i.gen({
+
+          interpreter.gen({
             name: 'down',
             data: name
           });
         });
 
         viels.$portfolio.find('button.up').on('click touchstart', function($e){
-          i.gen('up');
+          interpreter.gen('up');
         });
 
         els.$oneUps.on('click touchstart', 'a[data-i]', function($e){
           $e.preventDefault();
+
           var i = $e.target.getAttribute('data-i')
             , $active = $($e.target).parents('[data-active]');
+
           if(i !== $active.attr('data-active')){
             toggleVideo();
             $active.attr('data-active', i);
@@ -106,12 +114,11 @@ define([
 
           })
         }
-
-      });
     };
 
     this.open = function(){
       viels.$page.attr('data-displaying', 'portfolio');
+      GA.event('button', 'activate', 'interaction', up++, {page: '/portfolio'});
     };
 
     this.portfolioView = function(view, section){
@@ -126,6 +133,7 @@ define([
           viels.$main.addClass('start-one-up');
           viels.$portfolio.find('[data-for="'+section+'"]').addClass('active');
           toggleVideo(section);
+          GA.event('button', 'activate', 'interaction', down++, {page: '/portfolio/' + section});
       }
     };
 
@@ -137,6 +145,7 @@ define([
         case 'one-up':
           viels.$main.removeClass('start-one-up');
           stopVideos();
+          GA.event('button', 'activate', 'interaction', up++, {page: '/portfolio'});
           break;
       }
     };

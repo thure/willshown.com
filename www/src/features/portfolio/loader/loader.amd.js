@@ -11,8 +11,13 @@ define(['jquery', 'underscore', 'config/portfolio'], function($, _, portfolio){
       }
       , $loading;
 
-    this.bind = function(){
+    this.bind = function(interpreter){
+
       $loading = $('.splash i.loading');
+
+      $loading.find('button').on('click', function($e){
+        interpreter.gen('open-portfolio');
+      });
     };
 
     _.each(portfolio, function(pi, name){

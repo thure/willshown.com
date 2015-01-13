@@ -8,7 +8,14 @@ requirejs.config({
     'jquery': 'lib/jquery',
     'moment': 'lib/moment',
     'scion': 'lib/scion',
-    'async': 'lib/async'
+    'async': 'lib/async',
+    'EventEmitter': 'lib/EventEmitter',
+    'GA': 'lib/GoogleAnalytics'
+  },
+  config: {
+    'GA': {
+      id: 'UA-58535535-1'
+    }
   }
 });
 
@@ -17,6 +24,7 @@ requirejs([
   'jquery',
   'q',
   'underscore',
+  'GA',
   'amd/detect-features',
   'amd/loader',
   'amd/sci',
@@ -24,28 +32,34 @@ requirejs([
   'amd/portfolio',
   'amd/about',
   'amd/phone'
-], function(async, $, q, _, detectFeatures, loader, sci, nav, portfolio, about, dialPhone){
+], function(async, $, q, _, GA, detectFeatures, loader, sci, nav, portfolio, about, dialPhone){
 
   window.dialPhone = dialPhone;
 
-  var ready = function(i){
-    i.gen({
-      name: 'ready',
-      data: portfolio
-    });
+  GA.view({
+    page: '/'
+  });
 
-    $('i.loading').find('button').on('click', function($e){
-      i.gen('open-portfolio');
-    });
-  };
+  var domReady = q.defer();
 
   $(function(){
-    loader.bind();
+    domReady.resolve();
     nav.bind();
     portfolio.render();
     about.render();
     detectFeatures();
-    sci.then(ready);
+  });
+
+  sci.then(function(interpreter){
+    interpreter.gen({
+      name: 'ready',
+      data: portfolio
+    });
+  });
+
+  q.all([domReady.proimse, sci]).then(function(results){
+    var interpreter = results[1];
+    loader.bind(interpreter);
   });
 
 });
