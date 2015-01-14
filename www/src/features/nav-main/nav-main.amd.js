@@ -7,9 +7,7 @@ define(['jquery', 'underscore', 'GA', 'amd/sci'], function($, _, GA, sci){
         $e.preventDefault();
         var href = $e.target.getAttribute('href').replace(/^#/, '');
         if(href === 'portfolio' && document.body.getAttribute('data-displaying') === 'portfolio'){
-          sci.then(function(i){
-            i.gen('up');
-          });
+          sci.gen('up');
         }
         document.body.setAttribute('data-displaying', href);
         GA.view({

@@ -66,15 +66,13 @@ define([
 
       viels.$portfolio.append($oneUps);
 
-      sci.then(function(interpreter){
-        self.bind(interpreter, {
-          $allUp: $allUp,
-          $oneUps: $oneUps
-        });
+      self.bind({
+        $allUp: $allUp,
+        $oneUps: $oneUps
       });
     };
 
-    this.bind = function(interpreter, els){
+    this.bind = function(els){
 
         els.$allUp.on('click touchstart', 'a.portfolio-item', function ($e) {
           $e.preventDefault();
@@ -83,14 +81,14 @@ define([
             $e.target.getAttribute('data-name') :
             $($e.target).parents('[data-name]').attr('data-name');
 
-          interpreter.gen({
+          sci.gen({
             name: 'down',
             data: name
           });
         });
 
         viels.$portfolio.find('button.up').on('click touchstart', function($e){
-          interpreter.gen('up');
+          sci.gen('up');
         });
 
         els.$oneUps.on('click touchstart', 'a[data-i]', function($e){

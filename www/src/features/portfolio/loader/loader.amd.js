@@ -1,4 +1,4 @@
-define(['jquery', 'underscore', 'config/portfolio'], function($, _, portfolio){
+define(['jquery', 'underscore', 'amd/sci', 'config/portfolio'], function($, _, sci, portfolio){
 
   function Loader(){
 
@@ -11,12 +11,12 @@ define(['jquery', 'underscore', 'config/portfolio'], function($, _, portfolio){
       }
       , $loading;
 
-    this.bind = function(interpreter){
+    this.bind = function(){
 
       $loading = $('.splash i.loading');
 
       $loading.find('button').on('click', function($e){
-        interpreter.gen('open-portfolio');
+        sci.gen('open-portfolio');
       });
     };
 
