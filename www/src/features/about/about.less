@@ -22,11 +22,6 @@ section[data-page="about"] {
                 left: 0;
                 transform: translateX(100vw) translateX(@padding_page-large);
                 transition: transform @slow/1.5 ease;
-
-                body[data-displaying="about"] & {
-                    transform: translateX(@padding_page-large);
-                }
-
             }
 
             article.about {
@@ -38,11 +33,6 @@ section[data-page="about"] {
         @media screen and (min-width: (@width_page + 2 * @padding_page-large)) {
             aside.identity {
                 transform: translateX(150vw) translateX((@width_page / -2));
-
-                body[data-displaying="about"] & {
-                    transform: translateX(50vw) translateX((@width_page / -2));
-                }
-
             }
         }
 
