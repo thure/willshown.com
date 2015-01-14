@@ -1,16 +1,16 @@
-define(['q', 'scion', 'GA', 'text!amd/portfolio.scxml'], function(q, scion, GA, portfolioSCXML){
+define(['q', 'scion', 'GA', 'text!amd/portfolio.scxml'], function (q, scion, GA, portfolioSCXML) {
 
   var int = null,
       d = q.defer();
 
-  scion.documentStringToModel(portfolioSCXML,function(err, model){
-    if(err){
+  scion.documentStringToModel(portfolioSCXML, function (err, model) {
+    if (err) {
       d.reject(err);
       GA.event('error', 'occurred', 'errors', window.pageErrors++, {
         'exDescription': 'SCION: ' + err.toString(),
-        'exFatal': false
+        'exFatal'      : false
       });
-    }else{
+    } else {
 
       var interpreter = new scion.SCXML(model);
       interpreter.start();
@@ -22,10 +22,10 @@ define(['q', 'scion', 'GA', 'text!amd/portfolio.scxml'], function(q, scion, GA, 
     }
   });
 
-  function PortfolioStateChart(){
+  function PortfolioStateChart() {
 
-    this.gen = function(){
-      if(int){
+    this.gen = function () {
+      if (int) {
         int.gen.apply(int, arguments);
       }
     };

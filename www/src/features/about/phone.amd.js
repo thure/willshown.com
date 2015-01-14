@@ -1,11 +1,11 @@
-define([], function(){
+define([], function () {
 
-  return function(e){
+  return function (e) {
     e.preventDefault();
 
-    if(
+    if (
       window.confirm("Please only call if I'm expecting a call from you. Do you still want to place a call?")
-    ){
+    ) {
       window.location.href = 'tel:+17073569455'
     }
 

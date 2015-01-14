@@ -4,29 +4,29 @@ define([
   'ajax',
   'config/about',
   'text!amd/about.ejs'
-], function($, _, ajax, aboutCONFIG, aboutEJS){
+], function ($, _, ajax, aboutCONFIG, aboutEJS) {
 
-  var getDeep = function(obj, prop){
-    if(_.isArray(prop)){
+  var getDeep = function (obj, prop) {
+    if (_.isArray(prop)) {
       var cur = obj;
-      for(var i = 0; i < prop.length; i += 1){
+      for (var i = 0; i < prop.length; i += 1) {
         cur = cur[prop[i]];
       }
       return cur;
-    }else{
+    } else {
       return obj[prop];
     }
   };
 
-  return new function(){
+  return new function () {
     var self = this,
         temp = _.template(aboutEJS);
 
-    this.loadStats = function(){
+    this.loadStats = function () {
 
-      var urls = _.reduce(aboutCONFIG.stats, function(memo, stat, i){
-        if(_.has(stat, 'fetch')){
-          if(!_.has(memo, stat.fetch.url)){
+      var urls = _.reduce(aboutCONFIG.stats, function (memo, stat, i) {
+        if (_.has(stat, 'fetch')) {
+          if (!_.has(memo, stat.fetch.url)) {
             memo[stat.fetch.url] = {};
           }
           memo[stat.fetch.url][i] = stat.fetch.prop;
@@ -34,15 +34,15 @@ define([
         return memo;
       }, {});
 
-      _.each(urls, function(props, url){
+      _.each(urls, function (props, url) {
         ajax({
-          url: url,
+          url   : url,
           expect: 'json'
-        }).then(function(response){
-          _.each(props, function(prop, i){
+        }).then(function (response) {
+          _.each(props, function (prop, i) {
             var stat = aboutCONFIG.stats[parseInt(i)];
             self.$el.find('li[data-name="' + stat.name + '"] .value').html(
-              stat.value( getDeep(response, prop) )
+              stat.value(getDeep(response, prop))
             )
           });
         });
@@ -50,13 +50,13 @@ define([
 
     };
 
-    this.render = function(){
+    this.render = function () {
       var $el = $(temp(aboutCONFIG));
       $('body > main > section[data-page="about"]').append($el);
       this.bind($el);
     };
 
-    this.bind = function($el){
+    this.bind = function ($el) {
       this.$el = $el;
       this.loadStats();
     };

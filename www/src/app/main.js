@@ -1,18 +1,18 @@
 requirejs.config({
   baseUrl: 'js',
-  paths: {
-    'text': 'lib/text',
-    'q': 'lib/q',
-    'ajax': 'lib/qxhr',
-    'underscore': 'lib/underscore',
-    'jquery': 'lib/jquery',
-    'moment': 'lib/moment',
-    'scion': 'lib/scion',
-    'async': 'lib/async',
+  paths  : {
+    'text'        : 'lib/text',
+    'q'           : 'lib/q',
+    'ajax'        : 'lib/qxhr',
+    'underscore'  : 'lib/underscore',
+    'jquery'      : 'lib/jquery',
+    'moment'      : 'lib/moment',
+    'scion'       : 'lib/scion',
+    'async'       : 'lib/async',
     'EventEmitter': 'lib/EventEmitter',
-    'GA': 'lib/GoogleAnalytics'
+    'GA'          : 'lib/GoogleAnalytics'
   },
-  config: {
+  config : {
     'GA': {
       id: 'UA-58535535-1'
     }
@@ -32,7 +32,7 @@ requirejs([
   'amd/portfolio',
   'amd/about',
   'amd/phone'
-], function(async, $, q, _, GA, detectFeatures, loader, sci, nav, portfolio, about, dialPhone){
+], function (async, $, q, _, GA, detectFeatures, loader, sci, nav, portfolio, about, dialPhone) {
 
   window.dialPhone = dialPhone;
   window.pageErrors = 0;
@@ -43,7 +43,7 @@ requirejs([
 
   var domReady = q.defer();
 
-  $(function(){
+  $(function () {
     domReady.resolve();
     loader.bind();
     nav.bind();
@@ -52,17 +52,17 @@ requirejs([
     detectFeatures();
   });
 
-  sci.ready.then(function(interpreter){
+  sci.ready.then(function (interpreter) {
     interpreter.gen({
       name: 'ready',
       data: portfolio
     });
   });
 
-  requirejs.onError = function(err){
+  requirejs.onError = function (err) {
     GA.event('error', 'occurred', 'errors', window.pageErrors++, {
       'exDescription': 'Require: ' + err.requireType + '; ' + err.requireModules.join(', ') + '.',
-      'exFatal': true
+      'exFatal'      : true
     });
   };
 

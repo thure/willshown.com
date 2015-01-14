@@ -1,4 +1,4 @@
-define(['underscore'], function(_){
+define(['underscore'], function (_) {
 
   var test = {
     'background-blend-mode': [
@@ -6,15 +6,15 @@ define(['underscore'], function(_){
     ]
   };
 
-  return function(){
+  return function () {
     var el = document.createElement('i');
 
-    _.each(test, function(props, name){
-      if(_.find(props, function(prop){
-        return prop in el.style;
-      })){
+    _.each(test, function (props, name) {
+      if (_.find(props, function (prop) {
+          return prop in el.style;
+        })) {
         document.documentElement.classList.add('has-' + name);
-      }else{
+      } else {
         document.documentElement.classList.add('no-' + name);
       }
     });

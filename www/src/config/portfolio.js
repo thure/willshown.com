@@ -12,127 +12,125 @@ define([
   'text!amd/leftnav.ejs',
   'text!amd/redesign.ejs',
   'text!amd/thunderpony.ejs'
-], function(
-  _,
-  baxter,
-  brewer,
-  cardboard,
-  cinch,
-  continuing,
-  diagonal,
-  flex,
-  geof,
-  icex,
-  leftnav,
-  redesign,
-  thunderpony
-  ){
+], function (_,
+             baxter,
+             brewer,
+             cardboard,
+             cinch,
+             continuing,
+             diagonal,
+             flex,
+             geof,
+             icex,
+             leftnav,
+             redesign,
+             thunderpony) {
 
-  return{
+  return {
 
-    'MSN Prime': {
-      'Diagonal motion carousel': {
-        asset: {
+    'MSN Prime'        : {
+      'Diagonal motion carousel' : {
+        asset      : {
           type: 'video',
           name: 'diagonal'
         },
-        role: 'prototyper',
+        role       : 'prototyper',
         description: diagonal
       },
       'Editable design prototype': {
-        asset: {
+        asset      : {
           type: 'video',
           name: 'icex'
         },
-        role: 'prototyper',
+        role       : 'prototyper',
         description: icex
       },
-      'Flexible content display': {
-        asset: {
+      'Flexible content display' : {
+        asset      : {
           type: 'video',
           name: 'flex'
         },
-        role: ['designer', 'developer'],
+        role       : ['designer', 'developer'],
         description: flex
       },
-      'Left nav prototype': {
-        asset: {
+      'Left nav prototype'       : {
+        asset      : {
           type: 'video',
           name: 'leftnav'
         },
-        role: ['interaction designer', 'prototyper'],
+        role       : ['interaction designer', 'prototyper'],
         description: leftnav
       }
     },
     'Apigee Enterprise': {
-      'Thunderpony': {
-        asset: {
+      'Thunderpony'   : {
+        asset      : {
           type: 'image',
           name: 'thunderpony.png'
         },
-        role: 'prototyper',
+        role       : 'prototyper',
         description: thunderpony
       },
-      'Redesign': {
-        asset: {
+      'Redesign'      : {
+        asset      : {
           type: 'image',
           name: 'redesign.png'
         },
-        role: 'designer',
+        role       : 'designer',
         description: redesign
       },
       'Continuing use': {
-        asset: {
+        asset      : {
           type: 'image',
           name: 'continuing.png'
         },
-        role: 'none',
+        role       : 'none',
         description: continuing
       }
     },
     'Works in progress': {
-      'GEOF': {
-        asset: {
-          type: 'image',
-          name: 'static.geof.jpeg',
-          staticName: 'static.geof.jpeg',
+      'GEOF'     : {
+        asset      : {
+          type       : 'image',
+          name       : 'static.geof.jpeg',
+          staticName : 'static.geof.jpeg',
           overlayName: 'geof.png'
         },
-        role: ['designer', 'developer'],
+        role       : ['designer', 'developer'],
         description: geof
       },
       'Pi Brewer': {
-        asset: {
+        asset      : {
           type: 'image',
           name: 'brewer.jpeg'
         },
-        role: 'hacker',
+        role       : 'hacker',
         description: brewer
       }
     },
-    'Other work': {
+    'Other work'       : {
       'Cardboard.coop': {
-        asset: {
+        asset      : {
           type: 'video',
           name: 'cardboard'
         },
-        role: ['designer', 'developer'],
+        role       : ['designer', 'developer'],
         description: cardboard
       },
-      'Doorbot': {
-        asset: {
+      'Doorbot'       : {
+        asset      : {
           type: 'image',
           name: 'baxter.jpeg'
         },
-        role: 'hacker',
+        role       : 'hacker',
         description: baxter
       },
-      'CINCH': {
-        asset: {
+      'CINCH'         : {
+        asset      : {
           type: 'video',
           name: 'cinch'
         },
-        role: 'developer',
+        role       : 'developer',
         description: cinch
       }
     }
