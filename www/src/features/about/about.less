@@ -1,11 +1,11 @@
+@padding_page-small: @height_nav-main / 2;
+@padding_page-large: @height_nav-main;
+
+@min-width_page: @width_aside * 3;
+
+@height_logopad-button: 2.75rem;
+
 section[data-page="about"] {
-
-    @padding_page-small: @height_nav-main / 2;
-    @padding_page-large: @height_nav-main;
-
-    @min-width_page: @width_aside * 2.667;
-
-    @height_logopad-button: 2.75rem;
 
     .about-page {
         padding: @padding_page-small @padding_page-small 0 @padding_page-small;
@@ -16,159 +16,10 @@ section[data-page="about"] {
             margin: 0 auto;
             padding: @padding_page-large @padding_page-large 0 @padding_page-large;
 
-            aside.identity {
-                position: fixed;
-                top: @height_nav-main + @padding_page-large;
-                left: 0;
-                transform: translateX(100vw) translateX(@padding_page-large);
-                transition: transform @slow/1.5 ease;
-            }
-
             article.about {
                 margin-left: @width_aside;
                 padding-left: @padding_page-large;
             }
-        }
-
-        @media screen and (min-width: (@width_page + 2 * @padding_page-large)) {
-            aside.identity {
-                transform: translateX(150vw) translateX((@width_page / -2));
-            }
-        }
-
-        aside.identity {
-            width: @width_aside;
-            margin: 0 auto @height_nav-main auto;
-
-            i.face {
-                display: block;
-                width: @width_aside;
-                height: @width_aside;
-                .circular();
-                background-image: url('../images/head.jpg');
-                background-position: center;
-                background-size: cover;
-                box-shadow: 0 0 0 .6rem fade(@ink, 20%) inset;
-                margin: 0 auto;
-            }
-
-            .name {
-                margin: @padding_page-small 0;
-
-                img {
-                    display: block;
-                    width: 100%;
-                    max-width: 1.6 * @width_aside;
-                    margin: 0 auto;
-                    height: auto;
-                }
-            }
-
-            @media screen and (max-width: (@min-width_page + 2 * @padding_page-large)){
-                width: 100%;
-
-                .logopad-row, .name {
-                    padding: 0 @padding_page-small;
-                }
-            }
-
-            .logopad {
-
-                .logopad-row{
-                    display: flex;
-                    flex-flow: row wrap;
-                }
-
-                a {
-                    flex: 1 0 1rem;
-                    display: block;
-                    height: @height_logopad-button;
-                    line-height: @height_logopad-button;
-                    margin: 0 2px 2px 0;
-                    border-radius: 2px;
-                    box-shadow: 0 1px 1px 0 fade(@ink, 20%);
-                    background-color: fade(white, 40%);
-                    color: @ink;
-                    text-align: center;
-                    text-decoration: none;
-                    transition: color .1s linear;
-
-                    &::before {
-                        font-size: 1.25rem;
-                        .icons();
-                    }
-
-                    &::after {
-                        content: '';
-                    }
-
-                    &[data-link="email"] {
-                        &:hover, &:focus {
-                            color: rgb(240,200,95);
-                        }
-                        &::before{
-                            content: '\E807';
-                        }
-                    }
-                    &[data-link="phone"] {
-                        &:hover, &:focus {
-                            color: rgb(67,181,31);
-                        }
-                        &::before{
-                            content: '\E806';
-                        }
-                    }
-                    &[data-link="linkedin"] {
-                        &:hover, &:focus {
-                            color: rgb(0,122,181);
-                        }
-                        &::before{
-                            content: '\E805';
-                        }
-                    }
-                    &[data-link="twitter"] {
-                        &:hover, &:focus {
-                            color: rgb(94,170,222);
-                        }
-                        &::before{
-                            content: '\F309';
-                        }
-                    }
-                    &[data-link="instagram"] {
-                        &:hover, &:focus {
-                            color: rgb(204,188,172);
-                        }
-                        &::before{
-                            content: '\E801';
-                        }
-                    }
-                    &[data-link="github"] {
-                        &:hover, &:focus {
-                            color: rgb(124,186,230);
-                        }
-                        &::before{
-                            content: '\E803';
-                        }
-                    }
-                    &[data-link="stackoverflow"] {
-                        &:hover, &:focus {
-                            color: rgb(233, 130, 28);
-                        }
-                        &::before{
-                            content: '\E800';
-                        }
-                    }
-                    &[data-link="lastfm"] {
-                        &:hover, &:focus {
-                            color: rgb(210, 0, 56);
-                        }
-                        &::before{
-                            content: '\E802';
-                        }
-                    }
-                }
-            }
-
         }
 
         article.about {
@@ -259,6 +110,180 @@ section[data-page="about"] {
             }
         }
 
+    }
+
+}
+
+aside.identity {
+    display: none;
+    width: @width_aside;
+    margin: 0 auto @height_nav-main auto;
+
+    i.face {
+        display: block;
+        width: @width_aside;
+        height: @width_aside;
+        .circular();
+        background-image: url('../images/head.jpg');
+        background-position: center;
+        background-size: cover;
+        box-shadow: 0 0 0 .6rem fade(@ink, 20%) inset;
+        margin: 0 auto;
+    }
+
+    .name {
+        margin: @padding_page-small 0;
+
+        img {
+            display: block;
+            width: 100%;
+            max-width: 1.6 * @width_aside;
+            margin: 0 auto;
+            height: auto;
+        }
+    }
+
+    @media screen and (max-width: (@min-width_page + 2 * @padding_page-large)){
+        width: 100%;
+
+        .logopad-row, .name {
+            padding: 0 @padding_page-small;
+        }
+    }
+
+    .logopad {
+
+        .logopad-row{
+            display: flex;
+            flex-flow: row wrap;
+        }
+
+        a {
+            flex: 1 0 1rem;
+            display: block;
+            height: @height_logopad-button;
+            line-height: @height_logopad-button;
+            margin: 0 2px 2px 0;
+            border-radius: 2px;
+            box-shadow: 0 1px 1px 0 fade(@ink, 20%);
+            background-color: fade(white, 40%);
+            color: @ink;
+            text-align: center;
+            text-decoration: none;
+            transition: color .1s linear;
+
+            &::before {
+                font-size: 1.25rem;
+                .icons();
+            }
+
+            &::after {
+                content: '';
+            }
+
+            &[data-link="email"] {
+                &:hover, &:focus {
+                    color: rgb(240,200,95);
+                }
+                &::before{
+                    content: '\E807';
+                }
+            }
+            &[data-link="phone"] {
+                &:hover, &:focus {
+                    color: rgb(67,181,31);
+                }
+                &::before{
+                    content: '\E806';
+                }
+            }
+            &[data-link="linkedin"] {
+                &:hover, &:focus {
+                    color: rgb(0,122,181);
+                }
+                &::before{
+                    content: '\E805';
+                }
+            }
+            &[data-link="twitter"] {
+                &:hover, &:focus {
+                    color: rgb(94,170,222);
+                }
+                &::before{
+                    content: '\F309';
+                }
+            }
+            &[data-link="instagram"] {
+                &:hover, &:focus {
+                    color: rgb(204,188,172);
+                }
+                &::before{
+                    content: '\E801';
+                }
+            }
+            &[data-link="github"] {
+                &:hover, &:focus {
+                    color: rgb(124,186,230);
+                }
+                &::before{
+                    content: '\E803';
+                }
+            }
+            &[data-link="stackoverflow"] {
+                &:hover, &:focus {
+                    color: rgb(233, 130, 28);
+                }
+                &::before{
+                    content: '\E800';
+                }
+            }
+            &[data-link="lastfm"] {
+                &:hover, &:focus {
+                    color: rgb(210, 0, 56);
+                }
+                &::before{
+                    content: '\E802';
+                }
+            }
+        }
+    }
+
+    body > & {
+        position: fixed;
+        top: @height_nav-main + @padding_page-large;
+        left: 0;
+        transform: translateX(100vw) translateX(@padding_page-large);
+        transition: transform @slow/1.5 ease;
+    }
+
+    @media screen and (max-width: (@min-width_page + 2 * @padding_page-large)){
+
+        .about-page > & {
+            display: block;
+        }
+
+    }
+
+    @media screen and (min-width: (@min-width_page + 2 * @padding_page-large)){
+
+        body > & {
+            display: block;
+        }
+
+        body[data-displaying="about"] > & {
+            transform: translateX(@padding_page-large);
+        }
+    }
+
+    @media screen and (min-width: (@width_page + 2 * @padding_page-large)) {
+
+        body > & {
+            transform: translateX(150vw) translateX((@width_page / -2));
+        }
+
+        body[data-displaying="about"] > & {
+            transform: translateX(50vw) translateX((@width_page / -2));
+        }
     }
 
 }
