@@ -56,11 +56,11 @@ small {
 
 body {
     main {
-        transform: translateX(0);
-        transition: transform @slow/1.5 ease;
+        left: 0;
+        transition: left @slow/1.5 ease;
     }
     &[data-displaying="about"] main{
-            transform: translateX(-100vw);
+            left: -100%;
     }
 }
 
