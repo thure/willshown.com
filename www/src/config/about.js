@@ -23,7 +23,7 @@ define([
       {
         name : 'Hireable',
         value: function (val) {
-          return val ? 'Yes' : 'Not at the moment'
+          return val ? 'Yes' : 'Not now'
         },
         fetch: {
           url : 'https://api.github.com/users/thure',
@@ -51,6 +51,7 @@ define([
         start: 'January 2013',
         end  : 'October 2014',
         notes: [
+          'Part of the design team that reinvented&nbsp;MSN.com',
           'Contributed interaction and motion designs through prototypes of the design team’s&nbsp;vision',
           'Spearheaded the team’s transition from static design to responsive&nbsp;design',
           'Created an editable point-of-reference prototype by which the design team delivered their&nbsp;designs',
