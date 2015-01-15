@@ -1,0 +1,13 @@
+<aside class="identity">
+    <i class="face"></i>
+    <h1 class="name"><img src="images/name-small.svg"/></h1>
+    <div class="logopad">
+        <% _.each(links, function(row){ %>
+        <div class="logopad-row">
+            <% _.each(row, function(link){ %>
+            <a data-link="<%= link.link %>" target="_blank" href="<%= link.href %>" title="<%= link.alt %>" <% if(link.hasOwnProperty('onclick')){ %>onclick="<%= link.onclick %>"<% } %>></a>
+            <% }); %>
+        </div>
+        <% }); %>
+    </div>
+</aside>

@@ -3,8 +3,9 @@ define([
   'underscore',
   'ajax',
   'config/about',
-  'text!amd/about.ejs'
-], function ($, _, ajax, aboutCONFIG, aboutEJS) {
+  'text!amd/about.ejs',
+  'text!amd/about-aside.ejs'
+], function ($, _, ajax, aboutCONFIG, aboutEJS, asideEJS) {
 
   var getDeep = function (obj, prop) {
     if (_.isArray(prop)) {
@@ -20,7 +21,8 @@ define([
 
   return new function () {
     var self = this,
-        temp = _.template(aboutEJS);
+        temp = _.template(aboutEJS),
+        asideTemp = _.template(asideEJS);
 
     this.loadStats = function () {
 
@@ -51,8 +53,12 @@ define([
     };
 
     this.render = function () {
-      var $el = $(temp(aboutCONFIG));
+      var $el = $(temp(_.extend({
+        aside: asideTemp(aboutCONFIG)
+      }, aboutCONFIG))),
+          $externEl = $(asideTemp(aboutCONFIG));
       $('body > main > section[data-page="about"]').append($el);
+      $('body').append($externEl);
       this.bind($el);
     };
 

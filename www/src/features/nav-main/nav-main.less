@@ -7,9 +7,10 @@ nav.main {
     z-index: 1;
     background-color: @chrome;
     font-size: 0;
+    overflow-y: hidden;
+    overflow-x: auto;
 
     i.logo {
-        display: inline-block;
         height: @height_nav-main;
         width: @height_nav-main;
 
@@ -21,13 +22,13 @@ nav.main {
 
     i.logo, ul, ul li {
         vertical-align: top;
+        display: inline-block;
+        white-space: nowrap;
     }
 
     ul {
-        display: inline-block;
 
         li {
-            display: inline-block;
             .lato(1, light);
             text-transform: uppercase;
             height: @height_nav-main;
