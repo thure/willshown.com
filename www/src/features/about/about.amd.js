@@ -58,7 +58,6 @@ define([
       }, aboutCONFIG))),
           $externEl = $(asideTemp(aboutCONFIG));
       $('body > main > section[data-page="about"]').append($el);
-      $('body').append($externEl);
       this.bind($el);
     };
 
