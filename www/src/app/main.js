@@ -36,19 +36,23 @@ requirejs([
 
   window.dialPhone = dialPhone;
   window.pageErrors = 0;
+  window.outboundLinks = 0;
 
-  GA.view({
-    page: '/'
+  GA.ready(function (ga) {
+    ga('set', 'dimension1', 'OutboundURL');
   });
 
-  var domReady = q.defer();
+  GA.view({page: '/'});
+
+  var trackLink = function (e) {
+    GA.event('link', 'activate', 'outbound links', window.outboundLinks++);
+  };
 
   $(function () {
-    domReady.resolve();
     loader.bind();
     nav.bind();
-    portfolio.render();
-    about.render();
+    portfolio.render(trackLink);
+    about.render(trackLink);
     detectFeatures();
   });
 

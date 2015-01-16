@@ -52,17 +52,17 @@ define([
 
     };
 
-    this.render = function () {
+    this.render = function (trackLink) {
       var $el = $(temp(_.extend({
         aside: asideTemp(aboutCONFIG)
-      }, aboutCONFIG))),
-          $externEl = $(asideTemp(aboutCONFIG));
+      }, aboutCONFIG)));
       $('body > main > section[data-page="about"]').append($el);
-      this.bind($el);
+      this.bind(trackLink, $el);
     };
 
-    this.bind = function ($el) {
+    this.bind = function (trackLink, $el) {
       this.$el = $el;
+      this.$el.on('click touchstart', 'a[href^="http"]', trackLink);
       this.loadStats();
     };
 

@@ -48,7 +48,7 @@ define([
       }
     };
 
-    this.render = function () {
+    this.render = function (trackLink) {
       viels = {
         $main     : $('body > main'),
         $nav      : $('body > nav.main'),
@@ -64,13 +64,13 @@ define([
 
       viels.$portfolio.append($oneUps);
 
-      self.bind({
+      self.bind(trackLink, {
         $allUp : $allUp,
         $oneUps: $oneUps
       });
     };
 
-    this.bind = function (els) {
+    this.bind = function (trackLink, els) {
 
       els.$allUp.on('click touchstart', 'a.portfolio-item', function ($e) {
         $e.preventDefault();
@@ -102,6 +102,9 @@ define([
         }
       });
 
+      els.$allUp.on('click touchstart', 'a[href^="http"]', trackLink);
+      els.$oneUps.on('click touchstart', 'a[href^="http"]', trackLink);
+
       if (!isMobile) {
         requirejs(['amd/geof'], function (geofCanvas) {
 
@@ -115,6 +118,7 @@ define([
     this.open = function () {
       viels.$page.attr('data-displaying', 'portfolio');
       GA.event('button', 'activate', 'interaction', up++, {page: '/portfolio'});
+      GA.view({page: '/portfolio'});
     };
 
     this.portfolioView = function (view, section) {
@@ -130,6 +134,7 @@ define([
           viels.$portfolio.find('[data-for="' + section + '"]').addClass('active');
           toggleVideo(section);
           GA.event('button', 'activate', 'interaction', down++, {page: '/portfolio/' + section});
+          GA.view({page: '/portfolio/' + section});
       }
     };
 
@@ -142,6 +147,7 @@ define([
           viels.$main.removeClass('start-one-up');
           stopVideos();
           GA.event('button', 'activate', 'interaction', up++, {page: '/portfolio'});
+          GA.view({page: '/portfolio'});
           break;
       }
     };
